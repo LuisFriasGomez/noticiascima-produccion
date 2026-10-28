@@ -1,0 +1,729 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>CIMA Creatividad, Mercadeo y Negocios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&family=Archivo:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: diario editorial de una columna ancha + barra lateral; secciones como "vistas" por ancla */
+:root{
+  --bg:#FFFFFF; --fg:#141414; --muted:#5C5650; --line:#E7E1DA; --soft:#FAF7F3; --tint:#FFF3EA; --tint-line:#F3D6C2;
+  --accent:#C2410C; --brand:#E8590C; --on-brand:#141414; --ink-band:#13294B; --navy:#13294B; --on-band:#FFFFFF; --band-muted:#C9D2E3; --ph:#EEE8E1;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif; --sans:"Archivo","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141210; --fg:#F2EEE9; --muted:#ADA59D; --line:#2E2A26; --soft:#1B1815; --tint:#2A1C13; --tint-line:#4A2F1E;
+  --accent:#FB923C; --brand:#F06A1F; --on-brand:#141414; --ink-band:#13294B; --navy:#1C3A68; --on-band:#F2EEE9; --band-muted:#C9D2E3; --ph:#26221E; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141210; --fg:#F2EEE9; --muted:#ADA59D; --line:#2E2A26; --soft:#1B1815; --tint:#2A1C13; --tint-line:#4A2F1E;
+  --accent:#FB923C; --brand:#F06A1F; --on-brand:#141414; --ink-band:#13294B; --navy:#1C3A68; --on-band:#F2EEE9; --band-muted:#C9D2E3; --ph:#26221E; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.5}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--accent)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2,h3{font-family:var(--sans);font-weight:700;letter-spacing:-.015em;text-wrap:balance;margin:0;line-height:1.1}
+p{margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:24px}
+.demo{background:var(--tint);border-bottom:1px solid var(--tint-line);font-size:13px;text-align:center;padding:8px 16px;color:var(--fg)}
+.top{border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:8px;font-size:13px;flex-wrap:wrap}
+.top .acts{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.fevap{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border:1px solid var(--line);color:var(--muted);font-size:13px;font-weight:600;white-space:nowrap}
+.fevap:hover{border-color:var(--navy);color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;font-weight:700;font-family:var(--sans);font-size:15px;border:1.5px solid var(--fg);background:var(--bg);color:var(--fg);cursor:pointer}
+.btn.dark{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn.brand{background:var(--brand);color:var(--on-brand);border-color:var(--brand)}
+.btn:hover{color:inherit;opacity:.9}
+.mast{display:flex;flex-direction:column;align-items:center;gap:6px;padding-block:24px 16px;text-align:center}
+.logo{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center}
+.badge{background:var(--brand);color:var(--on-brand);font-weight:700;font-size:28px;padding:5px 15px 3px;border-radius:24px 24px 6px 6px;letter-spacing:.02em}
+.logo-img{width:88px;height:88px;display:block}
+@media (max-width:560px){.logo-img{width:52px;height:52px}}
+.badge.sm{font-size:18px;padding:3px 10px 1px;border-radius:16px 16px 4px 4px}
+.mast .name{font-family:var(--sans);font-size:clamp(24px,4.5vw,36px);text-wrap:balance;font-weight:700;letter-spacing:-.02em}
+.kick{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.lab{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+nav.main{border-top:3px solid var(--fg);border-bottom:1px solid var(--fg);position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+nav.main .wrap{display:flex;gap:26px;overflow-x:auto;white-space:nowrap;padding-block:13px;font-weight:600;font-size:15px}
+nav.main a[aria-current="page"]{color:var(--accent)}
+.ticker{background:var(--ink-band);color:var(--on-band)}
+.ticker .wrap{display:flex;gap:16px;align-items:center;padding-block:10px;font-size:14px;overflow-x:auto;white-space:nowrap}
+.tag{background:var(--brand);color:var(--on-brand);font-weight:700;font-size:12px;letter-spacing:.08em;padding:3px 8px}
+.ticker a{color:var(--brand);font-weight:600}
+section{padding-block:36px}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:2px solid var(--fg);padding-bottom:10px;margin-bottom:8px;flex-wrap:wrap}
+.sec-head h2{font-size:28px}
+.more{font-weight:600;color:var(--accent)}
+.hero{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:40px}
+.ph{background:repeating-linear-gradient(135deg,var(--ph) 0 14px,var(--soft) 14px 28px);display:flex;align-items:flex-end;padding:12px;font-size:13px;color:var(--muted);max-width:100%}
+.lead-story{display:flex;flex-direction:column;gap:12px}
+.lead-story h1{font-size:44px;line-height:1.05}
+.dek{font-size:18px;color:var(--muted);max-width:62ch}
+.meta{font-size:13px;color:var(--muted)}
+.dest a{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+.num{font-family:var(--sans);font-size:32px;line-height:1;color:var(--accent);font-weight:600;min-width:32px}
+.dest h3{font-size:21px;line-height:1.2}
+.band{background:var(--tint);border-block:1px solid var(--tint-line)}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.mov{display:flex;gap:12px;background:var(--bg);border:1px solid var(--tint-line);padding:14px}
+.av{width:48px;height:48px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-size:14px}
+.main-grid{display:grid;grid-template-columns:minmax(0,2.1fr) minmax(0,1fr);gap:48px}
+.news a{display:grid;grid-template-columns:150px minmax(0,1fr);gap:18px;padding:16px 0;border-bottom:1px solid var(--line)}
+.news .thumb{aspect-ratio:4/3;background:var(--ph);max-width:100%}
+.news h3{font-size:22px;line-height:1.2;margin-block:4px}
+.news p{color:var(--muted);font-size:15px}
+.side{display:flex;flex-direction:column;gap:28px;min-width:0}
+.box{border:1.5px solid var(--fg);padding:18px;display:flex;flex-direction:column;gap:10px}
+.tabs{display:flex;gap:6px}
+.tabs button{flex:1;min-height:44px;border:1px solid var(--fg);background:var(--bg);color:var(--fg);font-family:var(--sans);font-weight:600;font-size:14px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.rk{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.rk .p{font-family:var(--sans);font-size:21px;width:28px;color:var(--accent);font-weight:700}
+.rk .n{flex:1;font-weight:600;min-width:0}
+.rk .v{font-weight:700}
+.nl{background:var(--ink-band);color:var(--on-band);padding:20px;display:flex;flex-direction:column;gap:10px}
+.nl label{font-size:13px;color:var(--band-muted)}
+.nl input{min-height:44px;padding:0 12px;border:0;font-family:var(--sans);font-size:15px;background:#FFFFFF;color:#141414}
+.list a{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-weight:600}
+.card{display:flex;flex-direction:column;gap:10px;padding:22px;border:1px solid var(--line)}
+.card h3{font-size:23px}
+.sq{aspect-ratio:1/1;background:var(--ph);max-width:100%}
+.ad{display:flex;gap:16px;align-items:center;flex-wrap:wrap;border-block:1px solid var(--line);padding-block:16px}
+.ad .slot{flex:1;min-height:80px;background:var(--soft);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;min-width:200px}
+footer{background:var(--ink-band);color:var(--band-muted);font-size:14px;line-height:1.9;margin-top:24px}
+footer strong{color:var(--on-band);display:block}
+footer .rule{border-top:1px solid rgba(255,255,255,.18);padding-block:16px;font-size:13px}
+/* Premios */
+.phero{background:var(--ink-band);color:var(--on-band)}
+.phero .sub{display:flex;gap:24px;overflow-x:auto;white-space:nowrap;padding-block:14px;font-size:14px;font-weight:600;border-bottom:1px solid rgba(255,255,255,.18)}
+.phero .sub a{color:var(--on-band)}
+.phero .sub a.on{color:var(--brand)}
+.phero h1{font-size:76px;line-height:.98;max-width:16ch}
+.phero p{color:var(--band-muted);font-size:19px;max-width:58ch}
+.stat .big{font-family:var(--sans);font-size:46px;font-weight:700;letter-spacing:-.02em}
+.stat div:last-child{color:var(--band-muted);font-size:14px}
+.ejes .card.hi{background:var(--tint);border-color:var(--tint-line)}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.steps div{border-top:3px solid var(--fg);padding-top:14px;display:flex;flex-direction:column;gap:8px}
+.ed-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.ed-tabs button{min-height:44px;min-width:72px;border:1px solid var(--fg);background:var(--bg);color:var(--fg);font-family:var(--sans);font-weight:700;font-size:15px;cursor:pointer}
+.ed-tabs button[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px}
+.kv{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.kv span:first-child{color:var(--muted);font-size:14px}
+.kv span:last-child{font-weight:700;text-align:right}
+.pts{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.18)}
+.pts b{font-family:var(--sans);font-size:36px;font-weight:700}
+/* Ranking tabla */
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:15px}
+th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--fg)}
+td.r,th.r{text-align:right}
+td.pos{font-family:var(--sans);font-weight:700;color:var(--accent);font-size:18px}
+td.tot{font-weight:700}
+/* Perfil */
+.pf{border:1px solid var(--line);background:var(--bg)}
+.pf .cover{height:140px;background:var(--ink-band);position:relative}
+.pf .cover .tag{position:absolute;right:20px;top:20px;padding:7px 11px}
+.pf .body{padding:0 28px 22px;display:flex;flex-direction:column;gap:14px}
+.pf .logo2{width:104px;height:104px;background:var(--bg);border:4px solid var(--bg);box-shadow:0 0 0 1px var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:32px;font-weight:700;margin-top:-52px}
+.g5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.g5 div{border:1px solid var(--line);padding:12px}
+.g5 b{font-family:var(--sans);font-size:26px;font-weight:700;display:block}
+.g5 span{font-size:13px;color:var(--muted)}
+.ptabs{display:flex;gap:26px;overflow-x:auto;white-space:nowrap;border-top:1px solid var(--line);padding-inline:28px;font-weight:600}
+.ptabs a{padding:13px 0}
+.ptabs a.on{border-bottom:3px solid var(--accent)}
+.panel{border:1px solid var(--line);padding:22px;display:flex;flex-direction:column;gap:12px;background:var(--bg)}
+.bar{display:grid;grid-template-columns:52px minmax(0,1fr) 70px;gap:12px;align-items:center;font-variant-numeric:tabular-nums}
+.bar .t{height:14px;background:var(--soft);border:1px solid var(--line)}
+.bar .t i{display:block;height:100%;background:var(--brand)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips a{border:1px solid var(--fg);padding:7px 12px;font-size:14px;font-weight:600}
+/* Empleos */
+.job{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+.job h3{font-size:21px}
+form.cv{display:flex;flex-direction:column;gap:12px}
+form.cv label{font-size:14px;font-weight:600}
+form.cv input,form.cv select,form.cv textarea{min-height:44px;padding:10px 12px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;width:100%}
+.ok{background:var(--tint);border:1px solid var(--tint-line);padding:14px;font-weight:600}
+/* Nota */
+.article{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+.article h1{font-size:46px;line-height:1.05}
+.article .body p{font-family:var(--serif);font-size:20px;line-height:1.6;margin-bottom:18px}
+.src{font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}.src a{color:var(--accent);font-weight:600}.why{background:var(--tint);border:1px solid var(--tint-line);padding:16px;font-size:16px}.flag{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;padding:2px 7px;border:1px solid currentColor;white-space:nowrap}.flag.ok{color:var(--accent)}.flag.tbc{color:var(--muted)}td.wrap{white-space:normal;min-width:180px}
+.photo{margin:0;display:flex;flex-direction:column;gap:6px;max-width:100%}.photo img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 30%;display:block;background:var(--ph)}.photo figcaption{font-size:13px;color:var(--muted)}.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:12px}.gal a{display:flex;flex-direction:column;gap:6px;min-width:0}.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--ph)}.gal span{font-size:13px;color:var(--muted)}
+.rtabs{display:flex;gap:6px;flex-wrap:wrap;margin-block:20px 8px}.rtabs a{border:1px solid var(--fg);padding:10px 16px;font-weight:700;font-size:15px;min-height:44px;display:inline-flex;align-items:center}.rtabs a.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.rules{max-width:780px;display:flex;flex-direction:column;gap:14px}.rules h2{font-size:26px;margin-top:22px;padding-top:16px;border-top:2px solid var(--fg)}.rules h3{font-size:19px;margin-top:8px}.rules p,.rules li{font-size:16px;line-height:1.6;max-width:68ch}.rules ul,.rules ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px}.rules b{font-weight:700}.rules .tbl table{font-size:15px}.rules td{white-space:normal}.note{font-size:13px;color:var(--muted);font-style:italic}
+.pull{border-block:2px solid var(--fg);padding-block:16px;font-family:var(--serif);font-size:26px;line-height:1.25}
+.adslot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:linear-gradient(135deg,#13294B 0%,#1E3F70 100%);border-left:6px solid var(--brand);color:#fff;text-align:center;max-width:100%;margin-inline:auto;padding:10px 16px;text-decoration:none}
+.adslot:hover{color:#fff;opacity:.95}
+.adslot .ad-k{font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:13px}
+.adslot .ad-s{font-size:13px;color:#C9D2E3}
+.adslot .ad-s b{color:var(--brand)}
+.adslot.lb{width:728px;height:90px}.adslot.bb{width:970px;height:250px}.adslot.mr{width:300px;height:250px}
+.adslot.bb .ad-k{font-size:26px;letter-spacing:.04em}.adslot.bb .ad-s{font-size:16px}.adslot.mr .ad-k{font-size:18px;line-height:1.2}
+.adtop{padding-block:14px;border-bottom:1px solid var(--line)}
+.adlab{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:6px}
+.cal{display:flex;flex-direction:column;border-top:2px solid var(--fg);max-width:820px}
+.cal-row{display:flex;gap:18px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+a.cal-row:hover b{color:var(--accent)}
+.cal-logo{flex:0 0 120px;height:64px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:#fff;padding:8px}
+.cal-logo img{max-width:100%;max-height:100%;object-fit:contain}
+.cal-logo b{font-family:"Gilroy",var(--sans);font-weight:800;font-size:24px;color:#00115c;letter-spacing:.02em}
+.cal-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
+.cal-txt b{font-size:18px}
+@media (max-width:560px){.cal-logo{flex-basis:84px;height:52px}.cal-txt b{font-size:16px}}
+.sr{display:flex;flex-direction:column;gap:4px;padding:14px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+.sr:hover b{color:var(--accent)}
+mark{background:#ffe2d1;color:inherit;padding:0 1px}
+.foto-spec{border-left:4px solid var(--brand);background:var(--soft);padding:10px 14px;font-size:14px;margin-bottom:8px}
+.foto-spec ul{margin:6px 0 0;padding-left:18px}
+.aviso-rev{border:1px solid var(--line);background:var(--soft);padding:10px 14px;font-size:14px;color:var(--fg);margin:8px 0}
+.foto-ok{color:#0a7d33;font-weight:600}.foto-bad{color:#b42318;font-weight:600}
+#nt-foto-res img{max-width:240px;display:block;margin:8px 0;border:1px solid var(--line)}
+.sponsor{display:flex;align-items:center;gap:12px;flex-wrap:wrap;border:1px dashed var(--line);background:var(--soft);padding:10px 14px;font-size:14px;color:var(--muted)}
+.sponsor .logo-ph{border:1px solid var(--line);background:var(--bg);padding:6px 14px;font-weight:700;color:var(--fg)}
+.fmt{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:20px;padding:20px 0;border-bottom:1px solid var(--line);align-items:center}
+.fmt .adslot{transform-origin:left center}
+@media (max-width:760px){.adslot.lb{width:320px;height:50px}.adslot.bb{width:300px;height:250px}.fmt{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:900px){
+  .hero,.main-grid,.g3,.two,.steps{grid-template-columns:minmax(0,1fr)}
+  .g4,.g5{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .phero h1{font-size:52px}
+}
+@media (max-width:560px){
+  .wrap{padding-inline:16px}
+  .g4{grid-template-columns:minmax(0,1fr)}
+  .news a{grid-template-columns:96px minmax(0,1fr)}
+  .lead-story h1,.article h1{font-size:34px}
+  .mast .name{font-size:30px}
+  .hide-s{display:none}
+}
+@media (prefers-reduced-motion:no-preference){a,button{transition:color .15s,opacity .15s}}
+</style>
+<style>
+/* Identidad 2026: #00115c, gris, negro, blanco y Orange 021 C */
+@font-face{font-family:"Gilroy";src:url("fonts/Gilroy-ExtraBold.otf") format("opentype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Knockout47";src:url("fonts/Knockout-47.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Knockout27";src:url("fonts/Knockout-27.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+:root{--bg:#FFFFFF;--fg:#111111;--muted:#5C5650;--title:#3C3C3B;--line:#E4E4E7;--soft:#F6F6F8;--tint:#FFF1EA;--tint-line:#FFD2BD;
+  --accent:#00115c;--brand:#FE5000;--on-brand:#111111;--ink-band:#00115c;--navy:#00115c;--on-band:#FFFFFF;--band-muted:#C5CBE3;--ph:#ECECEF;
+  --display:"Gilroy","Archivo","Helvetica Neue",Arial,sans-serif;--label:"Knockout47","Archivo Narrow","Archivo",Arial,sans-serif;--label2:"Knockout27","Knockout47","Archivo",Arial,sans-serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0E0F14;--fg:#F2F2F2;--muted:#A9A9B3;--title:#D6D6D6;--line:#2A2B33;--soft:#16171E;--tint:#2A1A10;--tint-line:#5A2E14;
+  --accent:#AEBBFF;--brand:#FE5000;--on-brand:#111111;--ink-band:#00115c;--navy:#2B3FA8;--on-band:#FFFFFF;--band-muted:#C5CBE3;--ph:#23242C}}
+:root[data-theme="dark"]{--bg:#0E0F14;--fg:#F2F2F2;--muted:#A9A9B3;--title:#D6D6D6;--line:#2A2B33;--soft:#16171E;--tint:#2A1A10;--tint-line:#5A2E14;
+  --accent:#AEBBFF;--brand:#FE5000;--on-brand:#111111;--ink-band:#00115c;--navy:#2B3FA8;--on-band:#FFFFFF;--band-muted:#C5CBE3;--ph:#23242C}
+h1,h2{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.005em}
+h3{font-family:var(--display);font-weight:800;letter-spacing:0}
+.lead-story h1{font-size:40px}.article h1{font-size:40px}.phero h1{font-size:62px}
+.mast .name{font-family:var(--display);font-weight:800;color:var(--accent);letter-spacing:.01em;font-size:clamp(26px,4.8vw,48px);line-height:1.05}
+.mast-sub{font-family:var(--label2);font-weight:400;font-size:22px;letter-spacing:.34em;color:var(--muted)}
+.kick,.lab,.tag,.flag,th,.adslot .ad-k,.ed-tabs button,.rtabs a{font-family:var(--label);font-weight:400;letter-spacing:.07em}
+.kick,.lab{font-size:18px;letter-spacing:.06em}.tag{font-size:16px}th{font-size:15px}.flag{font-size:14px}.kick{color:var(--accent)}
+.num,.stat .big,td.pos,.rk .p,.g5 b,.pts b{font-family:var(--label);font-weight:400}
+.num,td.pos,.rk .p{color:var(--brand)}
+.tag{background:var(--brand);color:#111}
+nav.main{border-top:3px solid var(--navy)}
+nav.main a[aria-current="page"]{color:var(--accent);box-shadow:inset 0 -3px 0 var(--brand)}
+a:hover{color:var(--brand)}
+.more{color:var(--accent)}
+.sec-head{border-bottom:2px solid var(--navy)}
+.adslot{background:var(--soft);border:1px solid var(--line);border-left:1px solid var(--line);color:var(--muted)}
+.adslot:hover{color:var(--muted);opacity:1;border-color:#C9C9CF}
+.adslot .ad-k{color:#8A8A90}.adslot .ad-s{color:#9A9AA0}.adslot .ad-s b{color:var(--accent);font-weight:600}
+.adslot .ad-k{font-size:22px}.stat .big{font-size:68px;line-height:1}.num{font-size:40px}td.pos{font-size:24px}.rk .p{font-size:26px}.adslot.bb .ad-k{font-size:34px}.adslot.mr .ad-k{font-size:22px}
+.btn.brand{background:var(--brand);border-color:var(--brand);color:#111}
+.ticker a{color:var(--brand)}
+@media (max-width:560px){.lead-story h1,.article h1{font-size:30px}.phero h1{font-size:40px}.mast-sub{font-size:14px;letter-spacing:.24em}}
+</style>
+
+
+<div class="top"><div class="wrap">
+  <div class="meta">martes, 27 de octubre de 2026 · Venezuela</div>
+  <div class="acts"><a href="#buscar">Buscar</a><a href="#boletin" class="hide-s">Boletín gratis</a><a href="mailto:proyectos@LBM-LA.com?subject=Registrar%20mi%20agencia%20en%20el%20Directorio%20CIMA&body=Nombre%20de%20la%20agencia%3A%0APersona%20contacto%3A%0ACorreo%20corporativo%3A%0AWeb%3A">Registra tu agencia</a></div>
+</div></div>
+
+<header class="wrap mast">
+  <a href="#portada" class="logo"><img class="logo-img" src="img/logo-cima.svg" alt="Premios CIMA" width="72" height="72"><span class="name">CREATIVIDAD, MERCADEO Y NEGOCIOS</span></a>
+  <div class="lab mast-sub">PORTAL INFORMATIVO</div>
+</header>
+
+<nav class="main" aria-label="Secciones"><div class="wrap">
+  <a href="#portada">Portada</a><a href="#noticias">Noticias</a><a href="#articulos">Artículos</a><a href="#premios">Premios CIMA</a><a href="#festivales">Festivales</a><a href="#aprende">Aprende</a><a href="#empleos">Empleos</a><a href="#directorio">Directorio</a>
+</div></nav>
+
+<div class="adtop"><div class="wrap"><a class="adslot lb" href="#publicidad"><span class="ad-k">Espacio publicitario disponible</span><span class="ad-s">728×90 · móvil 320×50 · <b>Anúnciate aquí →</b></span></a></div></div>
+<main id="app"></main>
+
+<footer><div class="wrap">
+  <div class="g4" style="padding-block:40px 24px">
+    <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start"><img src="img/logo-cima.svg" alt="Premios CIMA" width="56" height="56" style="background:#fff;border-radius:50%"><div>Mercadeo, publicidad y negocios en Venezuela. Caracas.</div><div style="font-size:13px;opacity:.85">LBM Comunicaciones · RIF J-31038427-4</div></div>
+    <div><strong>Secciones</strong><a href="#noticias">Noticias</a> · <a href="#articulos">Artículos</a> · <a href="#premios">Premios CIMA</a> · <a href="#ranking">Ranking</a> · <a href="#festivales">Festivales</a> · <a href="#aprende">Aprende</a> · <a href="#empleos">Empleos</a> · <a href="#directorio">Directorio</a></div>
+    <div><strong>CIMA</strong><a href="https://www.lbm-la.com" target="_blank" rel="noopener">Quiénes somos</a> · <a href="#puntos">Cómo se calcula el ranking</a> · <a href="#etica">Ética y correcciones</a> · <a href="mailto:proyectos@LBM-LA.com">Contacto: proyectos@LBM-LA.com</a> · <a href="tel:+584143029886">0414 302 9886</a></div>
+    <div><strong>Servicios</strong><a href="#envia-nota">Envía tu nota de prensa</a> · <a href="#publicidad">Publicidad</a> · <a href="#empleos">Sube tu CV</a> · <a href="#boletin">Boletín</a></div>
+  </div>
+  <div class="rule">Ninguna relación comercial con CIMA da ventaja ante el jurado. El contenido pagado va identificado.</div>
+</div></footer>
+
+<script>
+/* Ranking acumulado 2022-2026 (archivo master): [nombre, 2022, 2024, 2025, 2026, Ápice, categorías, nominaciones, total, perfil] */
+var R = {
+  ag:[["La Web Figital Agency",25,50,25,40,1,9,24,140,"laweb"],["RG2",0,1,22,83.33,1,7,11,106.33],["Goodman",0,1,35,14,1,1,5,50],["Amarillo Creative Lab",0,5,33,12,0,4,11,50],["Parallel",20,21,2,4,0,4,7,47],["Robin Agency",0,13,25,6.5,0,4,15,44.5],["Mutato",3,12,4,24,0,3,14,43,"mutato"],["Concept McCann",1,14,11,14.11,0,3,11,40.11],["Publicis",0,21,1,1,0,2,3,23],["Zea BBDO",10,5,0,2,0,2,2,17]],
+  ma:[["Pilsen",14,12,21,80,1,8,13,127],["Ron Santa Teresa",45,1,10,1,1,2,2,57],["Diablitos",22,21,2,1,0,4,6,46],["P.A.N.",0,1,12,24,0,3,7,37],["Farmatodo",0,36,0,0,1,0,1,36],["UCAB",0,0,35,0,1,0,0,35],["Mayonesa Kraft",0,10,22,0,0,3,2,32],["MoDo Caracas",20,10,0,0,0,3,0,30],["Oreo",0,0,12,13,0,2,5,25],["Johnnie Walker",1,20,1,0,0,2,2,22]],
+  em:[["Empresas Polar",15,15,65,150,1,19,53,245],["Mondelẽz VZ",0,14,35,14,0,5,16,63],["Ron Santa Teresa",45,1,10,2,1,2,3,58],["Alimentos DiFresca",22,21,2,1,0,4,6,46],["Diageo",1,20,12,0,0,3,3,33],["Grupo MiMesa",0,10,0,11,0,2,1,21],["Grupo ZOOM",10,10,0,0,0,2,0,20],["Grupo Lactalis",0,0,1,12,0,1,3,13],["Grupo Leti",0,0,11,1,0,1,2,12],["Alfonzo Rivas",2,0,0,2,0,0,4,4],["Nestlé",2,1,0,1,0,0,4,4]]
+};
+function fmt(v){return String(v).replace(".",",");}
+var S = { tab:"ag", rtab:"ag", ed:"2026", cvSent:false };
+var ED = {
+  "2022":{t:"1era edición",n:"87",kv:[["Premio Ápice","Ron Santa Teresa · Reto Saca el Pecho"],["Ceremonia","Centro Cultural Chacao"]]},
+  "2024":{t:"2da edición",n:"125",kv:[["Premio Ápice","Farmatodo · La Web Figital Agency"],["Agencia del Año","La Web Figital Agency"]]},
+  "2025":{t:"3era edición",n:"216",kv:[["Premio Ápice","UCAB · Goodman"],["Agencia del Año","Robin Agency"]]},
+  "2026":{t:"4ta edición",n:"313",kv:[["Premio Ápice","El Rondón de Polar · Pilsen · RG2"],["Agencia del Año","RG2 (83,33 puntos)"],["Trayectoria","Marisabel de Zaro"],["Transmisión","Venevisión"]]}
+};
+
+/* Noticias aprobadas: curaduría del 27 de octubre de 2026 (fuentes: PRODU, Adlatina, Revista P&M, NotiCorp, Revista Business Venezuela) */
+var N = [
+  {id:"n7",sec:"Premios CIMA",img:"img/cima2026-01.jpg",cap:"El equipo de «El Rondón de Polar» celebra el Premio Ápice 2026",t:"«El Rondón de Polar» gana el Premio Ápice 2026 y RG2 obtiene la Agencia del Año",
+   dek:"La campaña de Pilsen sumó el Ápice y cuatro categorías en la 4ta edición, que transmitió Venevisión.",
+   body:["La 4ta edición de Premios CIMA entregó el Premio Ápice a «El Rondón de Polar», de Pilsen (Empresas Polar), creada por RG2. La misma campaña ganó Campaña de Humor, Campaña en Plataformas Digitales, Dirección de Fotografía – Film y Producción de Film.",
+         "RG2 obtuvo la Agencia del Año con 83,33 puntos, calculados con el sistema de puntos público del premio. La Campaña del Consumidor fue para la valla «¿Qué significan las siglas P.A.N.?», de RG2, Style y Robin Agency.",
+         "El reconocimiento a la Trayectoria fue para Marisabel de Zaro. En Talento de la Industria ganaron Jhon Da Silva (La Web Figital Agency) y Exequiel Rodríguez (RG2), empatados en Creativo; Alberto Chumaceiro (Fénix Media) en Agencia; Verónica Armas (Empresas Polar) en Marcas, y Carlos Fuchs (Televen) en Medios.",
+         "La edición recibió 313 casos, 45% más que en 2025, en 34 categorías. En sus cuatro ediciones, Premios CIMA suma 741 casos inscritos."],
+   why:"El Ápice y la Agencia del Año marcan la referencia de la industria venezolana para el próximo año.",src:"Revista Business Venezuela y Adlatina",url:"https://www.adlatina.com/publicidad/el-rondn-de-polar-gan-el-premio-apice-y-rg2-fue-la-agencia-del-ao"},
+  {id:"n8",img:"img/jovenes-creativos-2026.jpg",cap:"Entrega del 1er lugar en Digital a «El Pesebre», de Esthefany Uzcátegui y Shaylin Yamawaky",sec:"Premios CIMA",t:"Jóvenes Creativos 2026: estos son los ganadores",
+   dek:"64 duplas resolvieron en 72 horas un brief para reconstruir colegios afectados por el terremoto de junio.",
+   body:["Jóvenes Creativos, la categoría de Premios CIMA para talento de 18 a 30 años, debutó en la 4ta edición con 64 duplas inscritas. La organizaron Premios CIMA y Grande La Academia.",
+         "El brief, del Dividendo Voluntario para la Comunidad (DVC), pedía apoyar la reconstrucción de los colegios afectados por el terremoto del 24 de junio. Las campañas ganadoras se donan al DVC, con autorización de sus autores, para su campaña navideña de recaudación a favor de la educación.",
+         "Film: 1er lugar, Rodolfo Da Rocha y Tomás Rivero; 2do, Carlos Landaeta y Luis Faraco; 3er, Gabriel Rodríguez y Emmanuel Navas.",
+         "Print: 1er lugar, «Te tocó un estudiante», de Alejandro Centeno y Félix Estévez; 2do, «+18.700 ilusiones te esperan», de Sabrina Castro y Gabriel Sánchez; 3er, «Haz que el timbre vuelva a sonar», de Luis Vásquez y Anna Rodrigues.",
+         "Digital: 1er lugar, «El Pesebre», de Esthefany Uzcátegui y Shaylin Yamawaky; 2do, «Un presente bajo el árbol», de Gabriela Candela y Edgar Pacheco; 3er, «Unidad de Regalo», de Ariangelis Duque y Michell De Lisa."],
+   why:"Es la puerta de entrada del talento joven a la industria, y su trabajo sale a la calle en una causa real.",src:"Premios CIMA",url:"#jovenes"},
+  {id:"n9",sec:"Ranking",img:"img/cima2026-03.jpg",cap:"RG2 en el escenario al recibir la Agencia del Año 2026",t:"La Web Figital Agency y Pilsen encabezan el ranking 2022-2026 de Premios CIMA",
+   dek:"RG2 sube al segundo lugar en agencias. Empresas Polar lidera en empresas con 245 puntos.",
+   body:["Con los resultados de la 4ta edición, el ranking acumulado de Premios CIMA suma ya cuatro ediciones: 2022, 2024, 2025 y 2026. La Web Figital Agency sigue al frente en agencias con 140 puntos.",
+         "RG2, que obtuvo la Agencia del Año 2026, sube al segundo lugar con 106,33 puntos. Completan los cinco primeros Goodman y Amarillo Creative Lab, con 50 puntos cada una, y Parallel, con 47.",
+         "En marcas, Pilsen pasa al primer lugar con 127 puntos, seguida de Ron Santa Teresa (57) y Diablitos (46). En empresas, Empresas Polar lidera con 245 puntos, delante de Mondelẽz VZ (63) y Ron Santa Teresa (58).",
+         "El sistema es público: 35 puntos por Premio Ápice, 10 por categoría ganada y 1 por nominación, con tope de 5 por edición. En coautoría, los puntos se dividen entre las agencias."],
+   why:"Es la única medida comparable del desempeño de agencias y marcas venezolanas en el tiempo.",src:"Archivo master de nominados y ganadores de Premios CIMA",url:"#ranking"},
+  {"id": "a1", "kind": "art", "img": "img/art-tata.jpg", "cap": "Tata López", "sec": "Artículos", "by": "Por Tata López", "t": "Lo que se reconoce, se eleva", "dek": "Cuatro años después de crear Premios CIMA, su fundadora explica por qué reconocer el trabajo bien hecho eleva a toda la industria.", "body": ["Hay un momento de la ceremonia que siempre me conmueve: cuando se anuncia un ganador y se levanta una mesa entera. Se abrazan el creativo, la ejecutiva de cuentas, el planner, el productor y el cliente. En ese abrazo está todo lo que creo de esta industria: el buen trabajo tiene muchas manos, y merece ser visto.", "Reconocer ese trabajo es la razón de ser de Premios CIMA, porque lo que no se mide no mejora, y lo que no se reconoce, se va. Cuatro años después de crearlos, puedo decirlo con los números en la mano: la industria venezolana respondió.", "Durante años, la publicidad venezolana trabajó casi en silencio. Presupuestos ajustados, equipos reducidos, talento que emigró. Las galas se espaciaron y con ellas se apagó una costumbre sana: reunirnos a mirar lo mejor que hicimos.", "Hoy esa celebración renace. En esta cuarta edición las inscripciones crecieron 268% frente a la primera edición de 2022, de 85 a 313, el jurado creció más de 25% y superamos las 30 categorías. Detrás de cada cifra hay agencias, marcas, productoras y medios con ganas de participar, de medirse y de ganar. Esas ganas son la señal más clara de una industria que está creciendo.", "Con más competidores, ganar cuesta más. Este año la vara subió con un jurado presidido por Virgilio Flores, Group Creative Director de Alma Miami. Evaluamos el caso completo: la estrategia, la ejecución y los resultados en el contexto real del país. Que ganar sea más difícil le da valor a cada reconocimiento y nos obliga a todos a prepararnos mejor.", "## Reconocer también educa", "El aprendizaje empieza meses antes de la gala. Para inscribir un caso, un equipo ordena su data, demuestra resultados y entiende qué funcionó y por qué. Quien quiere competir estudia analítica, medios, inteligencia artificial y estrategia. Quien gana obtiene evidencia: un respaldo concreto para negociar un mejor salario, aspirar a un mejor cargo o mostrar una trayectoria comprobada. En un país donde tanto talento se fue, reconocer al que se queda le confirma que aquí también hay camino.", "Cada bota CIMA lleva, además, el nombre de un equipo completo. Detrás de una idea premiada hay un cliente que se atrevió, una agencia que insistió, una productora que lo hizo posible y un medio que lo llevó a la gente. Reconocer ese trabajo en conjunto fortalece la cultura de colaboración que esta industria necesita.", "Y la formación tiene que empezar temprano. Este año lanzamos, junto a GRANDE, la academia, el concurso Jóvenes Creativos: 64 duplas de talentos entre 18 y 30 años que tuvieron 72 horas para resolver un brief real, evaluado por un jurado internacional de venezolanos que hoy brillan en el exterior. Ese reto tuvo propósito: el talento de estos jóvenes se puso al servicio del Dividendo Voluntario para la Comunidad (DVC), sumando creatividad a una causa social que transforma vidas en el país. Así, el semillero aprende el oficio y, al mismo tiempo, aprende que la creatividad también sirve para construir comunidad. Muchos de esos jóvenes serán, en pocos años, quienes inscriban sus casos en CIMA.", "## Competir en casa para ganar afuera", "La sana competencia local nos prepara para el mundo. Cuando agencias que se disputan una bota CIMA se miden con respeto, el nivel sube para todos. Y cuando llega el momento, saben unirse bajo una misma bandera.", "Eso hizo «600K Network», de Comando con Venezuela junto a Rainbow Lobster, que en junio le dio a Venezuela sus dos primeros Leones de Oro en Cannes, además del Grand Prix for Good y un Titanio. Talento venezolano, sumado, compitiendo con los mejores del planeta.", "Por eso los premios son vitrina. Hacia adentro, le dan argumentos al gerente de mercadeo que defiende su presupuesto ante la junta directiva. Hacia afuera, son la mejor carta de presentación del país. Gracias a nuestra alianza con el FIAP, el Festival Iberoamericano de la Publicidad, los ganadores de CIMA que inscriban allí sus casos pasan directo a la shortlist. «Salvando la Pelotica de Goma», de La Web Figital, ganó en CIMA y luego se trajo un León de Plata de Cannes. Ese es el recorrido que queremos multiplicar.", "La gala dura unas horas. Prepararla toma meses y el compromiso de muchísima gente: jurados que dedican su tiempo a evaluar a sus pares, aliados y patrocinantes que creen en el proyecto, medios que lo difunden, proveedores y un equipo que trabaja sin descanso para que todo salga impecable.", "Nada de esto tendría peso sin el respaldo de los líderes de la actividad publicitaria. Nuestra junta consultiva reúne a FEVAP, la Cámara de Cine y Televisión, medios de comunicación, el Círculo Creativo, marcas y JBA Legal, que validan cada paso del proceso. Que presidentes de gremios, directores de agencias y gerentes de marca pongan su nombre y su tiempo al servicio de CIMA le da credibilidad a cada reconocimiento, y nos conecta con una tradición que respetamos: los Premios ANDA, los P&M y décadas de trabajo del Círculo Creativo y FEVAP por mantener viva la conversación sobre el oficio.", "Detrás de todo hay una estrategia. Premiamos con criterio para elevar el estándar. Formamos para asegurar el relevo. Nos aliamos para sumar credibilidad. Abrimos puertas afuera para que el talento viaje. Apoyamos causas sociales para que la creatividad deje huella en el país. Y celebramos para que la industria se reconozca a sí misma. Cada pieza sostiene a las demás, y todas apuntan a lo mismo: una publicidad venezolana más profesional, más competitiva y más orgullosa de lo que hace.", "Los Leones de Oro de este año salieron de gente que decidió que su trabajo merecía ser visto, y se preparó para eso. Ese es el espíritu que queremos multiplicar puertas adentro.", "A la cima se llega sosteniendo un estándar, incluso cuando nadie está mirando. Y cuando por fin alguien mira, que nos encuentre listos."], "why": "", "src": "Artículo escrito para CIMA", "url": "#articulos"},
+  {id:"c1",kind:"art",img:"img/cima2026-fuchs.jpg",cap:"Carlos Fuchs (Televen), a la izquierda con la bota, recibe Talento de la Industria: Medios en Premios CIMA 2026",sec:"La voz del ganador",by:"Por Carlos Fuchs · Talento de la Industria: Medios, Premios CIMA 2026",t:"La televisión de hoy coexiste con lo digital y se adapta al cambio como un reto diario",
+   dek:"Carlos Fuchs, ganador de Talento de la Industria: Medios en Premios CIMA 2026, analiza el rol de la TV frente a las plataformas digitales.",
+   body:["El vicepresidente de Comercialización y Mercadeo analiza el rol actual de los medios tradicionales en Venezuela. En un ecosistema atomizado y en constante transformación, Fuchs destaca cómo la televisión de consumo masivo sigue liderando el alcance a través de la noticia, el deporte y las variedades, integrando a marcas, agencias y plataformas digitales mediante una estrategia orgánica y colaborativa.", "¿Qué papel tiene hoy la TV y los medios tradicionales frente a las plataformas digitales en Venezuela?", "La TV de hoy coexiste con las plataformas digitales, la TV nacional es el medio de consumo masivo por excelencia, le llega a una mayor cantidad de gente, el 72% de la población dice ver TV, su fortaleza se basa en tres pilares fundamentales: Noticias, Deportes y Variedades. La TV de consumo masivo tiene su propio ecosistema digital, se ha adaptado a las nuevas tendencias del mercado; el cambio es lo más constante en el mundo de la comunicación y la tecnología y ese es nuestro reto diario.", "¿Qué buscan los anunciantes cuando invierten en un medio hoy, y qué ha cambiado?", "Los anunciantes buscan integrar sus marcas de una manera más orgánica en el contenido de los programas que salen al aire en la TV, buscan el mayor alcance posible y que su mensaje llegue y se comente de manera positiva, en un mundo atomizado de medios.", "Ha cambiado por la forma en que se consumen los medios hoy en día: tienen mensajes adaptados al medio donde quieren estar (TV, radio, redes sociales, etc.), pero manteniendo la esencia del mismo.", "¿Cómo debe trabajar un medio con agencias y marcas para crear contenido, más allá de vender espacios?", "La relación con las agencias de publicidad y los clientes es la base para la comercialización de cualquier medio. En primera instancia la agencia le presenta propuestas creativas a las marcas y luego nos reunimos los tres (agencia, marca y medio) en una mesa de trabajo donde salen las ideas de comunicación, que se integren de manera orgánica en cada uno de los programas que están al aire en la parrilla de programación. Esto aplica también para todo el ecosistema digital que tenga el medio.", "¿Qué necesitan los medios venezolanos para competir afuera?", "Necesitan inversión de parte de los anunciantes. Si tienes un país donde existan 14 mil empresas que generan empleos y sueldos bien remunerados, donde esas empresas fabrican o importan productos que son distribuidos a lo largo y ancho del territorio nacional generando competencia en los diferentes sectores, eso implicaría una mayor comunicación (mercadeo y publicidad) en los medios y, por ende, inversión. Así estábamos hace 15 años. Nosotros ya producimos contenido que exportamos a otros países; solo faltaría la reina de la corona, la telenovela, y para eso es necesario recuperar los niveles de inversión. Tenemos el talento, la infraestructura y la tecnología para hacerlo posible."],
+   why:"Es la mirada de un ganador de Premios CIMA sobre cómo medios, agencias y marcas pueden trabajar juntos.",src:"Columna escrita para CIMA",url:"#premios"},
+  {"id": "a2", "kind": "art", "sec": "Artículos", "by": "Por Markel R. Méndez H.", "t": "Autenticidad y espontaneidad para un liderazgo innovador", "dek": "El liderazgo no viene con el cargo: se construye con valores, una narrativa propia y el coraje de mostrarse.", "body": ["Yo también he sentido el impacto de asumir un rol de liderazgo dentro de una gran organización. Los títulos nos revisten de importancia, especialmente cuando somos reconocidos como especialistas, expertas o expertos, directores o directoras, gerentes; nos adjudican un conocimiento y una capacidad que son inherentes a la denominación otorgada.", "Sin embargo, como es bien conocido, el liderazgo no está asociado a un rol, sino a la forma en que se actúa en esa posición y a los modos de ejercer influencia. La credibilidad no viene con el cargo, sino con los valores que se ponen de manifiesto en las actitudes y acciones.", "A esta dinámica se suman las expectativas colectivas y organizacionales puestas sobre nosotros. Existe una narrativa instaurada, unos límites, una manera de proceder que, si no tenemos conciencia sobre ella, se convierte en una carga, una estructura rígida que acaba con la conexión, haciendo imposibles la creatividad y la innovación.", "En un mundo saturado de historias, donde sobran las repeticiones interminables de un mismo patrón considerado exitoso, es fácil perder lo esencial: la capacidad para generar confianza a partir de la vulnerabilidad y la autenticidad.", "Necesitamos trabajar con intención en la construcción de una narrativa personal. No como ejercicio de autopromoción, sino como forma de salir de la rigidez del cargo, del guion corporativo y de la idea de que liderar significa encajar en una figura preestablecida. Cuando una persona líder descubre qué historia la mueve y qué valores está dispuesta a defender, su voz cobra potencia y brillo. Se vuelve más clara y capaz de convocar.", "Brené Brown lo expresa con fuerza en su trabajo sobre vulnerabilidad: el coraje no consiste en blindarse, sino en contar quiénes somos desde el corazón. La autenticidad es la disposición a mostrarse con suficiente verdad como para generar conexión, evitando que la influencia sea mecánica.", "Donde hay autenticidad, aparece la espontaneidad: la capacidad de responder desde la presencia, no desde un libreto. Esa espontaneidad abre espacio a la creatividad, porque permite asumir riesgos y explorar caminos. Así se producen las innovaciones con impacto.", "Liderar no es representar mejor un papel, sino tener el coraje de construir una presencia propia. Quienes entienden esto se comunican mejor y crean contextos donde es posible imaginar y crear con mayor libertad."], "why": "", "src": "Artículo escrito para CIMA", "url": "#articulos", "img": "img/art-markel.jpg", "cap": "Markel R. Méndez H."},
+  {"id": "a3", "kind": "art", "sec": "Artículos", "by": "Por Silio A. Romero V.", "t": "La misión ética de la gestión de marca", "dek": "Una marca poderosa se mide por su capacidad de combinar resultados de negocio con una influencia responsable sobre la cultura.", "body": ["Construir una marca poderosa no consiste solo en maximizar su impacto comercial; exige convertirla en un activo ético capaz de proyectar principios, generar confianza y fortalecer su legitimidad en la sociedad. La excelencia de marca, por tanto, debe medirse por su capacidad de combinar resultados de negocio con una influencia responsable sobre la cultura y la conducta colectiva.", "El valor de una «Lovemark» radica en la profundidad de la confianza y la conexión que logra con sus audiencias. Precisamente por esa capacidad de influir en percepciones, decisiones y comportamientos, la responsabilidad del anunciante debe ser explícita, deliberada y proporcional al alcance de su marca.", "La misión ética de la gestión de marca se consolida al diseñar estrategias que movilicen al mercado, diferencien a la organización y, al mismo tiempo, promuevan referentes aspiracionales compatibles con una conducta noble y humana. Cuando una marca equilibra emoción, convicción y responsabilidad, no solo gana relevancia: contribuye de forma tangible a la construcción de instituciones más confiables y de una sociedad mejor."], "why": "", "src": "Artículo escrito para CIMA", "url": "#articulos", "img": "img/art-silio.jpg", "cap": "Silio A. Romero V."},
+  {"id": "a4", "kind": "art", "sec": "Artículos", "by": "Por Vanessa Báez Forzán", "t": "La estética del mensaje", "dek": "Venezuela fue un hub de producción para la región. Cuidar el craft es clave para el nuevo renacer de la publicidad en el país.", "body": ["Durante muchos años Venezuela fue un «hub de producción» para toda Latinoamérica: gran parte de las trasnacionales producían aquí sus campañas más importantes para toda la región.", "Es así como aprendimos de la experiencia de profesionales de diferentes países como Chile, Argentina, México, Perú, EE. UU., Colombia y España, entre muchos otros, logrando siempre brindar un muy buen nivel de producción.", "Y este es un punto fundamental para seguir apuntando a lo que los medios han denominado como el nuevo renacer de la publicidad en Venezuela, porque como bien señala Virgilio Flores, presidente del jurado de este año: «Una buena idea mal contada es una mala idea».", "El cuidado del craft, que se refiere a la ejecución técnica y estética de una pieza, no es un detalle opcional. Según WARC, invertir en una pieza audiovisual bien hecha no es «gastar más»: es un instrumento fundamental en la construcción de las marcas. En un mundo donde cualquiera puede hacer un video, resulta estratégico sobresalir y lograr un resultado memorable.", "Nuestra industria cada año está apuntando a elevar el nivel, y en el país tenemos todo lo necesario para lograrlo: los mejores paisajes, experiencia y, sobre todo, ¡ganas! Sigamos construyendo un camino en el que la excelencia y el talento sean las variables que definan nuestras próximas campañas."], "why": "", "src": "Artículo escrito para CIMA", "url": "#articulos", "img": "img/art-vanessa.jpg", "cap": "Vanessa Báez Forzán"},
+  {"id": "a5", "kind": "art", "img": "img/art-alva.jpg", "cap": "Alva Meléndez", "sec": "Artículos", "by": "Por Alva Meléndez", "t": "El talento humano: el verdadero motor de las marcas", "dek": "Los datos orientan, pero no sienten. Detrás de cada campaña que conecta hay una persona que supo leer lo que los números no dicen.", "body": ["Los datos orientan, pero no sienten, no interpretan, no se atreven. Detrás de cada campaña que realmente conecta hay una persona que supo leer lo que los números solos nunca hubieran dicho. Y esa sigue siendo la ventaja competitiva más humana del mercadeo actual.", "Nunca habíamos tenido tantas herramientas tecnológicas a nuestro alcance y, sin embargo, nunca había sido tan urgente la necesidad de liderazgos profundamente humanos. Porque la tecnología amplifica, pero no inspira. Optimiza, pero carece de algo fundamental: empatía, intuición y propósito.", "Lo veo todos los días: alguien cuestiona lo que todos daban por hecho, defiende una idea contra la corriente, y de pronto el negocio cambia de rumbo. Eso no lo logra ninguna herramienta. Lo logra el talento: la verdadera fuente de toda diferenciación real.", "Liderar en este entorno es inspirar a ese talento a moverse: a usar las herramientas como apoyo, pero a poner su criterio donde ninguna puede llegar. Ese criterio es el que lee el contexto, capta lo que el consumidor siente aunque no lo diga, y convierte esa sensibilidad en estrategias que generan valor genuino.", "Liderar también exige algo que cada vez valoro más, quizás porque me ha tocado aprenderlo: aprender de forma continua, no como actitud individual sino como cultura de equipo. Cuando la curiosidad se comparte, cuando alguien levanta la mano y pregunta «¿y si lo hacemos distinto?» incluso cuando ya hay un plan, deja de ser un rasgo personal y se convierte en el ritmo natural del equipo. Esos equipos no le temen a la disrupción; la convierten en ventaja.", "Pero esa curiosidad no aparece por decreto. Florece donde el talento se siente seguro para proponer, fallar, aprender y crecer. Por eso apoyarlo, darle espacios reales de desarrollo, no es una opción: es la única ventaja competitiva sostenible.", "Porque es ahí donde nacen las ideas que mueven marcas, las campañas que la gente recuerda y los equipos que dejan huella. Eso es lo que celebran los Premios CIMA: a las personas. Y reconocerlas no es solo mirar lo que lograron, es apostar por todo lo que todavía pueden crear. Eso, en sí mismo, es un acto de liderazgo."], "why": "", "src": "Artículo escrito para CIMA", "url": "#articulos"},
+  {id:"n12",img:"img/news-n12.jpg",cap:"Share of voice en radio nacional medido con Plexo · Foto: Revista P&M",sec:"Gremios",t:"FEVAP y Monitoreo Digital firman una alianza para la plataforma de medición Plexo",
+   dek:"La federación respalda Plexo, una plataforma de inteligencia de medios para agencias, marcas y medios afiliados.",
+   body:["La Federación Venezolana de la Actividad Publicitaria (FEVAP) firmó un convenio de cooperación con la empresa Monitoreo Digital, dirigida por Gustavo Castellanos.", "Con el acuerdo, FEVAP respalda Plexo, la plataforma de inteligencia de medios de Monitoreo Digital. La idea es que agencias, marcas y medios afiliados tengan herramientas para optimizar su inversión publicitaria y ganar transparencia.", "La junta directiva de FEVAP, presidida por Alberto Chumaceiro, usará Plexo para evaluar información y compartirla con sus afiliados. Ambas partes prevén sesiones de actualización tecnológica y análisis de tendencias."],
+   why:"Medir la inversión publicitaria con datos compartidos es una de las deudas de la industria venezolana.",src:"Revista P&M · 13 de octubre de 2026",url:"https://www.publicidadymercadeo.net/fevap-y-monitoreo-digital-firman-alianza-estrategica/"},
+  {id:"n6",img:"img/news-n6.jpg",cap:"4 metales y Agencia del Año por segundo año consecutivo en FIAP 2026 · Imagen: @lawebesfigital en Instagram",sec:"Festivales",t:"La Web Figital Agency gana 4 bronces en FIAP 2026 y repite como Agencia del año de Venezuela",
+   dek:"La agencia sumó cinco shortlists y cuatro metales, todos con campañas hechas en la cima del Roraima.",
+   body:["La Web Figital Agency anunció que obtuvo 4 bronces en los Premios FIAP 2026, el festival iberoamericano de publicidad. Según la agencia, también fue reconocida por segundo año consecutivo como la Agencia del año de Venezuela en ese festival.",
+         "Los metales salieron de dos casos. Walking Ads, la campaña de lanzamiento de un podcast grabado en la cumbre del Roraima, ganó 3 bronces. Streaming From the Lost World, una transmisión en TikTok hecha también desde la cima del Roraima, ganó 1 bronce.",
+         "En total, la agencia reporta 5 shortlists, de los cuales 4 terminaron en metal. Con estos resultados, La Web se presenta como la agencia venezolana más premiada en esta edición de FIAP. El festival entregará sus premios especiales, como Agencia del año, el 4 de noviembre en Ciudad de México.",
+         "En el ámbito local, La Web Figital Agency también encabeza el ranking de agencias de Premios CIMA 2022-2026, con 140 puntos."],
+   why:"FIAP es uno de los festivales de referencia en Iberoamérica, y repetir como Agencia del año del país confirma una presencia sostenida de Venezuela en el circuito internacional.",src:"@lawebesfigital en Instagram (datos de la agencia, por confirmar en el palmarés oficial de FIAP)",url:"https://www.instagram.com/p/DeAY-5gjwSJ/"},
+  {id:"n10",img:"img/news-n10.jpg",cap:"De la calle a los Effie · Imagen: FEVAP (@fevapvzla) en Instagram",sec:"Festivales",t:"«Salvando Pelotica de Goma» va por un Effie Latin America el 29 de octubre",
+   dek:"La campaña de La Web Figital Agency y Buentipo para Vacílate Esto es finalista en Deportes y entretenimiento.",
+   body:["«Salvando Pelotica de Goma», de La Web Figital Agency y Buentipo para Vacílate Esto, es finalista de los Effie Awards Latin America 2026 en la categoría Deportes y entretenimiento. La premiación es el 29 de octubre.",
+         "Los Effie premian la efectividad: casos con resultados de negocio comprobables. La misma campaña ganó en 2025 el primer León de Plata de Venezuela en Cannes Lions, un Oro en Clio Sports y una Plata en El Dorado."],
+   why:"Un Effie confirmaría que el caso venezolano más premiado afuera también funciona en resultados.",src:"Effie Latin America",url:"https://www.latameffie.com/blog/1017"},
+  {id:"n13",img:"img/news-n13.jpg",cap:"Equipo de Sherlock Communications · Foto: Revista P&M",sec:"Agencias",t:"Sherlock Communications amplía sus operaciones en Venezuela",
+   dek:"La agencia brasileña de comunicación estratégica responde al interés de marcas internacionales en el país.",
+   body:["Sherlock Communications, agencia de comunicación estratégica con sede en São Paulo, amplió sus operaciones en Venezuela con un equipo local, del que forma parte Miryana Márquez.", "Según Angelo Torres Zevallos, responsable de la Región Andina, la expansión responde a pedidos de sus clientes. Fundada en 2016, la firma tiene más de 150 profesionales y oficinas en seis países."],
+   why:"La llegada de agencias regionales es una señal del regreso de marcas internacionales al mercado venezolano.",src:"Revista P&M · 25 de septiembre de 2026",url:"https://www.publicidadymercadeo.net/sherlock-communications-expande-sus-operaciones-en-venezuela/"},
+  {id:"n14",img:"img/news-n14.jpg",cap:"La franela de Pawer con Maltín Coco · Foto: Revista P&M",sec:"Marcas",t:"Pawer y Maltín Polar lanzan una franela con aroma a coco",
+   dek:"La prenda libera olor al frotar el estampado y se vende con un 2-pack de Maltín Coco, el nuevo sabor de la marca.",
+   body:["La marca venezolana de moda Pawer lanzó, junto a Maltín Polar, una franela cuyo estampado libera aroma a coco al frotarlo. Según la nota, es la primera prenda de este tipo creada por una marca nacional.", "La franela se vende en todo el país e incluye un 2-pack de Maltín Coco. El estampado muestra a Ugo, un gorila ilustrado, y una etiqueta explica cómo activar el aroma."],
+   why:"Es un ejemplo de colaboración entre una marca de moda local y una marca masiva para lanzar un sabor nuevo.",src:"Revista P&M · 23 de octubre de 2026",url:"https://www.publicidadymercadeo.net/pawer-lanza-la-primera-franela-con-aroma-en-venezuela/"},
+  {id:"n15",img:"img/news-n15.jpg",cap:"Colección cápsula de Savoy y Balú por los 85 años · Foto: NotiCorp",sec:"Marcas",t:"Savoy celebra 85 años con una colección cápsula junto a Balú",
+   dek:"Las prendas de edición limitada reinterpretan los íconos de la chocolatería nacional.",
+   body:["SAVOY, de Nestlé Venezuela, celebra sus 85 años con una colección cápsula de edición limitada creada con la firma venezolana de moda Balú.", "La colección se inspira en el concepto del Hilo Rojo y llegó en el marco del Día Nacional del Cacao. Daniela Serpa, directora del negocio de Confites de Nestlé Venezuela, dijo que busca conectar con nuevas audiencias. Estará en tiendas seleccionadas y canales oficiales."],
+   why:"Las marcas con historia usan el co-branding con moda local para renovar su conexión con públicos jóvenes.",src:"NotiCorp · 5 de octubre de 2026",url:"https://noticorp.com/savoy-balu-coleccion-capsula-85-anos/"},
+  {id:"n16",img:"img/news-n16.jpg",cap:"Fam trip de Copa Airlines en Margarita · Foto: Revista P&M",sec:"Negocios",t:"Copa Airlines prepara su ruta Panamá–Porlamar, que arranca el 26 de noviembre",
+   dek:"Antes del arranque, la aerolínea llevó a Margarita a más de 150 agentes de viaje, mayoristas e influencers del continente.",
+   body:["Copa Airlines y 17 empresas turísticas de Margarita trajeron a más de 150 agentes de viaje, mayoristas e influencers del continente en un vuelo chárter desde Panamá, para promocionar la isla.", "La visita prepara la ruta Panamá–Porlamar, que comienza el 26 de noviembre con vuelos los martes, jueves y domingos. Porlamar será el sexto destino de Copa en Venezuela."],
+   why:"Más conectividad aérea abre oportunidades para campañas de turismo y para las marcas de la isla.",src:"Revista P&M · 22 de octubre de 2026",url:"https://www.publicidadymercadeo.net/copa-airlines-promueve-a-margarita-en-el-continente/"},
+  {id:"n17",img:"img/news-n17.jpg",cap:"Belén Clarisa Velutini, fundadora de Trasnocho Cultural · Foto: NotiCorp",sec:"Negocios",t:"Trasnocho Cultural recibirá 40 millones de dólares para modernizarse",
+   dek:"La inversión se hará en 36 meses y luego incluirá la renovación del hotel Paseo Las Mercedes.",
+   body:["El fideicomiso de Belén Clarisa Velutini, fundadora de Trasnocho Cultural, anunció una inversión inmobiliaria de unos 40 millones de dólares en los próximos 36 meses para modernizar el centro cultural de Caracas.", "La primera fase mejora la infraestructura y la tecnología de las salas de cine y teatro. Después se renovará el hotel Paseo Las Mercedes, respetando el diseño original de Jimmy Alcock."],
+   why:"Trasnocho es un punto de encuentro clave para eventos, lanzamientos y la vida cultural de Caracas.",src:"NotiCorp · 12 de octubre de 2026",url:"https://noticorp.com/trasnocho-cultural-inversion-40-millones-modernizacion/"},
+  {id:"n18",img:"img/news-n18.jpg",cap:"600K Network, caso venezolano en el shortlist de Titanium · Foto: PRODU",sec:"Festivales",t:"Venezuela llevó a Cannes Lions 2026 su mayor delegación en más de una década",
+   dek:"600K Network fue el primer caso venezolano en el shortlist de Titanium.",
+   body:["Venezuela llevó a Cannes Lions 2026 más de 30 participantes entre creativos, marketers, líderes de agencias, emprendedores y estudiantes, con FEVAP al frente en alianza con el Círculo Creativo de Venezuela.", "Compitieron ocho casos venezolanos, entre ellos El Rondón de Polar, Walking Ads y Streaming From the Lost World. 600K Network entró al shortlist de Titanium, una primera vez para el país. Jhon Da Silva y Verónica Ruiz del Vizo fueron jurados."],
+   why:"Muestra el crecimiento de la presencia venezolana en el festival más importante de la creatividad.",src:"PRODU · 16 de junio de 2026",url:"https://www.produ.com/mercadeo/noticias/venezuela-fortalece-su-regreso-a-cannes-lions-con-una-delegacion-record-y-un-historico-shortlist-en-titanium/"},
+  {id:"n2",img:"img/news-n2.jpg",cap:"Avión de LATAM Airlines · Foto: Banca y Negocios",sec:"Negocios",t:"LATAM unirá Santiago de Chile y Caracas con vuelos directos desde enero",
+   dek:"La ruta arranca el 3 de enero de 2027 con cuatro vuelos por semana.",
+   body:["LATAM Airlines Group operará una ruta directa entre Santiago de Chile y Caracas a partir del 3 de enero de 2027, según reseñó Banca y Negocios con base en el diario chileno Estrategia.",
+         "Habrá cuatro vuelos semanales, los lunes, miércoles, viernes y domingos, en aviones Airbus A320neo. El trayecto durará unas 6 horas y 40 minutos, y la aerolínea espera transportar más de 50.000 pasajeros en el primer año.",
+         "Juan José Tohá, director de Asuntos Corporativos y Sostenibilidad de LATAM, explicó que la ruta se suma a la conexión Caracas-Bogotá que ya opera la compañía y busca integrar mejor a Venezuela con sus centros de conexión en Suramérica."],
+   why:"Más conectividad aérea abre espacio para campañas de turismo y viajes, y acerca a la diáspora venezolana en Chile.",src:"Banca y Negocios (cita al diario Estrategia, de Chile)",url:"https://www.bancaynegocios.com/latam-airlines-group-conectara-a-chile-con-venezuela-a-partir-del-3-de-enero-de-2027-segun-medio-chileno/"}
+];
+var NN=N.filter(function(n){return n.kind!=="art";}), ART=N.filter(function(n){return n.kind==="art";});
+function nById(id){for(var i=0;i<N.length;i++) if(N[i].id===id) return N[i]; return N[0];}
+
+/* Premios en otros festivales. ok = confirmado en el sitio del festival o en prensa; tbc = lo publica la agencia, falta confirmar */
+var F = {
+  laweb:{nombre:"La Web Figital Agency",
+    rows:[
+      ["FIAP","2026","3 bronces","—","Walking Ads (lanzamiento de un podcast en la cumbre del Roraima)","tbc","@lawebesfigital en Instagram","https://www.instagram.com/p/DeAY-5gjwSJ/"],
+      ["FIAP","2026","1 bronce","—","Streaming From the Lost World (streaming en TikTok desde el Roraima)","tbc","@lawebesfigital en Instagram","https://www.instagram.com/p/DeAY-5gjwSJ/"],
+      ["FIAP","2026","Agencia del año Venezuela (segundo año consecutivo)","—","5 shortlists, 4 metales","tbc","@lawebesfigital en Instagram","https://www.instagram.com/p/DeAY-5gjwSJ/"],
+      ["Effie Awards Latin America","2026","Finalista","Deportes y entretenimiento","Salvando Pelotica de Goma (con Buentipo, para Vacílate Esto). Premiación el 29 de octubre","ok","Effie Latin America","https://www.latameffie.com/blog/1017"],
+      ["Cannes Lions","2025","León de Plata","Entertainment Lions for Sport","Saving Pelotica de Goma (con Buentipo, para Vacílate Esto)","ok","El Impulso","https://www.elimpulso.com/2025/06/28/venezuela-gana-leon-de-plata-en-cannes-lions-con-la-campana-salvando-la-pelotica-de-goma-28jun/"],
+      ["Clio Sports","2025","Oro","Partnerships & Sponsorships","Saving Pelotica de Goma (con Buentipo)","ok","The Clio Awards","https://clios.com/winners-gallery/details/198505"],
+      ["Festival El Dorado","2025","Plata","Entertainment, Music, Sports & Gaming","Saving Pelotica de Goma","ok","Marketing Insider Review","https://marketinginsiderreview.com/palmares-del-festival-el-dorado-2025/"],
+      ["El Ojo de Iberoamérica","2025","Plata y bronce","—","—","tbc","La Web Figital Agency","https://www.lawebfigitalagency.com/"],
+      ["FIAP","2025","Agencia del año Venezuela","—","—","tbc","La Web Figital Agency","https://www.lawebfigitalagency.com/"],
+      ["WINA","2025","Premiada","—","—","tbc","La Web Figital Agency","https://www.lawebfigitalagency.com/"],
+      ["Premios ANDA (Venezuela)","2009-2016","69 metales","Varias","Varias","tbc","La Web Figital Agency","https://www.lawebfigitalagency.com/"],
+      ["Premio La Arepa (Venezuela)","2007","Premiada","—","—","tbc","La Web Figital Agency","https://www.lawebfigitalagency.com/"]
+    ],
+    nota:"En FIAP 2026 la agencia reporta 4 bronces y su segundo título consecutivo como Agencia del año de Venezuela. En 2025, Saving Pelotica de Goma le dio al país su primer León de Plata en Cannes Lions."},
+  amarillo:{nombre:"Amarillo Creative Lab",
+    rows:[
+      ["Young Lions Venezuela","2026","Oro","Digital","Dupla Constanza Krueger y Oriana Valero; representaron a Venezuela en Cannes Lions 2026","ok","PRODU","https://www.produ.com/mercadeo/noticias/venezuela-competira-con-cuatro-duplas-en-young-lions-2026-su-mayor-participacion-historica/"],
+      ["Young Lions Venezuela","2026","Plata","Digital","Teacher Squad, de Valentina Gondelles y Valentina Larrazábal (segunda plata consecutiva)","ok","PRODU","https://www.produ.com/mercadeo/noticias/valentina-larrazabal-y-valentina-gondelles-de-amarillo-creative-lab-la-idea-amarilla-siempre-aparece/"],
+      ["Young Lions Venezuela","2026","2 bronces","—","Duplas de Mariana Aymerich y Oswald Martínez, y de Ariana Sánchez","tbc","@amarillocreativelab en Instagram","https://www.instagram.com/amarillocreativelab/reel/DW7vRKFjWrX/"]
+    ],
+    nota:"Su mayor logro reciente es en talento joven: cuatro medallas en la competencia local de Young Lions 2026, incluido el oro en Digital que llevó a una de sus duplas a Cannes Lions."},
+  robin:{nombre:"Robin Agency",
+    rows:[
+      ["AVA Digital Awards","2026","Platinum","Interactive Brand Experience","Golden: Isla Fortnite","ok","Revista Business Venezuela","https://www.revistabusinessvenezuela.com/robin-celebra-cinco-reconocimientos-en-los-ava-digital-awards-2026-y-reafirma-el-alcance-internacional-de-su-creatividad/"],
+      ["AVA Digital Awards","2026","Platinum","Integrated Digital Campaign","Maltín Polar: Energía de Búfalo","ok","Revista Business Venezuela","https://www.revistabusinessvenezuela.com/robin-celebra-cinco-reconocimientos-en-los-ava-digital-awards-2026-y-reafirma-el-alcance-internacional-de-su-creatividad/"],
+      ["AVA Digital Awards","2026","Gold","Branded Content Series","7up: Destinos 2.0","ok","Revista Business Venezuela","https://www.revistabusinessvenezuela.com/robin-celebra-cinco-reconocimientos-en-los-ava-digital-awards-2026-y-reafirma-el-alcance-internacional-de-su-creatividad/"],
+      ["AVA Digital Awards","2026","Gold","Digital Advertising Campaign","Johnnie Walker: Johnnie Tiene Fe","ok","Revista Business Venezuela","https://www.revistabusinessvenezuela.com/robin-celebra-cinco-reconocimientos-en-los-ava-digital-awards-2026-y-reafirma-el-alcance-internacional-de-su-creatividad/"],
+      ["AVA Digital Awards","2026","Mención de honor","Influencer/Creator Campaign","P.A.N.: Mi Empanada es P.A.N.","ok","Revista Business Venezuela","https://www.revistabusinessvenezuela.com/robin-celebra-cinco-reconocimientos-en-los-ava-digital-awards-2026-y-reafirma-el-alcance-internacional-de-su-creatividad/"],
+      ["Young Lions Venezuela","2026","Dupla ganadora","Film","Cleveland González y José Sánchez; representaron a Venezuela en Cannes Lions 2026","ok","PRODU","https://www.produ.com/mercadeo/noticias/venezuela-competira-con-cuatro-duplas-en-young-lions-2026-su-mayor-participacion-historica/"]
+    ],
+    nota:"En febrero de 2026 sumó cinco reconocimientos en los AVA Digital Awards, que premian el trabajo digital, y en abril una de sus duplas ganó Film en Young Lions Venezuela."},
+  mutato:{nombre:"Mutato",
+    rows:[
+      ["Premios ANDA (Venezuela)","2000","Gran ganadora: 9 premios y 2 Grand Prix","TV y Gráfica","Bajante y Laptop, para Diario Panorama (como J. Walter Thompson Venezuela)","ok","Adlatina","http://www.adlatina.com/publicidad/j-walter-thompson-venezuela-arras%C3%B3-en-los-anda-2000"],
+      ["Festival de Londres","2000","Finalista","Low Budget","Campaña de Diario Panorama (como J. Walter Thompson Venezuela)","ok","PRODU","https://www.produ.com/mercadeo/noticias/jwt-venezuela-la-gran-ganadora-de-anda-con-panorama/"]
+    ],
+    nota:"Mutato es la agencia que antes operaba como J. Walter Thompson Venezuela. No encontramos premios publicados a su nombre en 2025 ni en 2026: no aparece entre los ganadores de Young Lions Venezuela ni entre los finalistas de Effie Latin America 2026."}
+};
+
+var P = {
+  laweb:{ini:"LW",nombre:"La Web Figital Agency",tag:"N.º 1 RANKING 2022-2026",pos:"#1",pts:"140",ap:"1",cat:"9",nom:"24",bars:[["2022","25",50],["2024","50",100],["2025","25",50],["2026","40",80]],marcas:["Pilsen","Cervecería Polar","Mercado Libre"]},
+  mutato:{ini:"MU",nombre:"Mutato",tag:"RANKING 2022-2026",pos:"#7",pts:"43",ap:"0",cat:"3",nom:"14",bars:[["2022","3",13],["2024","12",50],["2025","4",17],["2026","24",100]],marcas:["Maggi","Yukery"]}
+};
+
+var G=[["06","Un equipo ganador recibe la bota en el escenario"],["05","Premio Ápice 2025, Goodman Latam"],["01","Ganador en el escenario"],["02","Discurso de un ganador"],["03","Ganadora con su bota"],["04","Presentadores de la ceremonia"],["13","Equipo ganador con dos botas"],["14","Ganadores en el photocall"],["15","Celebración del equipo ganador"],["07","Selfie en el photocall"],["12","Un ganador con su bota"],["08","Invitada en el photocall"],["09","Invitados en el photocall"],["10","Invitada en el photocall"],["11","Invitados en el photocall"],["16","Invitados en el photocall"],["17","Nominados de Relaciones públicas"]];
+function img(n){return "img/cima2025-"+n+".jpg";}
+var G26=[["01","El equipo de «El Rondón de Polar» celebra el Premio Ápice"],["02","Foto oficial del Premio Ápice 2026"],["03","RG2 recibe la Agencia del Año"],["04","Discurso de RG2, Agencia del Año 2026"],["05","Agradecimiento de RG2 en el escenario"],["06","RG2 con la bota de Agencia del Año"]];
+function galeria26(){return '<div style="margin-top:28px"><div class="sec-head"><h3 style="font-size:24px">Galería de la ceremonia 2026</h3><span class="meta">'+G26.length+' fotos</span></div><div class="gal">'+G26.map(function(g){var u="img/cima2026-"+g[0]+".jpg";return '<a href="'+u+'" target="_blank" rel="noopener"><img src="'+u+'" alt="'+esc(g[1])+'" loading="lazy"><span>'+esc(g[1])+'</span></a>';}).join('')+'</div></div>';}
+function galeria(){return '<div style="margin-top:28px"><div class="sec-head"><h3 style="font-size:24px">Galería de la ceremonia 2025</h3><span class="meta">'+G.length+' fotos</span></div><div class="gal">'+G.map(function(g){return '<a href="'+img(g[0])+'" target="_blank" rel="noopener"><img src="'+img(g[0])+'" alt="'+esc(g[1])+'" loading="lazy"><span>'+esc(g[1])+'</span></a>';}).join('')+'</div></div>';}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function rowLink(r){return r[9]?'<a href="#perfil-'+r[9]+'" style="font-weight:600">'+esc(r[0])+'</a>':'<span style="font-weight:600">'+esc(r[0])+'</span>';}
+
+function vPortada(){
+  var lead=NN[0], dest=[NN[1],NN[2],NN[3]];
+  var mov=[["AB","Nuevo rol","[Nombre], nueva Directora de Mercadeo en [Marca]"],["CD","Ascenso","[Nombre] pasa a VP de Cuentas en [Agencia]"],["EF","Llega","[Nombre] se une a [Agencia] como Head of Strategy"],["GH","Nuevo rol","[Nombre], Gerente de Marca de [Marca]"]];
+  var camp=[["Lanzamiento","[Marca] presenta [producto]"],["Campaña","[Marca] estrena campaña con [Agencia]"],["Experiencia","[Marca] lleva su marca a [evento]"],["Digital","[Marca] apuesta por creadores en [plataforma]"]];
+  var h='<div class="ticker"><div class="wrap"><span class="tag">PREMIOS CIMA 2026</span><span>Ápice: El Rondón de Polar</span><span>·</span><span>Agencia del Año: RG2</span><span>·</span><span>Ranking 2022-2026: La Web Figital Agency, 140 pts</span><span>·</span><a href="#ranking">Ver ranking completo →</a></div></div>';
+  h+='<section class="wrap"><div class="hero"><a href="#'+lead.id+'" class="lead-story"><figure class="photo"><img src="'+lead.img+'" alt="'+esc(lead.cap)+'"><figcaption>'+esc(lead.cap)+'</figcaption></figure><div class="kick">'+lead.sec+' · 4ta edición</div><h1>'+esc(lead.t)+'</h1><p class="dek">'+esc(lead.dek)+'</p><div class="meta">Redacción CIMA · Fuente: '+esc(lead.src)+' · Oct 2026</div></a>';
+  h+='<div class="dest"><div class="lab" style="color:var(--fg);font-weight:700;border-bottom:2px solid var(--fg);padding-bottom:10px">Destacados de hoy</div>'+dest.map(function(d,i){return '<a href="#'+d.id+'"><span class="num">'+(i+1)+'</span><span style="display:flex;flex-direction:column;gap:6px"><span class="lab">'+d.sec+'</span><h3>'+esc(d.t)+'</h3></span></a>';}).join('')+'</div></div></section>';
+    h+='<div class="wrap" style="padding-top:28px"><a class="adslot bb" href="#publicidad"><span class="ad-k">Espacio publicitario disponible</span><span class="ad-s">970×250 · móvil 300×250 · <b>Anúnciate aquí →</b></span></a></div>';
+  h+='<section class="wrap"><div class="main-grid"><div style="min-width:0"><div class="sec-head"><h2>Agencias, marcas y negocios</h2><a class="more" href="#noticias">Todas las noticias →</a></div>'+newsList(NN)+'</div>';
+  h+='<aside class="side"><div class="box"><div style="display:flex;justify-content:space-between;align-items:baseline"><h3 style="font-size:23px">Ranking CIMA</h3><span class="meta">2022-2026 · puntos</span></div><div class="tabs" role="group" aria-label="Tipo de ranking">'+[["ag","Agencias"],["ma","Marcas"],["em","Empresas"]].map(function(t){return '<button type="button" data-tab="'+t[0]+'" aria-pressed="'+(S.tab===t[0])+'">'+t[1]+'</button>';}).join('')+'</div>'+R[S.tab].slice(0,5).map(function(r,i){return '<div class="rk"><span class="p">'+(i+1)+'</span><span class="n">'+esc(r[0])+'</span><span class="v">'+fmt(r[8])+'</span></div>';}).join('')+'<a class="more" href="#ranking">Ver ranking completo →</a></div>';
+  h+='<a class="adslot mr" href="#publicidad"><span class="ad-k">Espacio publicitario disponible</span><span class="ad-s">300×250 · <b>Anúnciate aquí →</b></span></a>';
+  h+='<div class="list"><div class="lab" style="color:var(--fg);font-weight:700;border-bottom:2px solid var(--fg);padding-bottom:10px">Lo más leído</div>'+NN.slice(0,5).map(function(n,i){return '<a href="#'+n.id+'"><span class="num" style="font-size:20px;min-width:20px">'+(i+1)+'</span><span>'+esc(n.t)+'</span></a>';}).join('')+'</div>';
+  h+='<div class="box"><div class="lab" style="color:var(--accent)">¿Tienes una noticia?</div><h3 style="font-size:21px">Envía tu nota de prensa</h3><p class="meta" style="font-size:14px">Lanzamientos, campañas, nombramientos y cuentas nuevas de la industria.</p><a class="btn" href="#envia-nota">Enviar nota</a></div>';
+  h+='<form class="nl" id="boletin" data-form="nl"><div class="lab" style="color:var(--brand)">Boletín · presentado por <a href="https://www.lbm-la.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">LBM Comunicaciones</a></div><div style="font-family:var(--sans);font-size:23px;line-height:1.15">La semana de la industria, en un solo correo</div>'+(S.nlSent?'<div style="font-weight:600">Listo. En el sitio real aquí quedarías suscrita.</div>':'<label for="nl-mail">Tu correo</label><input id="nl-mail" type="email" required placeholder="nombre@empresa.com"><button class="btn brand" type="submit">Suscribirme gratis</button>')+'</form></aside></div></section>';
+  h+='<section class="wrap" style="padding-top:0"><div class="sec-head"><h2>Artículos</h2><a class="more" href="#articulos">Todos los artículos →</a></div>'+artCards(ART.slice(0,3))+'</section>';
+  if(false) h+='<section style="background:var(--soft);border-block:1px solid var(--line)"><div class="wrap"><div class="sec-head"><h2>Campañas y nuevos productos</h2><a class="more" href="#noticias">Ver más →</a></div><div class="g4" style="margin-top:12px">'+camp.map(function(c){return '<span style="display:flex;flex-direction:column;gap:8px"><div class="sq"></div><span class="kick">'+c[0]+'</span><h3 style="font-size:20px">'+esc(c[1])+'</h3></span>';}).join('')+'</div></div></section>';
+  h+='<section class="wrap"><div class="g3"><div class="list"><div class="lab" style="color:var(--fg);font-weight:700;border-bottom:2px solid var(--fg);padding-bottom:10px">Aprende · CIMA Learning</div>'+AP.slice(0,3).map(function(a){return '<a href="#aprende" style="flex-direction:column;gap:3px"><span class="kick">'+esc(a[0])+'</span><span>'+esc(a[1])+'</span></a>';}).join('')+'<a class="more" href="#aprende" style="margin-top:10px">Ver toda la formación →</a></div>';
+  h+='<div class="list"><div class="lab" style="color:var(--fg);font-weight:700;border-bottom:2px solid var(--fg);padding-bottom:10px">Empleos</div><p class="meta" style="font-size:15px;padding-top:12px">Sube tu CV gratis y deja que las agencias, marcas y medios te encuentren.</p><a class="btn" href="#empleos" style="margin-top:12px">Sube tu CV</a></div>';
+  h+='<div class="list"><div class="lab" style="color:var(--fg);font-weight:700;border-bottom:2px solid var(--fg);padding-bottom:10px">Venezuela en festivales</div>'+[["4 bronces · FIAP 2026","La Web · Agencia del año de Venezuela por segundo año"],["León de Plata · Cannes Lions 2025","La Web y Buentipo · Saving Pelotica de Goma"],["Oro · Clio Sports 2025","La Web y Buentipo · Saving Pelotica de Goma"],["Plata · El Dorado 2025","Saving Pelotica de Goma"],["5 premios · AVA Digital Awards 2026","Robin Agency"],["Oro en Digital · Young Lions Venezuela 2026","Amarillo Creative Lab"]].map(function(f){return '<a href="#festivales" style="flex-direction:column;gap:3px"><span>'+esc(f[0])+'</span><span class="meta" style="font-weight:400">'+esc(f[1])+'</span></a>';}).join('')+'<a class="more" href="#festivales" style="margin-top:10px">Ver premios por agencia →</a></div></div></section>';
+  h+='<div class="wrap" style="padding-block:8px 28px"><a class="adslot lb" href="#publicidad"><span class="ad-k">Espacio publicitario disponible</span><span class="ad-s">728×90 · móvil 320×50 · <b>Anúnciate aquí →</b></span></a></div>';
+  return h;
+}
+
+function newsList(list){
+  return '<div class="news">'+list.map(function(n){return '<a href="#'+n.id+'"><div class="thumb"'+(n.img?' style="background:url('+n.img+') center/cover"':'')+'></div><div style="min-width:0"><div class="kick">'+n.sec+'</div><h3>'+esc(n.t)+'</h3><p>'+esc(n.dek)+'</p><p class="meta" style="margin-top:4px">Fuente: '+esc(n.src)+'</p></div></a>';}).join('')+'</div>';
+}
+
+function vNoticias(){
+  return '<section class="wrap"><div class="kick">Noticias</div><h1 style="font-size:46px;margin:8px 0 10px">Lo último de la industria</h1><p class="dek">Mercadeo, marcas y negocios en Venezuela. Cada nota enlaza a su fuente original.</p><a class="btn dark" href="#envia-nota" style="margin-top:16px">Envía tu nota de prensa</a><div style="margin-top:20px;max-width:860px">'+newsList(NN)+'</div></section>';
+}
+
+function vNota(id){
+  var n=nById(id);
+  var h='<section class="wrap"><article class="article"><a class="kick" href="'+(n.kind==="art"?"#articulos":"#noticias")+'">'+n.sec+'</a><h1>'+esc(n.t)+'</h1><p class="dek">'+esc(n.dek)+'</p><div class="meta">'+(n.by?esc(n.by):'Redacción CIMA · Oct 2026')+'</div>'+(n.img?'<figure class="photo"><img src="'+n.img+'" alt="'+esc(n.cap)+'"><figcaption>'+esc(n.cap)+'</figcaption></figure>':'<div class="ph" style="aspect-ratio:16/9">[Imagen de la nota]</div>')+'<div class="body">'+n.body.map(function(p,i){return p.indexOf('## ')===0?'<h2 style="font-size:24px;margin:26px 0 12px">'+esc(p.slice(3))+'</h2>':(p.charAt(0)==='¿'?'<p><b style="font-family:var(--display);font-size:21px">'+esc(p)+'</b></p>':'<p>'+esc(p)+'</p>')+(i===((n.body[1]||'').charAt(0)==='¿'?2:1)?'<div style="margin-block:6px 24px"><a class="adslot mr" href="#publicidad"><span class="ad-k">Espacio publicitario disponible</span><span class="ad-s">300×250 · <b>Anúnciate aquí →</b></span></a></div>':'');}).join('')+'</div>';
+  if(n.why) h+='<div class="why"><b>Por qué importa.</b> '+esc(n.why)+'</div>';
+  if(n.kind!=="art") h+='<p class="src">Fuente: <a href="'+n.url+'"'+(n.url.charAt(0)==="#"?'':' target="_blank" rel="noopener"')+'>'+esc(n.src)+'</a></p>';
+  var others=(n.kind==="art"?ART:NN).filter(function(x){return x.id!==n.id;}).slice(0,3);
+  h+='<div><div class="lab" style="color:var(--fg);font-weight:700;border-bottom:2px solid var(--fg);padding-bottom:10px">Más noticias</div><div class="list">'+others.map(function(o){return '<a href="#'+o.id+'">'+esc(o.t)+'</a>';}).join('')+'</div></div></article></section>';
+  return h;
+}
+
+function festTable(k){
+  var f=F[k];
+  return '<div class="tbl"><table><thead><tr><th>Festival</th><th>Año</th><th>Premio</th><th>Categoría</th><th>Campaña</th><th>Fuente</th></tr></thead><tbody>'+f.rows.map(function(r){return '<tr><td style="font-weight:600">'+esc(r[0])+'</td><td>'+r[1]+'</td><td class="wrap">'+esc(r[2])+'</td><td class="wrap">'+esc(r[3])+'</td><td class="wrap">'+esc(r[4])+'</td><td><a href="'+r[7]+'" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">'+esc(r[6])+'</a></td></tr>';}).join('')+'</tbody></table></div>';
+}
+
+var CAL=[
+  {n:"+CTG · Cumbre Latinoamericana de la Economía Creativa",mark:"+CTG",d:"28 al 30 de octubre de 2026",lugar:"Centro de Convenciones, Cartagena de Indias, Colombia",det:"11ª edición. Allí se entregan los Effie Awards Latin America.",url:""},
+  {n:"Effie Awards Latin America",logo:"img/fest-effie.svg",d:"29 de octubre de 2026",lugar:"Cartagena de Indias, Colombia (en el marco de +CTG)",det:"«Salvando Pelotica de Goma» compite como finalista venezolano.",url:"https://effie.org/"},
+  {n:"FIAP · Festival Iberoamericano de Publicidad",mark:"FIAP",d:"4 de noviembre de 2026",lugar:"Ciudad de México (Advertising Week LatAm)",det:"Gala presencial de premiación. La Web Figital Agency, Agencia del año de Venezuela.",url:""},
+  {n:"El Ojo de Iberoamérica",logo:"img/fest-ojo.svg",d:"11 al 13 de noviembre de 2026",lugar:"Buenos Aires, Argentina",det:"29ª edición del festival.",url:"https://www.elojodeiberoamerica.com/"},
+  {n:"Cannes Lions",logo:"img/fest-cannes.svg",d:"21 al 25 de junio de 2027",lugar:"Cannes, Francia",det:"Festival Internacional de la Creatividad.",url:"https://www.canneslions.com/"}
+];
+function vFestivales(){
+  var h='<section class="wrap"><div class="kick">Festivales</div><h1 style="font-size:46px;margin:8px 0 10px">Agencias venezolanas en otros festivales</h1><p class="dek">Los premios que las agencias del Ranking CIMA han ganado fuera de CIMA. Cada premio enlaza a su fuente.</p><a class="card" href="#n6" style="margin-top:20px;max-width:760px"><span class="kick">Lo último · FIAP 2026</span><h3>La Web Figital Agency gana 4 bronces en FIAP 2026 y repite como Agencia del año de Venezuela</h3><span class="meta">Leer la nota →</span></a>';
+  ["laweb","robin","amarillo","mutato"].forEach(function(k){
+    h+='<div style="margin-top:36px"><div class="sec-head"><h2>'+F[k].nombre+'</h2>'+(P[k]?'<a class="more" href="#perfil-'+k+'">Ver perfil →</a>':'')+'</div><p class="meta" style="font-size:15px;margin-block:10px 6px;max-width:70ch">'+esc(F[k].nota)+'</p>'+festTable(k)+'</div>';
+  });
+  h+='<div style="margin-top:44px"><div class="sec-head"><h2>Calendario de festivales</h2></div><p class="meta" style="font-size:15px;margin-block:8px 14px">Próximas ediciones de los festivales donde compite la creatividad venezolana.</p><div class="cal">'+CAL.map(function(c){var inner='<span class="cal-logo">'+(c.logo?'<img src="'+c.logo+'" alt="'+esc(c.n)+'">':'<b>'+esc(c.mark)+'</b>')+'</span><span class="cal-txt"><span class="kick">'+esc(c.d)+'</span><b>'+esc(c.n)+'</b><span class="meta">'+esc(c.lugar)+'</span><span class="meta" style="font-size:13px">'+esc(c.det)+'</span></span>';return c.url?'<a class="cal-row" href="'+c.url+'" target="_blank" rel="noopener">'+inner+'</a>':'<div class="cal-row">'+inner+'</div>';}).join('')+'</div><p class="meta" style="font-size:13px;margin-top:10px">Fechas según los organizadores y la prensa especializada al 27 de octubre de 2026.</p></div></section>';
+  return h;
+}
+
+
+function rHead(on){
+  var t=[["reglamento","Reglamento 2026"],["puntos","Sistema de puntos"],["jovenes","Jóvenes Creativos"]];
+  return '<div class="kick">Premios CIMA · 4ta edición</div><h1 style="font-size:44px;margin:8px 0 6px">Reglamentos y sistema de puntos</h1><p class="dek">Las reglas vigentes para inscribir casos, cómo se calcula el ranking y las bases del concurso Jóvenes Creativos.</p><nav class="rtabs" aria-label="Documentos">'+t.map(function(x){return '<a href="#'+x[0]+'"'+(x[0]===on?' class="on" aria-current="page"':'')+'>'+x[1]+'</a>';}).join('')+'</nav>';
+}
+function tbl(h,rows){return '<div class="tbl"><table><thead><tr>'+h.map(function(x){return '<th>'+x+'</th>';}).join('')+'</tr></thead><tbody>'+rows.map(function(r){return '<tr>'+r.map(function(c){return '<td>'+c+'</td>';}).join('')+'</tr>';}).join('')+'</tbody></table></div>';}
+function ul(a){return '<ul>'+a.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';}
+
+function vReglamento(){
+  var h='<section class="wrap">'+rHead("reglamento")+'<article class="rules">';
+  h+='<h2>1. Plazos y casos admitidos</h2><p>Se evalúan casos realizados entre el 1 de enero y el 31 de diciembre de 2025, con sus resultados, dentro o desde el territorio venezolano. Es válido presentar datos de contexto previos a ese período para entender el entorno del caso.</p>'+ul(["Cada caso debe tener un contexto, un reto, una o varias piezas que respondan al objetivo, y la superación del reto con sus resultados. Premios CIMA evalúa la totalidad del caso, no piezas creativas aisladas ni resultados de negocio por separado.","Solo se evalúan casos reales. No entran pruebas de mercado, productos o servicios que no hayan salido al mercado, ni proyectos.","Los casos se presentan con los esquemas publicados en www.premioscima.com."]);
+  h+='<h2>2. Postulados</h2><p>Pueden postular casos las personas naturales y jurídicas que deseen medir sus campañas de mercadeo y publicidad ante el jurado de Premios CIMA. Los casos inscritos deben estar autorizados por la marca.</p>';
+  h+='<h2>3. Tarifas y pagos</h2>'+tbl(["Etapa","Fechas (2026)","Costo por caso"],[["Regular","10 de marzo al 22 de mayo","150 USD"],["Extensión","23 al 27 de mayo","200 USD"]])+ul(["Las agencias afiliadas a FEVAP tienen 10% de descuento hasta el 22 de mayo de 2026.","Los pagos se registran únicamente por WhatsApp +58 414 863CIMA (8632462) o por correo a postulados@premioscima.com.","Una vez inscrito un caso no hay reembolsos, tampoco si se solicita anular la postulación."]);
+  h+='<h2>4. Inscripción</h2>'+ul(["La inscripción se hace llenando la planilla de www.premioscima.com. Todos los campos son obligatorios y se debe adjuntar el recibo de pago.","Una planilla inactiva por más de un mes se considera abandonada y se borra.","Los datos de la planilla se copian tal cual para el premio. Cualquier ajuste posterior se pide a postulados@premioscima.com y puede tener un costo adicional.","Los datos deben ser concisos, certeros y pertinentes, ligados al desarrollo creativo y a los resultados del caso.","El postulante recibe una confirmación por correo en las 72 horas hábiles siguientes a la inscripción.","Un mismo caso puede inscribirse en otra categoría si su enfoque es apropiado para ella.","Está prohibido que varias empresas inscriban el mismo caso. Si ocurre, Premios CIMA pide a las partes llegar a un acuerdo; sin consenso, vale la inscripción más temprana.","Premios CIMA puede recategorizar inscripciones, cambiar las definiciones de las categorías y descalificar piezas en cualquier momento, y lo comunica a la persona contacto."]);
+  h+='<h2>5. Idioma y formatos</h2><p>Las piezas deben estar en español. Las que estén en otro idioma se traducen así:</p>'+ul(["<b>Films y casos:</b> con subtítulos. Se recomiendan también cuando el habla no sea español neutro.","<b>Audios:</b> seguidos de su traducción al español en tono neutro.","<b>Websites:</b> traducir las secciones relevantes del menú, titulares y textos que aclaren el caso."])+'<p>El video del caso no puede pasar de 3 minutos. Los enlaces deben ser públicos para el jurado y el equipo de producción.</p>'+tbl(["Formato","Especificación"],[["MP3","MPEG-2 Audio Layer III, estéreo o mono, 44,1 kHz, 16 bits, mínimo 160 kbps"],["JPG/JPEG","300 dpi, RGB, 2000 x 34000 píxeles. No se admite CMYK"],["MOV o MP4","Compresión H.264, preferible fuente de 10 bits, con «Enable Streaming» o «Fast Start». Audio MPEG-4/AAC Main Profile, 48 kHz, 16 bits, mínimo 160 kbps (256 recomendado). No se aceptan archivos ProRes"]]);
+  h+='<h2>6. Nominados y ganadores</h2>'+ul(["Los nominados se notifican por correo, se publican en www.premioscima.com e Instagram @premioscima y se anuncian con notas de prensa. Cada campaña o pieza nominada recibe una entrada de cortesía antes del evento.","Los ganadores se anuncian en la ceremonia en el Hotel Eurobuilding, en Caracas. El programa se publica en www.premioscima.com e Instagram @premioscima.","Después de la ceremonia se envían notas de prensa con los ganadores de cada categoría. Los medios y los organizadores pueden pedirles entrevistas."]);
+  h+='<h2>7. Créditos y uso de datos</h2>'+ul(["Los nombres y datos de la planilla se usan en anuncios, reconocimientos impresos, cartas de felicitación y piezas del festival, por lo que deben estar bien escritos.","Premios CIMA puede usar los nombres y el material de los casos para promocionar el premio, hacer presentaciones, educar a nuevas audiencias y montar stands en futuros eventos. Esto incluye marcas, dibujos animados, logos, música y animales del caso, por tiempo indefinido, en cualquier medio y sin pago de derechos."]);
+  h+='<h2>8. Sistema de puntos</h2><p>El ranking de agencias, marcas y empresas se rige por el sistema de puntos. <a href="#puntos" class="more">Ver el sistema de puntos completo →</a></p>';
+  h+='<p class="note">Este documento fue revisado por JBA Legal, auditores de Premios CIMA.</p></article></section>';
+  return h;
+}
+
+function vPuntos(){
+  var h='<section class="wrap">'+rHead("puntos")+'<article class="rules">';
+  h+='<h2>Objetivo</h2><p>El sistema de puntos define la Agencia, la Marca y la Empresa del año de Premios CIMA, y ordena a los participantes en un ranking anual y uno histórico. La metodología es pública y ninguna relación comercial con CIMA da ventaja en el puntaje.</p>';
+  h+='<h2>Puntos</h2>'+tbl(["Logro","Puntos"],[["Premio Ápice","<b>35</b>"],["Categoría ganada","<b>10</b>"],["Nominación","<b>1</b> (máximo 5 por edición)"]]);
+  h+='<h2>Reglas de conteo</h2>'+ul(["<b>Empate:</b> cada ganador recibe el puntaje completo.","<b>Coautoría:</b> si una campaña tiene varias agencias acreditadas, los puntos se dividen en partes iguales entre ellas. La marca y la casa matriz reciben el puntaje completo una sola vez.","<b>Autopostulación:</b> cuando la marca inscribe sin agencia externa, los puntos no suman en Agencias y sí suman en Marcas y Empresas.","<b>Empresas:</b> cada marca suma sus puntos a su casa matriz.","<b>No puntúan:</b> Talento de la Industria, Trayectoria, Jóvenes Creativos, Campaña del Consumidor y Agencia del año."]);
+  h+='<h2>Rankings</h2>'+ul(["<b>Ranking anual:</b> solo los puntos de la edición en curso. Cada edición comienza en cero. De este ranking salen la Agencia, la Marca y la Empresa del año.","<b>Ranking histórico:</b> suma los puntos anuales de todas las ediciones desde 2022. Refleja la trayectoria de cada participante y no otorga reconocimientos."]);
+  h+='<h2>Desempate</h2><p>Si dos participantes tienen los mismos puntos, gana en este orden quien tenga:</p><ol><li>Más Premios Ápice.</li><li>Más categorías ganadas.</li><li>Más nominaciones.</li></ol>';
+  h+='<h2>Ejemplo</h2><p>Una agencia gana el Premio Ápice (35), dos categorías (20) y tiene siete nominaciones en la misma edición (5, por el tope). Suma 60 puntos. Si una de esas categorías la ganó en coautoría con otra agencia, recibe 5 puntos por ella en vez de 10, y suma 55.</p>';
+  h+='<p><a href="#ranking" class="more">Ver el ranking 2022-2026 →</a></p><p class="note">Este documento fue revisado por JBA Legal, auditores de Premios CIMA.</p></article></section>';
+  return h;
+}
+
+function vJovenes(){
+  var h='<section class="wrap">'+rHead("jovenes")+'<article class="rules">';
+  h+='<p>Jóvenes Creativos es la categoría de Premios CIMA para el talento que empieza su carrera: duplas de 18 a 30 años que resuelven un brief real con tiempo límite. La organizan Premios CIMA y Grande La Academia. El cliente de esta edición es el Dividendo Voluntario para la Comunidad (DVC).</p>';
+  h+='<h2>Fechas clave</h2>'+tbl(["Paso","Fecha y hora (Venezuela)"],[["Entrega del brief, en conexión online","Viernes 9 de octubre, 4:00 p.m."],["Tiempo para resolverlo","72 horas"],["Entrega de las ideas","Lunes 12 de octubre, 4:00 p.m."],["Ganadores","Ceremonia de la 4ta edición, Salón Plaza Real del Hotel Eurobuilding"]]);
+  h+='<h2>Quién puede participar</h2>'+ul(["Duplas de 2 personas venezolanas o extranjeras residentes que vivan en Venezuela, con 18 a 30 años cumplidos al inscribirse. Cada integrante presenta su cédula.","Profesionales de agencias, freelancers, estudiantes o cualquier persona activa en el mundo creativo, publicitario o de mercadeo.","Cada dupla se inscribe en una sola categoría.","Si un integrante no puede seguir por fuerza mayor, la dupla queda descalificada. No hay sustituciones salvo autorización expresa de la organización, ni reembolso."]);
+  h+='<h2>Categorías</h2><p>Esta edición abre dos categorías: <b>Print</b> y <b>Digital</b>.</p>';
+  h+='<h2>Inscripción</h2>'+ul(["Costo: 50 USD, pagados a través de admin@LBM-LA.com, más el formulario de inscripción completo.","El canal oficial de comunicación del concurso es WhatsApp.","Si una dupla se retira por decisión propia, la inscripción no se reembolsa."]);
+  h+='<h2>Entregables</h2>'+tbl(["Categoría","Formato"],[["Print","Pieza horizontal de 42 x 28 cm (unos 2480 x 1654 px), JPG a 150 dpi, máximo 100 MB"],["Digital","Caseboard horizontal de 42 x 28 cm, JPG a 150 dpi"]])+ul(["Se envían a jovenescreativospremioscima@gmail.com, como adjunto o con un enlace de Google Drive abierto para el jurado.","En el asunto va la categoría y los nombres de la dupla, sin agencia ni empresa. Ejemplo: PRINT - Dupla María Delgado y Juan Hernández.","Después de la hora límite, aunque sea un minuto, la entrega queda descalificada. No se aceptan entregas por otros medios.","Cada dupla guarda su propio respaldo: la organización no responde por archivos dañados o en formato incorrecto."]);
+  h+='<h2>Cómo se evalúa</h2>'+tbl(["Criterio","Peso"],[["Idea creativa","50%"],["Estrategia e insight","30%"],["Ejecución y relevancia al brief","20%"]])+'<p>Un jurado de profesionales de la industria, con representantes del DVC como invitados, evalúa de forma confidencial y otorga oro, plata y bronce, y menciones honoríficas si lo considera. Puede declarar desierta una categoría o un metal. Sus decisiones son definitivas y no se hacen públicas antes de la premiación.</p>';
+  h+='<h2>Reglas de trabajo</h2>'+ul(["El trabajo debe ser 100% original e inédito y hecho solo por la dupla. Plagio o uso indebido de materiales es causa de descalificación.","Después de recibir el brief no se permite ayuda externa: ni jefes, ni profesores, ni otras duplas, ni focus groups.","<b>Inteligencia artificial:</b> se permite si el brief lo pide, como apoyo técnico (imágenes de referencia, producción, datos) y declarando su uso al entregar. No puede reemplazar el proceso creativo.","Se pueden usar bancos de imágenes, tipografías y música con licencia válida. No se permiten plantillas que reemplacen el trabajo creativo o de diseño.","Cada dupla trabaja con sus propios equipos; la organización no responde por fallas técnicas o de conexión."]);
+  h+='<h2>Premio y propiedad intelectual</h2>'+ul(["Los ganadores reciben la estatuilla de la categoría.","El trabajo queda acreditado a nombre de la dupla y puede formar parte de su portafolio.","Premios CIMA y Grande La Academia pueden usarlo para difundir el concurso, sin fines comerciales directos.","Los ganadores ceden su campaña al DVC y trabajan con la organización para apoyar su publicación, respetando siempre la autoría de la dupla."]);
+  h+='<h2>Buenas prácticas y privacidad</h2>'+ul(["Cualquier irregularidad la revisa un comité de Premios CIMA y Grande La Academia, con derecho a réplica de la dupla.","Actitudes discriminatorias, agresivas o de acoso son causa de descalificación.","Los datos se usan solo para el concurso. Al participar, la dupla autoriza el uso de su nombre, imagen y voz en la difusión del concurso y la premiación."]);
+  h+='<p class="note">Reglamento elaborado por Premios CIMA y Grande La Academia. Categoría Jóvenes Creativos, edición 2026.</p></article></section>';
+  return h;
+}
+
+function vPremios(){
+  var e=ED[S.ed];
+  var h='<div class="phero"><div class="wrap sub"><a class="on" href="#premios">Edición 2026</a><a href="#premios">Categorías</a><a href="#premios">Inscripciones</a><a href="#reglamento">Reglamento</a><a href="#puntos">Sistema de puntos</a><a href="#premios">Jurado</a><a href="#archivo">Ganadores</a><a href="#ranking">Ranking</a><a href="#jovenes">Jóvenes Creativos</a><a href="#premios">Galería</a></div>';
+  h+='<div class="wrap" style="padding-block:64px 72px;display:flex;flex-direction:column;gap:20px"><div class="lab" style="color:var(--brand)">4ta edición · 2026</div><h1>Premios CIMA. Con firma venezolana.</h1><p>El máximo galardón venezolano a la creatividad y el mercadeo.</p><div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn brand" href="#archivo">Ver ganadores por edición</a><a class="btn" href="#boletin" style="background:transparent;color:var(--on-band);border-color:var(--on-band)">Avísame cuando abran inscripciones 2027</a></div>';
+  h+='<div class="g4" style="border-top:1px solid rgba(255,255,255,.18);padding-top:32px;margin-top:16px"><div class="stat"><div class="big">4</div><div>ediciones (2022-2026)</div></div><div class="stat"><div class="big">313</div><div>casos inscritos en 2026</div></div><div class="stat"><div class="big">+45%</div><div>frente a 2025</div></div><div class="stat"><div class="big">~30</div><div>categorías en 3 ejes</div></div></div></div></div>';
+  h+='<section class="wrap ejes"><div class="sec-head"><h2 style="font-size:36px">Tres ejes de competencia</h2></div><div class="g3" style="margin-top:16px">';
+  h+='<div class="card"><span class="kick">Eje 1</span><h3 style="font-size:30px">Mercadeo</h3><p class="meta" style="font-size:15px">La efectividad real del caso: ventas, posicionamiento, alcance, engagement o impacto social.</p><p style="font-size:14px;border-top:1px solid var(--line);padding-top:10px">Lanzamiento · Experiencia de marca · Plataformas digitales · Radio · Causa social · …</p></div>';
+  h+='<div class="card"><span class="kick">Eje 2</span><h3 style="font-size:30px">Creatividad</h3><p class="meta" style="font-size:15px">La idea y su ejecución: oficio y piezas que conectan con el consumidor.</p><p style="font-size:14px;border-top:1px solid var(--line);padding-top:10px">Campaña de humor · Pieza OOH/DOOH · Pieza audiovisual · Branding · …</p></div>';
+  h+='<div class="card hi"><span class="kick">Eje 3</span><h3 style="font-size:30px">Reconocimientos Especiales</h3><p class="meta" style="font-size:15px">Lo más alto del certamen, para campañas, agencias y personas.</p><p style="font-size:14px;border-top:1px solid var(--tint-line);padding-top:10px">Premio Ápice · Agencia del año · Talento de la Industria · Trayectoria · Campaña del consumidor · Jóvenes Creativos</p></div></div></section>';
+  h+='<section style="background:var(--soft);border-block:1px solid var(--line)"><div class="wrap"><h2 style="font-size:36px;margin-bottom:20px">Cómo funciona</h2><div class="steps">'+[["Inscripción","Casos del año anterior, con contexto, reto, piezas y resultados."],["Evaluación","Jurado especializado; la Junta consultiva valida los datos."],["Nominados","Se publican en la web, Instagram y notas de prensa."],["Ceremonia","Se anuncian ganadores y Reconocimientos Especiales."],["Ranking y difusión","Se actualiza el ranking y cada ganador cuenta su caso."]].map(function(p,i){return '<div><span class="num" style="font-size:28px">'+(i+1)+'</span><b>'+p[0]+'</b><span class="meta" style="font-size:14px">'+p[1]+'</span></div>';}).join('')+'</div></div></section>';
+  h+='<section class="wrap" id="archivo"><div class="sec-head"><h2 style="font-size:36px">Ganadores y nominados por edición</h2><div class="ed-tabs" role="group" aria-label="Edición">'+["2022","2024","2025","2026"].map(function(a){return '<button type="button" data-ed="'+a+'" aria-pressed="'+(S.ed===a)+'">'+a+'</button>';}).join('')+'</div></div>';
+  h+='<div class="two" style="margin-top:20px"><div style="display:flex;flex-direction:column;gap:10px"><span class="kick">'+e.t+'</span><div style="font-family:var(--sans);font-size:62px;font-weight:700;line-height:1">'+e.n+'</div><span class="meta">casos inscritos</span><div>'+e.kv.map(function(k){return '<div class="kv"><span>'+k[0]+'</span><span>'+esc(k[1])+'</span></div>';}).join('')+'</div></div>';
+  h+='<div style="display:flex;flex-direction:column;gap:12px">'+(S.ed==="2026"?'<figure class="photo"><img src="img/cima2026-01.jpg" alt="Premio Ápice 2026"><figcaption>Premio Ápice 2026 · ver galería abajo</figcaption></figure>':S.ed==="2025"?'<figure class="photo"><img src="img/cima2025-06.jpg" alt="Ceremonia de Premios CIMA 2025"><figcaption>Ceremonia 2025 · ver galería abajo</figcaption></figure>':'<div class="ph" style="aspect-ratio:16/10">[Galería de la ceremonia '+S.ed+']</div>')+'<div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="#archivo">Lista de ganadores</a><a class="btn" href="#archivo">Nominados</a><a class="btn" href="#noticias">Casos ganadores</a></div></div></div>'+(S.ed==="2026"?galeria26():S.ed==="2025"?galeria():'')+'</section>';
+  h+='<div class="phero"><section class="wrap"><div class="two"><div style="display:flex;flex-direction:column;gap:14px"><div class="lab" style="color:var(--brand)">Ranking CIMA · metodología pública</div><h2 style="font-size:40px">Agencia del año, con reglas que cualquiera puede revisar</h2><p>Cada reconocimiento suma puntos. Los créditos compartidos se dividen entre agencias; la marca y la empresa reciben el puntaje completo.</p><span style="display:flex;gap:20px;flex-wrap:wrap"><a href="#ranking" style="color:var(--brand);font-weight:700">Ver ranking 2022-2026 →</a><a href="#puntos" style="color:var(--brand);font-weight:700">Leer el sistema de puntos →</a></span></div><div><div class="pts"><span>Premio Ápice</span><b>35</b></div><div class="pts"><span>Categoría ganada</span><b>10</b></div><div class="pts"><span>Nominación (tope 5 por año)</span><b>1</b></div><p style="font-size:14px;padding-top:12px">Desempate: más Ápice, luego más categorías ganadas, luego más nominaciones.</p></div></div></section></div>';
+  return h;
+}
+
+function vRanking(){
+  var names={ag:"Agencias",ma:"Marcas",em:"Empresas (casa matriz)"};
+  var h='<section class="wrap"><div class="kick"><a href="#premios">Premios CIMA</a> · Ranking</div><h1 style="font-size:46px;margin:8px 0 10px">Ranking 2022-2026</h1><p class="dek">Puntos acumulados en las cuatro ediciones (no hubo edición en 2023). 35 por Premio Ápice, 10 por categoría ganada y 1 por nominación, con tope de 5 por edición. En 2026, RG2 obtuvo la Agencia del Año con 83,33 puntos.</p>';
+  h+='<div class="tabs" role="group" aria-label="Tipo de ranking" style="max-width:520px;margin-block:24px 8px">'+[["ag","Agencias"],["ma","Marcas"],["em","Empresas"]].map(function(t){return '<button type="button" data-rtab="'+t[0]+'" aria-pressed="'+(S.rtab===t[0])+'">'+t[1]+'</button>';}).join('')+'</div>';
+  h+='<div class="sponsor" style="margin-top:16px"><span>Ranking CIMA presentado por</span><a href="https://www.lbm-la.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--accent)"><img src="img/lbm-logo.png" alt="" width="32" height="32">LBM Comunicaciones</a></div>';
+  h+='<h2 style="font-size:24px;margin-block:16px 8px">Top 10 '+names[S.rtab]+'</h2><div class="tbl"><table><thead><tr><th>#</th><th>Nombre</th><th class="r">2022</th><th class="r">2024</th><th class="r">2025</th><th class="r">2026</th><th class="r">Ápice</th><th class="r">Categorías</th><th class="r">Nominaciones</th><th class="r">Total</th></tr></thead><tbody>';
+  var prev="",pos=0;
+  R[S.rtab].forEach(function(r,i){ var key=[r[8],r[5],r[6],r[7]].join("|"); pos=(key===prev)?pos:i+1; prev=key;
+    h+='<tr><td class="pos">'+pos+'</td><td>'+rowLink(r)+'</td>'+[1,2,3,4,5,6,7].map(function(k){return '<td class="r">'+fmt(r[k])+'</td>';}).join('')+'<td class="r tot">'+fmt(r[8])+'</td></tr>';});
+  h+='</tbody></table></div><p class="meta" style="margin-top:14px">Empate en puntos: se desempata por más Ápice, luego más categorías ganadas, luego más nominaciones. En coautoría, los puntos se dividen entre las agencias. Fuente: archivo master de nominados y ganadores de Premios CIMA. <a href="#puntos" class="more">Cómo se calculan los puntos →</a></p></section>';
+  return h;
+}
+
+function vPerfil(k){
+  var p=P[k]||P.laweb; k=P[k]?k:"laweb"; var f=F[k];
+  var h='<section class="wrap" style="background:var(--soft);padding-inline:0"><div class="wrap" style="display:flex;flex-direction:column;gap:22px"><div class="pf"><div class="cover"><span class="tag">'+p.tag+'</span></div><div class="body"><div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap"><div class="logo2">'+p.ini+'</div><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn dark" href="#festivales">Ver premios</a></div></div><div><h1 style="font-size:42px">'+esc(p.nombre)+'</h1><div class="meta" style="font-size:15px">Agencia · Caracas</div></div>';
+  h+='<div class="g5"><div><b style="color:var(--accent)">'+p.pos+'</b><span>Ranking 2022-2026</span></div><div><b>'+p.pts+'</b><span>puntos acumulados</span></div><div><b>'+p.ap+'</b><span>Premio Ápice</span></div><div><b>'+p.cat+'</b><span>categorías ganadas</span></div><div><b>'+p.nom+'</b><span>nominaciones</span></div></div></div>';
+  h+='<div class="ptabs"><a class="on" href="#perfil-'+k+'">Resumen</a><a href="#festivales">Premios</a><a href="#noticias">Noticias</a></div></div>';
+  h+='<div class="main-grid"><div style="display:flex;flex-direction:column;gap:22px;min-width:0"><div class="panel"><h2 style="font-size:25px">Puntos CIMA por edición</h2>'+p.bars.map(function(a){return '<div class="bar"><b>'+a[0]+'</b><div class="t"><i style="width:'+a[2]+'%"></i></div><b style="text-align:right">'+a[1]+'</b></div>';}).join('')+'<p class="meta">Calculado con la metodología pública del Ranking CIMA.</p></div>';
+  h+='<div class="panel" style="min-width:0"><h2 style="font-size:25px">Premios en otros festivales</h2><p class="meta" style="font-size:15px">'+esc(f.nota)+'</p>'+f.rows.map(function(r){return '<div style="display:flex;justify-content:space-between;gap:14px;padding-top:12px;border-top:1px solid var(--line)"><span style="min-width:0"><b style="display:block">'+esc(r[2])+' · '+esc(r[0])+' '+r[1]+'</b><span class="meta">'+esc(r[4]==="—"?r[3]:r[4])+'</span></span></div>';}).join('')+'<a class="more" href="#festivales">Ver tabla con fuentes →</a></div></div>';
+  h+='<aside class="side"><div class="panel"><div class="lab" style="color:var(--fg);font-weight:700">Marcas en Premios CIMA</div><div class="chips">'+p.marcas.map(function(m){return '<a href="#ranking">'+esc(m)+'</a>';}).join('')+'</div></div><div class="panel" style="border:1.5px dashed var(--accent)"><h3 style="font-size:22px">¿Tu agencia no tiene perfil?</h3><p class="meta" style="font-size:14px">Escríbenos a <a class="more" href="mailto:proyectos@LBM-LA.com">proyectos@LBM-LA.com</a>. Tus premios y tu puesto en el ranking se agregan solos.</p></div></aside></div></div></section>';
+  return h;
+}
+
+function vEmpleos(){
+  var h='<section class="wrap"><div class="kick">Empleos</div><h1 style="font-size:46px;margin:8px 0 10px">Bolsa de trabajo de mercadeo y creatividad</h1><p class="dek">Sube tu CV gratis. Las agencias, marcas y medios de la industria podrán encontrarte cuando busquen talento.</p>';
+  h+='<div class="box" id="cv" style="max-width:560px;margin-top:28px"><h3 style="font-size:23px">Sube tu CV</h3>'+(S.cvSent?'<div class="ok">Recibido. En el sitio real, tu CV quedaría registrado y te avisaríamos de ofertas.</div>':'<form class="cv" data-form="cv"><label for="cv-nombre">Nombre y apellido</label><input id="cv-nombre" required><label for="cv-area">Área</label><select id="cv-area"><option>Creatividad</option><option>Cuentas</option><option>Estrategia</option><option>Medios</option><option>Mercadeo de marca</option><option>Digital</option></select><label for="cv-file">CV en PDF</label><input id="cv-file" type="file" accept=".pdf"><button class="btn dark" type="submit">Enviar CV</button></form>')+'</div></section>';
+  return h;
+}
+
+
+function vPublicidad(){
+  var F=[["Leaderboard","728×90 · móvil 320×50","Franja superior, visible en todas las páginas del portal.",'<a class="adslot lb" href="#publicidad"><span class="ad-k">Espacio publicitario disponible</span><span class="ad-s">728×90 · <b>Anúnciate aquí →</b></span></a>'],
+    ["Billboard","970×250 · móvil 300×250","Gran formato en la portada, entre secciones.",'<a class="adslot bb" href="#publicidad"><span class="ad-k">Espacio publicitario disponible</span><span class="ad-s">970×250 · <b>Anúnciate aquí →</b></span></a>'],
+    ["Robapáginas","300×250","Barra lateral de la portada y dentro de cada nota.",'<a class="adslot mr" href="#publicidad"><span class="ad-k">Espacio publicitario disponible</span><span class="ad-s">300×250 · <b>Anúnciate aquí →</b></span></a>'],
+    ["Patrocinio de sección","Logo + mención","Ranking CIMA, Premios CIMA, Festivales o CIMA Learning presentados por tu marca.",'<div class="sponsor"><span>Ranking CIMA presentado por</span><span class="logo-ph">[Tu logo]</span></div>'],
+    ["Boletín semanal","Patrocinio del envío","Logo y mensaje en el correo semanal de la industria.",'<div class="sponsor"><span>Boletín presentado por</span><span class="logo-ph">[Tu logo]</span></div>'],
+    ["Contenido patrocinado","Nota o caso","Una nota escrita con tu marca, identificada siempre como contenido patrocinado.",'<div class="sponsor"><span class="flag tbc">Contenido patrocinado</span><span>[Título de la nota]</span></div>']];
+  var h='<section class="wrap"><div class="kick">Publicidad</div><h1 style="font-size:46px;margin:8px 0 10px">Anúnciate en CIMA</h1><p class="dek">Llega a quienes deciden en mercadeo y publicidad en Venezuela: agencias, marcas, medios, creativos, gremios y estudiantes.</p>';
+  h+='<div style="margin-top:24px">'+F.map(function(f){return '<div class="fmt"><div style="display:flex;flex-direction:column;gap:6px"><h3 style="font-size:22px">'+f[0]+'</h3><span class="kick" style="color:var(--muted)">'+f[1]+'</span><p class="meta" style="font-size:15px">'+f[2]+'</p></div><div style="min-width:0;overflow:hidden">'+f[3]+'</div></div>';}).join('')+'</div>';
+  h+='<div class="box" style="margin-top:28px;max-width:560px"><h3 style="font-size:23px">Pide el tarifario</h3><p class="meta" style="font-size:15px">Escríbenos a <a href="mailto:proyectos@LBM-LA.com" style="color:var(--accent);font-weight:600">proyectos@LBM-LA.com</a> o llámanos al <a href="tel:+584143029886" style="color:var(--accent);font-weight:600">0414 302 9886</a> y te enviamos tarifas, paquetes y disponibilidad para el portal y la Revista CIMA.</p></div>';
+  h+='<p class="note" style="margin-top:16px">Ninguna relación comercial con CIMA da ventaja ante el jurado de Premios CIMA. El contenido pagado va identificado.</p></section>';
+  return h;
+}
+var AP=[["Círculo Creativo de Venezuela","La Academia del Círculo Creativo","12 masterclasses en vivo, una al mes, de 150 minutos, con 12 referentes venezolanos de la industria. El primer curso, AI Sandbox: Del Brief al León, ya completó sus cupos; pronto abren las inscripciones del siguiente.","https://circulocreativove.com"],["Círculo de Creativas Venezuela","Alquimistas: Luisana Franceschi, Nuevas Líderes Creativas","Programa gratuito de liderazgo para mujeres, 2da edición con Dove Venezuela. 7 clases presenciales en Caracas durante 5 sábados desde el 7 de noviembre, de 8:00 a.m. a 3:00 p.m. Cupo de 21 participantes; inscripciones cerradas el 25 de octubre.","https://www.instagram.com/p/Dej13o0FqC0/"],["UNIMET", "Cursos de Mercadeo y Ventas", "Cursos de extensión como Trade Marketing avanzado, Comunicación comercial y Gerencia estratégica de mercadeo. Formato híbrido de 20 horas académicas.", "https://www.unimet.edu.ve/areas/gerencia/mercadeo-y-ventas/"], ["UNIMET", "Diplomado en Comunicaciones Digitales para el Mercadeo", "Diplomado de Estudios Avanzados del Postgrado de la Universidad Metropolitana.", "https://www.unimet.edu.ve/postgrado/diplomados-de-estudios-avanzados/comunicaciones-digitales-para-el-mercadeo/"], ["UCAB", "Diplomado en Mercadeo Digital", "Diplomado del CIAP de la Universidad Católica Andrés Bello, en Caracas y en línea.", "https://www.ciapucab.com/oferta/diplomado-mercadeo-digital/"], ["UCAB", "Especialización en Publicidad", "Programa de postgrado de la Universidad Católica Andrés Bello.", "https://postgrado.ucab.edu.ve/estudio/especializacion-en-publicidad/"], ["Instituto de Diseño de Caracas", "Diseño Gráfico", "Carrera de 6 semestres. Inicio de clases en septiembre de 2026, con Becas Talento al inicio de cada semestre.", "https://www.disegno.com/modalidades-de-estudio/diseno-grafico"]];
+var DIR=[["Amarillo Creative Lab", "Patricia (Pacha) Vegas", "pacha@amarillolab.com", "amarillolab.com"], ["ARC de Publicis Groupe", "Efraín Sandoval", "efrsando@publicisgroupe.net", ""], ["ARS Publicidad", "María Alejandra Guzmán", "mguzman@arspublicidad.com", "arspublicidad.com"], ["B2B Marketing Solutions", "", "hola@b2bve.com", "b2bve.com"], ["Bajo el Árbol", "Jean Paul Zeppenfeldt", "", ""], ["Black Cat Lab", "Vanessa Báez", "vanepilla@blackcat-lab.com", "blackcat-lab.com"], ["By Beatriz Faria", "Beatriz Faria", "design@bybeatrizfaria.com", "bybeatrizfaria.com"], ["Casivache", "Stefania Chehade", "", ""], ["Concept McCann", "Antonio Noguera", "antonio.noguera@concept-mccann.com.ve", "concept-mccann.com.ve"], ["Crack Estudio Creativo", "", "info@crackestudio.com", "crackestudio.com"], ["Equilibrio Agency", "Yhoger Contreras", "yhoger.contreras@equilibrio.agency", "equilibrio.agency"], ["Goodman", "Wilfredo García Gallegos", "wgarcia@goodmanlatam.com", "goodmanlatam.com"], ["Intezia", "Verónica Rubio", "vrubio@intezia.com", "intezia.com"], ["Invermedia", "Julio Briceño", "jbriceno@invermedia.com", "invermedia.com"], ["Kacrea Estudio", "Daniela Parazzi", "coordinacioncreativa@kacreaestudio.com", "kacreaestudio.com"], ["Kurios Education", "Sofía Machado", "sofia.machado@kuriosedu.com", "kuriosedu.com"], ["La Web Figital Agency", "Alejandro Osuna", "alejandro.osuna@hacemosloquenosgusta.com", "lawebfigitalagency.com"], ["Leo Burnett", "Ricardo Cie", "ricardo.cie@leoburnett.com", "leoburnett.com"], ["Manne Productions", "", "jroig@manneproductions.com", "manneproductions.com"], ["Mutato", "Sara Castaño", "scastano@mutato.com.ve", "mutato.com.ve"], ["Name", "", "isabella@thisisname.co", "thisisname.co"], ["Pa' Los Panas", "Verónica Gazzara", "", ""], ["Packs Agency", "Karen Bustamante", "kbustamante@packsagency.com", "packsagency.com"], ["Paradiso", "Paola González Laya", "pgonzalez@weareparadiso.com", "weareparadiso.com"], ["Parallel", "Tomás Berroterán", "tomas@parallel-pro.com", "parallel-pro.com"], ["Playful Agency", "Alejandra Da Costa", "ale@playfulagency.com", "playfulagency.com"], ["Producciones Acapella", "Jefferson Mercado", "jefferson.mercado@acapella.com.ve", "acapella.com.ve"], ["Publi Art", "Katiuska González", "", ""], ["Publicis Venezuela", "Ruth Urbáez", "ruth.urbaez@publicis.com", "publicis.com"], ["RG2", "José De Gouveia", "jose@rg2fcb.com", "rg2fcb.com"], ["Robin Agency", "Ana Cristina Azpúrua", "aazpurua@robin-agency.com", "robin-agency.com"], ["Scalto Global", "Andrés Rincón", "indiral@scalto.com", "scalto.com"], ["Soho Square Coimbra", "Alfredo Pardo", "alfredo.pardo@141coimbrave.com", "141coimbrave.com"], ["Successo 369", "Verónica Barra", "v.barra@successo369.com", "successo369.com"], ["The Media Office (TMO)", "Stephanie Bonito", "sbonito@themediaoffice.com", "themediaoffice.com"], ["WE ARE VEO", "Stefanie Stibelj", "stefanie@agencyveo.com", "agencyveo.com"], ["YM Agency", "Yuraima Mercado", "", ""], ["Zea BBDO", "", "josecastro@zeabbdo.com", "zeabbdo.com"], ["¿mmh?", "Carlos Pizani", "carlos@mmh.com.ve", "mmh.com.ve"]];
+function vAprende(){
+  var h='<section class="wrap"><div class="kick">Aprende · CIMA Learning</div><h1 style="font-size:46px;margin:8px 0 10px">Formación para la industria</h1><p class="dek">Cursos, diplomados y carreras en mercadeo, publicidad y diseño en Venezuela. Fechas y costos: consulta con cada institución.</p><div class="g3" style="margin-top:24px">'+AP.map(function(a){return '<a class="card" href="'+a[3]+'" target="_blank" rel="noopener"><span class="kick">'+esc(a[0])+'</span><h3>'+esc(a[1])+'</h3><p class="meta" style="font-size:15px">'+esc(a[2])+'</p><span class="more">Ver programa →</span></a>';}).join('')+'<a class="card" href="#n8" style="background:var(--tint);border-color:var(--tint-line)"><span class="kick">Premios CIMA</span><h3>Jóvenes Creativos 2026</h3><p class="meta" style="font-size:15px">La categoría para talento de 18 a 30 años. Conoce a los ganadores de la primera edición.</p><span class="more">Ver ganadores →</span></a></div></section>';
+  return h;
+}
+function vDirectorio(){
+  var q=(S.dq||"").toLowerCase();
+  var list=DIR.filter(function(d){return !q||norm(d.join(" ")).indexOf(norm(q))>=0;});
+  var h='<section class="wrap"><div class="kick">Directorio</div><h1 style="font-size:46px;margin:8px 0 10px">Agencias en Premios CIMA 2026</h1><p class="dek">Agencias que inscribieron casos en la 4ta edición. ¿Tu agencia no tiene contacto o web? Escríbenos a <a href="mailto:proyectos@LBM-LA.com" class="more">proyectos@LBM-LA.com</a> para completar su ficha.</p>';
+  h+='<label for="dq" class="meta" style="display:block;margin-top:20px">Buscar agencia</label><input id="dq" type="search" value="'+esc(S.dq||"")+'" placeholder="Nombre de la agencia" style="min-height:44px;padding:0 12px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;width:100%;max-width:420px;margin-top:6px">';
+  h+='<div class="tbl" style="margin-top:16px"><table><thead><tr><th>Agencia</th><th>Persona contacto</th><th>Correo</th><th>Web</th></tr></thead><tbody>'+list.map(function(d){return '<tr><td style="font-weight:600">'+esc(d[0])+'</td><td>'+(d[1]?esc(d[1]):'<span class="meta">—</span>')+'</td><td>'+(d[2]?'<a class="more" href="mailto:'+d[2]+'">'+esc(d[2])+'</a>':'<span class="meta">—</span>')+'</td><td>'+(d[3]?'<a class="more" href="https://'+d[3]+'" target="_blank" rel="noopener">'+esc(d[3])+'</a>':'<span class="meta">—</span>')+'</td></tr>';}).join('')+'</tbody></table></div><p class="meta" style="margin-top:12px">Fuente: inscripciones de Premios CIMA 2026. Solo se publican correos corporativos.</p></section>';
+  return h;
+}
+
+function artCards(list){
+  return '<div class="g3" style="margin-top:12px">'+list.map(function(a){return '<a class="card" href="#'+a.id+'" style="padding:0;overflow:hidden">'+(a.img?'<img src="'+a.img+'" alt="'+esc(a.cap||a.t)+'" style="width:100%;aspect-ratio:3/2;object-fit:cover;object-position:center 25%;display:block">':'<div class="ph" style="aspect-ratio:3/2">[Foto del autor]</div>')+'<span style="display:flex;flex-direction:column;gap:8px;padding:18px 20px 22px"><span class="kick">'+esc(a.sec)+'</span><h3>'+esc(a.t)+'</h3><span class="meta">'+esc((a.by||'').split(' · ')[0])+'</span><span class="more">Leer artículo →</span></span></a>';}).join('')+'</div>';
+}
+function vArticulos(){
+  return '<section class="wrap"><div class="kick">Artículos</div><h1 style="font-size:46px;margin:8px 0 10px">La voz de la industria</h1><p class="dek">Columnas y entrevistas de ganadores de Premios CIMA y referentes del mercadeo y la creatividad en Venezuela.</p>'+artCards(ART)+'</section>';
+}
+function vEnvia(){
+  var h='<section class="wrap"><div class="kick">Noticias</div><h1 style="font-size:46px;margin:8px 0 10px">Envía tu nota de prensa</h1><p class="dek">Agencias, marcas y medios pueden proponer lanzamientos, campañas, nombramientos, cuentas nuevas y premios. El equipo editorial revisa cada nota antes de publicarla.</p>';
+  h+='<div class="main-grid" style="margin-top:28px"><div style="min-width:0">';
+  if(S.notaMail){
+    h+='<div class="box"><h3 style="font-size:23px">Último paso: envía el correo</h3><p class="meta" style="font-size:15px">Al pulsar el botón se abre tu correo con la nota lista. Antes de enviarlo, <b>adjunta la foto'+(S.fotoName?' «'+esc(S.fotoName)+'»':'')+'</b>: el navegador no puede adjuntarla por ti.</p><p class="aviso-rev">Tu nota será revisada por el equipo de comunicaciones antes de publicarse. Nos reservamos el derecho de publicarla, editarla por extensión o estilo, o no publicarla.</p><a class="btn dark" href="'+S.notaMail+'">Abrir mi correo</a><a class="more" href="#envia-nota" data-reset-nota style="margin-top:8px">Empezar otra nota</a></div>';
+  } else {
+    h+='<form class="cv" data-form="nota"><label for="nt-emp">Empresa o agencia</label><input id="nt-emp" required><label for="nt-con">Persona contacto</label><input id="nt-con" required><label for="nt-mail">Correo</label><input id="nt-mail" type="email" required><label for="nt-tit">Título de la nota</label><input id="nt-tit" required><label for="nt-sec">Sección</label><select id="nt-sec"><option>Marcas</option><option>Agencias</option><option>Negocios</option><option>Medios</option><option>Gente (nombramientos)</option><option>Festivales y premios</option></select><label for="nt-txt">Texto de la nota <span class="meta" style="font-weight:400">(máximo 400 palabras)</span></label><textarea id="nt-txt" rows="9" required></textarea><span id="nt-cnt" class="meta" style="font-size:13px">0 / 400 palabras</span><label for="nt-foto">Foto de la nota</label><div class="foto-spec"><b>Requisitos de la foto</b><ul><li>Una sola foto, en JPG o PNG.</li><li>Horizontal, idealmente en proporción 3:2.</li><li>Mínimo 1200 × 800 px; ideal 1500 × 1000 px o más.</li><li>Máximo 5 MB.</li><li>Sin textos, logos superpuestos, marcos ni marcas de agua.</li><li>Foto propia o con autorización de uso.</li></ul></div><input id="nt-foto" type="file" accept="image/jpeg,image/png" required><div id="nt-foto-res" aria-live="polite"></div><label for="nt-cred">Crédito de la foto</label><input id="nt-cred" required placeholder="Ej.: Foto: Nombre del fotógrafo o de la empresa"><label style="display:flex;gap:8px;align-items:flex-start;font-weight:400"><input type="checkbox" required style="width:auto;min-height:auto;margin-top:4px">Confirmo que tengo derecho a usar el texto y la foto, y autorizo su publicación.</label>'+'<p class="aviso-rev">Tu nota será revisada por el equipo de comunicaciones antes de publicarse. Nos reservamos el derecho de publicarla, editarla por extensión o estilo, o no publicarla.</p>'+'<button class="btn dark" type="submit">Preparar envío</button></form>';
+  }
+  h+='</div><aside class="side"><div class="panel"><div class="lab" style="color:var(--fg);font-weight:700">Cómo enviarla</div><ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;font-size:15px"><li>Texto de hasta 400 palabras, con datos verificables.</li><li>Una foto horizontal en JPG o PNG, mínimo 1200 × 800 px y máximo 5 MB, con su crédito.</li><li>El formulario revisa la foto; luego la adjuntas en el correo que se abre al final.</li><li>Se envía a <a class="more" href="mailto:proyectos@LBM-LA.com">proyectos@LBM-LA.com</a>.</li></ul></div><div class="panel"><div class="lab" style="color:var(--fg);font-weight:700">Política editorial</div><p class="meta" style="font-size:14px">Publicar una nota no tiene costo. Cada nota es revisada por el equipo de comunicaciones, que se reserva el derecho de publicarla, editarla por extensión o estilo, o no publicarla. El contenido pagado se publica identificado como patrocinado. <a class="more" href="#etica">Ética y correcciones</a></p></div></aside></div></section>';
+  return h;
+}
+function norm(t){return String(t||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");}
+function hl(t,q){t=esc(t);if(!q)return t;var n=norm(t),k=norm(q),i=n.indexOf(k);return i<0?t:t.slice(0,i)+'<mark>'+t.slice(i,i+k.length)+'</mark>'+t.slice(i+k.length);}
+function vBuscar(){
+  var q=(S.q||"").trim(), k=norm(q);
+  var h='<section class="wrap"><div class="kick">Buscar</div><h1 style="font-size:46px;margin:8px 0 10px">Buscar en el portal</h1><p class="dek">Noticias, artículos, agencias del directorio, ranking, festivales y formación.</p>';
+  h+='<label for="gq" class="meta" style="display:block;margin-top:20px">¿Qué buscas?</label><input id="gq" type="search" value="'+esc(q)+'" placeholder="Ej.: La Web, Effie, Polar, UCAB" autocomplete="off" style="min-height:48px;padding:0 14px;border:1.5px solid var(--accent);background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:17px;width:100%;max-width:560px;margin-top:6px">';
+  if(k.length<2){ return h+'<p class="meta" style="margin-top:16px">Escribe al menos dos letras.</p></section>'; }
+  var res=[];
+  N.forEach(function(n){var txt=[n.t,n.dek||"",n.by||"",(n.body||[]).join(" ")].join(" ");if(norm(txt).indexOf(k)>=0)res.push({g:n.kind==="art"?"Artículos":"Noticias",t:n.t,m:n.sec||"",u:"#"+n.id});});
+  DIR.forEach(function(d){if(norm(d.join(" ")).indexOf(k)>=0)res.push({g:"Directorio",t:d[0],m:[d[1],d[2],d[3]].filter(Boolean).join(" · "),u:"#directorio",pre:d[0]});});
+  [["ag","Agencias"],["ma","Marcas"],["em","Empresas"]].forEach(function(p){R[p[0]].forEach(function(r,i){if(norm(r[0]).indexOf(k)>=0)res.push({g:"Ranking",t:r[0],m:"Ranking "+p[1]+" 2022–2026 · puesto "+(i+1)+" · "+fmt(r[8])+" puntos",u:"#ranking",rt:p[0]});});});
+  CAL.forEach(function(c){if(norm([c.n,c.lugar,c.det].join(" ")).indexOf(k)>=0)res.push({g:"Festivales",t:c.n,m:c.d+" · "+c.lugar,u:"#festivales"});});
+  AP.forEach(function(a){if(norm(a.join(" ")).indexOf(k)>=0)res.push({g:"Aprende",t:a[1],m:a[0],u:"#aprende"});});
+  h+='<p class="meta" style="margin-top:16px">'+res.length+(res.length===1?' resultado':' resultados')+' para «'+esc(q)+'»</p>';
+  var groups={};res.forEach(function(r){(groups[r.g]=groups[r.g]||[]).push(r);});
+  Object.keys(groups).forEach(function(g){h+='<div style="margin-top:26px;max-width:820px"><div class="lab" style="color:var(--fg);font-weight:700;border-bottom:2px solid var(--fg);padding-bottom:8px">'+g+' ('+groups[g].length+')</div>'+groups[g].map(function(r){return '<a class="sr" href="'+r.u+'"'+(r.pre?' data-dq="'+esc(r.pre)+'"':'')+(r.rt?' data-rtab="'+r.rt+'"':'')+'><b>'+hl(r.t,q)+'</b><span class="meta">'+hl(r.m,q)+'</span></a>';}).join('')+'</div>';});
+  if(!res.length) h+='<p style="margin-top:12px">No encontramos coincidencias. Prueba con otra palabra o revisa el <a class="more" href="#directorio">Directorio</a>.</p>';
+  return h+'</section>';
+}
+function vEtica(){
+  var h='<section class="wrap"><div class="kick">CIMA</div><h1 style="font-size:46px;margin:8px 0 10px">Ética y correcciones</h1><p class="dek">Los principios que guían lo que publicamos y cómo corregimos cuando nos equivocamos.</p>';
+  h+='<a class="btn brand" href="manual-etica-cima.pdf" target="_blank" rel="noopener" data-dl-etica style="margin-top:18px;display:inline-flex">Descargar el Manual de ética de las comunicaciones (PDF)</a>';
+  h+='<article class="rules" style="margin-top:28px"><h2>Nuestros principios</h2>'+ul(["<b>Veracidad:</b> publicamos hechos comprobables y separamos la información de la opinión.","<b>Independencia:</b> las decisiones editoriales no dependen de anunciantes, patrocinantes ni participantes de Premios CIMA.","<b>Transparencia:</b> decimos de dónde viene cada dato, quién firma cada texto y qué contenido es pagado.","<b>Respeto:</b> no publicamos contenido discriminatorio, difamatorio ni ofensivo.","<b>Responsabilidad:</b> corregimos nuestros errores a la vista de todos."]);
+  h+='<h2>Publicidad</h2><p>Todo contenido pagado se identifica como tal. Ninguna relación comercial con el portal, con LBM Comunicaciones o con Premios CIMA da ventaja ante el jurado ni influye en el Ranking.</p>';
+  h+='<h2>Cómo pedir una corrección</h2>'+ul(["Escríbenos a <a class=\"more\" href=\"mailto:proyectos@LBM-LA.com?subject=Correcci%C3%B3n\">proyectos@LBM-LA.com</a> con la nota, el dato incorrecto y la fuente que lo corrige.","Revisamos cada solicitud en un máximo de 48 horas hábiles.","La corrección se hace en la misma nota, con una línea al final que indica qué cambió y la fecha.","Toda persona o empresa aludida tiene derecho a réplica."]);
+  h+='<h2>Contacto</h2><p><a class="more" href="mailto:proyectos@LBM-LA.com">proyectos@LBM-LA.com</a> · <a class="more" href="tel:+584143029886">+58 414 302 9886</a></p></article></section>';
+  return h;
+}
+var V={buscar:vBuscar,etica:vEtica,articulos:vArticulos,"envia-nota":vEnvia,directorio:vDirectorio,aprende:vAprende,publicidad:vPublicidad,portada:vPortada,premios:vPremios,archivo:vPremios,ranking:vRanking,empleos:vEmpleos,boletin:vPortada,noticias:vNoticias,nota:function(){return vNota("n1");},festivales:vFestivales,reglamento:vReglamento,puntos:vPuntos,jovenes:vJovenes,perfil:function(){return vPerfil("laweb");}};
+N.forEach(function(n){V[n.id]=function(){return vNota(n.id);};});
+Object.keys(P).forEach(function(k){V["perfil-"+k]=function(){return vPerfil(k);};});
+var MAP={ranking:"premios",reglamento:"premios",puntos:"premios",jovenes:"premios",archivo:"premios",boletin:"portada",nota:"noticias",perfil:"premios"};
+N.forEach(function(n){MAP[n.id]=n.kind==="art"?"articulos":"noticias";});MAP["envia-nota"]="noticias";
+Object.keys(P).forEach(function(k){MAP["perfil-"+k]="premios";});
+function route(keepScroll){
+  var k=(location.hash||"#portada").slice(1); if(!V[k]) k="portada";
+  document.getElementById("app").innerHTML=V[k]();
+  var navKey=MAP[k]||k;
+  document.querySelectorAll("nav.main a").forEach(function(a){ a.toggleAttribute("aria-current",false); });
+  var hit=document.querySelector('nav.main a[href="#'+navKey+'"]'); if(hit) hit.setAttribute("aria-current","page");
+  if(keepScroll) return;
+  if(k==="archivo"||k==="boletin"){ var el=document.getElementById(k); if(el) el.scrollIntoView(); } else window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",function(){route(false);});
+var DLP=(window.claude&&window.claude.use)?window.claude.use("downloads"):Promise.resolve(null);
+document.addEventListener("click",function(e){
+  var dl=e.target.closest("[data-dl-etica]");
+  if(dl){ e.preventDefault(); DLP.then(function(d){ if(!d){ window.open(dl.getAttribute("href"),"_blank"); return; }
+    return fetch(dl.getAttribute("href")).then(function(r){return r.blob();}).then(function(bl){ return d.save({filename:"Manual de etica de las comunicaciones - Portal CIMA.pdf",data:bl}); }).catch(function(err){ if(err&&err.code==="unavailable") window.open(dl.getAttribute("href"),"_blank"); }); }); return; }
+});
+document.addEventListener("click",function(e){
+  var dqa=e.target.closest("[data-dq]"); if(dqa){S.dq=dqa.getAttribute("data-dq");}
+  var t=e.target.closest("[data-tab],[data-rtab],[data-ed],[data-follow],[data-reset-nota]"); if(!t) return; if(t.hasAttribute("data-reset-nota")){S.notaMail=null;S.fotoOk=false;S.fotoName="";S.fotoDim="";}
+  if(t.dataset.tab) S.tab=t.dataset.tab;
+  if(t.dataset.rtab) S.rtab=t.dataset.rtab;
+  if(t.dataset.ed) S.ed=t.dataset.ed;
+  if(t.hasAttribute("data-follow")) S.follow=!S.follow;
+  route(true);
+});
+document.addEventListener("input",function(e){ if(e.target.id==="gq"){ S.q=e.target.value; route(true); var g=document.getElementById("gq"); if(g){g.focus(); g.setSelectionRange(g.value.length,g.value.length);} return; } if(e.target.id==="dq"){ S.dq=e.target.value; route(true); var el=document.getElementById("dq"); if(el){el.focus(); el.setSelectionRange(el.value.length,el.value.length);} } });
+
+function wordsOf(t){return (String(t).trim().match(/\S+/g)||[]).length;}
+document.addEventListener("input",function(e){ if(e.target.id!=="nt-txt") return; var n=wordsOf(e.target.value), c=document.getElementById("nt-cnt"); if(c){ c.textContent=n+" / 400 palabras"; c.className=n>400?"foto-bad":"meta"; } e.target.setCustomValidity(n>400?"La nota supera las 400 palabras.":""); });
+document.addEventListener("change",function(e){
+  if(e.target.id!=="nt-foto") return;
+  var inp=e.target, out=document.getElementById("nt-foto-res"), f=inp.files&&inp.files[0];
+  S.fotoOk=false; S.fotoName=""; S.fotoDim="";
+  if(!f){ out.innerHTML=""; return; }
+  var bad=function(m){ inp.setCustomValidity(m); out.innerHTML='<p class="foto-bad">'+esc(m)+'</p>'; };
+  if(!/^image\/(jpeg|png)$/.test(f.type)) return bad("La foto debe estar en JPG o PNG.");
+  if(f.size>5*1024*1024) return bad("La foto pesa "+(f.size/1048576).toFixed(1)+" MB. El máximo es 5 MB.");
+  var url=URL.createObjectURL(f), im=new Image();
+  im.onload=function(){
+    var w=im.naturalWidth,h=im.naturalHeight, errs=[];
+    if(w<=h) errs.push("La foto debe ser horizontal.");
+    if(w<1200||h<800) errs.push("Mide "+w+" × "+h+" px. El mínimo es 1200 × 800 px.");
+    if(errs.length){ URL.revokeObjectURL(url); return bad(errs.join(" ")); }
+    inp.setCustomValidity(""); S.fotoOk=true; S.fotoName=f.name; S.fotoDim=w+" × "+h+" px";
+    var r=w/h, tip=Math.abs(r-1.5)>0.12?' <span class="meta">Sugerencia: la proporción ideal es 3:2; podríamos recortarla.</span>':'';
+    out.innerHTML='<img src="'+url+'" alt="Vista previa"><p class="foto-ok">Foto válida: '+esc(f.name)+' · '+w+' × '+h+' px · '+(f.size/1048576).toFixed(1)+' MB</p>'+tip;
+  };
+  im.onerror=function(){ URL.revokeObjectURL(url); bad("No pudimos leer la imagen. Prueba con otro archivo JPG o PNG."); };
+  im.src=url;
+});
+document.addEventListener("submit",function(e){
+  var f=e.target; e.preventDefault();
+  if(f.dataset.form==="cv") S.cvSent=true;
+  if(f.dataset.form==="nl") S.nlSent=true;
+  if(f.dataset.form==="nota" && !S.fotoOk){ var fr=document.getElementById("nt-foto-res"); if(fr) fr.scrollIntoView({block:"center"}); return; }
+  if(f.dataset.form==="nota"){ var g=function(id){return (document.getElementById(id)||{}).value||"";};
+    var body="Empresa o agencia: "+g("nt-emp")+"\nPersona contacto: "+g("nt-con")+"\nCorreo: "+g("nt-mail")+"\nSección: "+g("nt-sec")+"\n\nTÍTULO: "+g("nt-tit")+"\n\n"+g("nt-txt")+"\n\nFOTO: "+(S.fotoName||"")+(S.fotoDim?" ("+S.fotoDim+")":"")+"\nCRÉDITO: "+g("nt-cred")+"\n\n[Adjunta aquí la foto antes de enviar]";
+    S.notaMail="mailto:proyectos@LBM-LA.com?subject="+encodeURIComponent("Nota de prensa: "+g("nt-tit"))+"&body="+encodeURIComponent(body); window.scrollTo(0,0); }
+  route(true);
+});
+route(false);
+</script>
+
+</body></html>
+
+</body></html>
