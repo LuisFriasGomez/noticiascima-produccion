@@ -2,6 +2,10 @@
 <title>Noticias CIMA · Creatividad, Mercadeo y Negocios</title>
 <meta name="description" content="Portal informativo de Premios CIMA: noticias de agencias, marcas y negocios de Venezuela, el Ranking CIMA, festivales, formación y empleos de la industria.">
 <meta name="theme-color" content="#00115c">
+<!-- Google Analytics 4 (propiedad Noticias CIMA, cuenta lbmlatam@gmail.com) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FGZF4VNLXM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FGZF4VNLXM');
+function track(ev,p){try{gtag('event',ev,p||{});}catch(e){}}</script>
 <link rel="icon" type="image/png" href="img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="canonical" href="https://www.noticiascima.com/">
@@ -376,6 +380,10 @@ form label.chk input{width:18px !important;height:18px !important;min-height:0 !
 .chk a{color:inherit;text-decoration:underline}
 .nl-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.nl-2>div{display:flex;flex-direction:column;gap:6px;min-width:0}
 .nl input{min-width:0}
+
+.ck{position:fixed;left:16px;right:16px;bottom:16px;z-index:50;max-width:620px;margin:0 auto;background:#00115c;color:#fff;border-top:3px solid #FE5000;padding:14px 16px;display:flex;gap:14px;align-items:center;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.ck p{margin:0;font-size:14px;line-height:1.45;flex:1}.ck a{color:#FE5000;font-weight:700}
+.ck button{background:#FE5000;color:#fff;border:0;font-weight:700;padding:10px 16px;min-height:40px;cursor:pointer;flex:none}
 </style>
 
 
@@ -864,9 +872,9 @@ function vEtica(){
 function vPrivacidad(){
   var h='<section class="wrap"><div class="kick">CIMA</div><h1 style="font-size:46px;margin:8px 0 10px">Política de privacidad y términos de uso</h1><p class="dek">Qué datos recogemos en noticiascima.com, para qué los usamos y cómo puedes pedir que los cambiemos o borremos. Vigente desde el 30 de octubre de 2026.</p><article class="rules" style="margin-top:28px">';
   h+='<h2>Quién es responsable</h2><p>Noticias CIMA es producido por LBM Comunicaciones S.A., RIF J-31038427-4, Caracas, Venezuela. Contacto: <a class="more" href="mailto:proyectos@LBM-LA.com">proyectos@LBM-LA.com</a> · 0414 302 9886.</p>';
-  h+='<h2>Qué datos recogemos</h2>'+ul(["<b>Boletín semanal:</b> nombre, apellido, empresa, teléfono y correo.","<b>Bolsa de trabajo:</b> nombre, correo, teléfono, área de interés y el CV que nos envíes.","<b>Notas de prensa:</b> datos de contacto de la empresa y del vocero, el texto y las fotos.","<b>Navegación:</b> el portal no usa cookies de publicidad. Podemos medir visitas de forma anónima y agregada, sin identificar a nadie."]);
+  h+='<h2>Qué datos recogemos</h2>'+ul(["<b>Boletín semanal:</b> nombre, apellido, empresa, teléfono y correo.","<b>Bolsa de trabajo:</b> nombre, correo, teléfono, área de interés y el CV que nos envíes.","<b>Notas de prensa:</b> datos de contacto de la empresa y del vocero, el texto y las fotos.","<b>Navegación:</b> usamos Google Analytics, que coloca cookies para contar visitas, páginas vistas, descargas y clics de forma agregada. No usamos cookies de publicidad. Puedes bloquearlas desde tu navegador o con el complemento de inhabilitación de Google Analytics."]);
   h+='<h2>Para qué los usamos</h2>'+ul(["Enviarte el boletín semanal y, de forma ocasional, información de Premios CIMA.","Compartir tu CV con agencias, marcas y medios de la industria que buscan talento.","Evaluar y publicar las notas de prensa que recibimos.","No vendemos ni alquilamos tus datos."]);
-  h+='<h2>Con quién los compartimos</h2>'+ul(["Mailchimp (Intuit), que gestiona los envíos del boletín.","Las empresas de la industria interesadas en tu perfil, solo en el caso de la bolsa de trabajo.","Las autoridades, si la ley lo exige."]);
+  h+='<h2>Con quién los compartimos</h2>'+ul(["Mailchimp (Intuit), que gestiona los envíos del boletín.","Google (Google Analytics), que procesa las estadísticas de visitas.","Las empresas de la industria interesadas en tu perfil, solo en el caso de la bolsa de trabajo.","Las autoridades, si la ley lo exige."]);
   h+='<h2>Tus derechos</h2>'+ul(["Puedes darte de baja del boletín en cualquier momento con el enlace al pie de cada correo.","Puedes pedir que corrijamos, actualicemos o borremos tus datos escribiendo a proyectos@LBM-LA.com. Respondemos en un máximo de 10 días hábiles.","Guardamos los CV hasta 12 meses, salvo que pidas borrarlos antes."]);
   h+='<h2>Términos de uso</h2>'+ul(["Los contenidos de noticiascima.com pueden citarse con mención de la fuente y enlace a la nota.","Los logos, marcas y fotos pertenecen a sus dueños y se usan con fines informativos.","El contenido patrocinado siempre va identificado. Ninguna relación comercial con CIMA da ventaja ante el jurado de Premios CIMA.","Para correcciones, consulta <a class=\"more\" href=\"#etica\">Ética y correcciones</a>."]);
   h+='</article></section>'; return h;
@@ -883,11 +891,17 @@ function route(keepScroll){
   var navKey=MAP[k]||k;
   document.querySelectorAll("nav.main a").forEach(function(a){ a.toggleAttribute("aria-current",false); });
   var hit=document.querySelector('nav.main a[href="#'+navKey+'"]'); if(hit) hit.setAttribute("aria-current","page");
+  if(!keepScroll){ var h1=document.querySelector("#app h1"); document.title=(k==="portada"||!h1?"Noticias CIMA · Creatividad, Mercadeo y Negocios":h1.textContent.trim()+" · Noticias CIMA"); track("vista_seccion",{seccion:k,titulo:document.title}); }
   if(keepScroll) return;
   if(k==="archivo"||k==="boletin"){ var el=document.getElementById(k); if(el) el.scrollIntoView(); } else window.scrollTo(0,0);
 }
 window.addEventListener("hashchange",function(){route(false);});
 var DLP=(window.claude&&window.claude.use)?window.claude.use("downloads"):Promise.resolve(null);
+document.addEventListener("click",function(e){var a=e.target.closest("a");if(!a)return;var h=a.getAttribute("href")||"";
+  if(a.classList.contains("ad-real")||a.classList.contains("ad-lb")) track("clic_anuncio",{anunciante:/figurattez/.test(h)?"Figurattez":/lbm-la/.test(h)?"LBM":h,formato:a.classList.contains("ad-lb")?"leaderboard":"robapaginas"});
+  if(/\.pdf$/i.test(h)) track("descarga_pdf",{archivo:h.split("/").pop()});
+  if(/^mailto:/.test(h)) track("abre_correo",{asunto:decodeURIComponent((h.split("subject=")[1]||"").split("&")[0]).slice(0,80)});
+},true);
 document.addEventListener("click",function(e){
   var dl=e.target.closest("[data-dl-etica],[data-dl]");
   if(dl){ e.preventDefault(); DLP.then(function(d){ if(!d){ window.open(dl.getAttribute("href"),"_blank"); return; }
@@ -932,6 +946,7 @@ document.addEventListener("change",function(e){
 document.addEventListener("submit",function(e){
   var f=e.target; e.preventDefault();
   var gv=function(id){return ((document.getElementById(id)||{}).value||"").trim();};
+  if(f.dataset.form) track("formulario_enviado",{formulario:f.dataset.form});
   if(f.dataset.form==="cv"){ S.cvMail="mailto:proyectos@LBM-LA.com?subject="+encodeURIComponent("CV para la bolsa de trabajo: "+gv("cv-nombre")+" · "+gv("cv-area"))+"&body="+encodeURIComponent("Nombre: "+gv("cv-nombre")+"\nCorreo: "+gv("cv-mail")+"\nTeléfono: "+gv("cv-tel")+"\nÁrea: "+gv("cv-area")+"\n\nAcepto la política de privacidad de noticiascima.com.\n\n[Adjunta aquí tu CV en PDF]"); }
   if(f.dataset.form==="nl"){ S.nlMail="mailto:proyectos@LBM-LA.com?subject="+encodeURIComponent("Suscripción al boletín semanal")+"&body="+encodeURIComponent("Quiero recibir el boletín semanal de Noticias CIMA.\n\nNombre: "+gv("nl-nom")+"\nApellido: "+gv("nl-ape")+"\nEmpresa: "+gv("nl-emp")+"\nTeléfono: "+gv("nl-tel")+"\nCorreo: "+gv("nl-mail")+"\n\nAcepto la política de privacidad de noticiascima.com."); }
   if(f.dataset.form==="nota" && !S.fotoOk){ var fr=document.getElementById("nt-foto-res"); if(fr) fr.scrollIntoView({block:"center"}); return; }
@@ -940,6 +955,7 @@ document.addEventListener("submit",function(e){
     S.notaMail="mailto:proyectos@LBM-LA.com?subject="+encodeURIComponent("Nota de prensa: "+g("nt-tit"))+"&body="+encodeURIComponent(body); window.scrollTo(0,0); }
   route(true);
 });
+(function(){try{if(localStorage.getItem("ck-ok"))return;}catch(e){}var d=document.createElement("div");d.className="ck";d.setAttribute("role","region");d.setAttribute("aria-label","Aviso de cookies");d.innerHTML='<p>Usamos cookies de Google Analytics para medir las visitas y mejorar el portal. <a href="#privacidad">Más información</a></p><button type="button">Entendido</button>';d.querySelector("button").onclick=function(){try{localStorage.setItem("ck-ok","1");}catch(e){}d.remove();};document.body.appendChild(d);})();
 route(false);
 </script>
 
