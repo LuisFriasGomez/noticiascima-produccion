@@ -258,6 +258,18 @@ a:hover{color:var(--brand)}
 .pf .cover .cover-r .tag{font-family:"Gilroy",var(--sans);font-weight:800;font-size:15px;letter-spacing:.07em;text-transform:uppercase;padding:9px 14px;color:#fff}
 .pf-btn{font-family:"Gilroy",var(--sans);font-weight:800;font-size:15px;letter-spacing:.01em}
 @media (max-width:560px){.pf .cover .cover-r .tag{font-size:12px;padding:7px 10px}.cover-r{right:16px}.logo2{left:16px!important;width:88px!important;height:88px!important}}
+
+/* Etiquetas y títulos de sección: Gilroy ExtraBold, mayúsculas, azul */
+.kick,.lab,.tag,.flag,th,.adslot .ad-k,.ed-tabs button,.rtabs a{font-family:"Gilroy",var(--sans);font-weight:800;letter-spacing:.07em}
+.kick{font-size:12px;text-transform:uppercase;color:#00115c}
+.lab{font-size:14px;text-transform:uppercase}
+.lab[style*="var(--fg)"]{color:#00115c!important;border-bottom-color:#00115c!important;font-size:16px}
+.sec-head h2{color:#00115c;text-transform:uppercase}
+th{font-size:11px}
+.tag{font-size:12px}
+.flag{font-size:11px}
+.adslot .ad-k{font-size:15px}.adslot.bb .ad-k{font-size:22px}.adslot.mr .ad-k{font-size:15px}
+.ticker .tag{color:#fff}
 </style>
 
 
@@ -460,7 +472,7 @@ function vPortada(){
   h+='<div class="dest"><div class="lab" style="color:var(--fg);font-weight:700;border-bottom:2px solid var(--fg);padding-bottom:10px">Destacados de hoy</div>'+dest.map(function(d,i){return '<a href="#'+d.id+'"><span class="num">'+(i+1)+'</span><span style="display:flex;flex-direction:column;gap:6px"><span class="lab">'+d.sec+'</span><h3>'+esc(d.t)+'</h3></span></a>';}).join('')+'</div></div></section>';
     h+='<div class="wrap" style="padding-top:28px"><a class="adslot bb" href="#publicidad"><span class="ad-k">Espacio publicitario disponible</span><span class="ad-s">970×250 · móvil 300×250 · <b>Anúnciate aquí →</b></span></a></div>';
   h+='<section class="wrap"><div class="main-grid"><div style="min-width:0"><div class="sec-head"><h2>Agencias, marcas y negocios</h2><a class="more" href="#noticias">Todas las noticias →</a></div>'+newsList(NN)+'</div>';
-  h+='<aside class="side"><div class="box"><div style="display:flex;justify-content:space-between;align-items:baseline"><h3 style="font-size:23px">Ranking CIMA</h3><span class="meta">2022-2026 · puntos</span></div><div class="tabs" role="group" aria-label="Tipo de ranking">'+[["ag","Agencias"],["ma","Marcas"],["em","Empresas"]].map(function(t){return '<button type="button" data-tab="'+t[0]+'" aria-pressed="'+(S.tab===t[0])+'">'+t[1]+'</button>';}).join('')+'</div>'+R[S.tab].slice(0,5).map(function(r,i){return '<div class="rk"><span class="p">'+(i+1)+'</span><span class="n">'+esc(r[0])+'</span><span class="v">'+fmt(r[8])+'</span></div>';}).join('')+'<a class="more" href="#ranking">Ver ranking completo →</a></div>';
+  h+='<aside class="side"><div class="box"><div style="display:flex;justify-content:space-between;align-items:baseline"><h3 style="font-size:23px;text-transform:uppercase;color:#00115c">Ranking CIMA</h3><span class="meta">2022-2026 · puntos</span></div><div class="tabs" role="group" aria-label="Tipo de ranking">'+[["ag","Agencias"],["ma","Marcas"],["em","Empresas"]].map(function(t){return '<button type="button" data-tab="'+t[0]+'" aria-pressed="'+(S.tab===t[0])+'">'+t[1]+'</button>';}).join('')+'</div>'+R[S.tab].slice(0,5).map(function(r,i){return '<div class="rk"><span class="p">'+(i+1)+'</span><span class="n">'+esc(r[0])+'</span><span class="v">'+fmt(r[8])+'</span></div>';}).join('')+'<a class="more" href="#ranking">Ver ranking completo →</a></div>';
   h+='<a class="adslot mr" href="#publicidad"><span class="ad-k">Espacio publicitario disponible</span><span class="ad-s">300×250 · <b>Anúnciate aquí →</b></span></a>';
   h+='<div class="list"><div class="lab" style="color:var(--fg);font-weight:700;border-bottom:2px solid var(--fg);padding-bottom:10px">Lo más leído</div>'+NN.slice(0,5).map(function(n,i){return '<a href="#'+n.id+'"><span class="num" style="font-size:20px;min-width:20px">'+(i+1)+'</span><span>'+esc(n.t)+'</span></a>';}).join('')+'</div>';
   h+='<div class="box"><div class="lab" style="color:var(--accent)">¿Tienes una noticia?</div><h3 style="font-size:21px">Envía tu nota de prensa</h3><p class="meta" style="font-size:14px">Lanzamientos, campañas, nombramientos y cuentas nuevas de la industria.</p><a class="btn" href="#envia-nota">Enviar nota</a></div>';
