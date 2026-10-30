@@ -386,6 +386,9 @@ form label.chk input{width:18px !important;height:18px !important;min-height:0 !
 .ck{position:fixed;left:16px;right:16px;bottom:16px;z-index:50;max-width:620px;margin:0 auto;background:#00115c;color:#fff;border-top:3px solid #FE5000;padding:14px 16px;display:flex;gap:14px;align-items:center;box-shadow:0 10px 30px rgba(0,0,0,.3)}
 .ck p{margin:0;font-size:14px;line-height:1.45;flex:1}.ck a{color:#FE5000;font-weight:700}
 .ck button{background:#FE5000;color:#fff;border:0;font-weight:700;padding:10px 16px;min-height:40px;cursor:pointer;flex:none}
+
+.nl-ok{background:#fff;color:#00115c;padding:14px 16px;border-left:4px solid #FE5000;font-size:15px;line-height:1.5}
+.nl-err{background:#FFF1E8;color:#9A3412;padding:10px 12px;font-size:14px;line-height:1.45}
 </style>
 
 
@@ -630,7 +633,7 @@ function vPortada(){
   h+='<a class="ad-real" href="https://figurattez.com" target="_blank" rel="noopener sponsored"><span class="ad-lab">Publicidad</span><img src="img/ad-figurattez-300x250.png" width="300" height="250" alt="Figúrattez · figurattez.com"></a>';
   h+='<div class="list"><div class="lab" style="color:var(--fg);font-weight:700;border-bottom:2px solid var(--fg);padding-bottom:10px">Lo más leído</div>'+NP.slice(0,5).map(function(n,i){return '<a href="#'+n.id+'"><span class="num" style="font-size:20px;min-width:20px">'+(i+1)+'</span><span>'+esc(n.t)+'</span></a>';}).join('')+'</div>';
   h+='<div class="box"><div class="lab" style="color:var(--accent)">¿Tienes una noticia?</div><h3 style="font-size:21px">Envía tu nota de prensa</h3><p class="meta" style="font-size:14px">Lanzamientos, campañas, nombramientos y cuentas nuevas de la industria.</p><a class="btn" href="#envia-nota">Enviar nota</a></div>';
-  h+='<form class="nl" id="boletin" data-form="nl"><div class="lab lbm-by" style="color:var(--brand)">Boletín · presentado por <a href="https://lbm-la.com/" target="_blank" rel="noopener"><img src="img/lbm-logo.png" alt="" width="28" height="28">LBM Comunicaciones</a></div><div style="font-family:var(--sans);font-size:23px;line-height:1.15">La semana de la industria, en un solo correo</div>'+(S.nlMail?'<div style="font-weight:600">Último paso: se abrirá tu correo con tus datos. Envíalo para completar la suscripción.</div><a class="btn brand" href="'+S.nlMail+'">Abrir mi correo</a>':'<div class="nl-2"><div><label for="nl-nom">Nombre</label><input id="nl-nom" required autocomplete="given-name"></div><div><label for="nl-ape">Apellido</label><input id="nl-ape" required autocomplete="family-name"></div></div><label for="nl-emp">Empresa</label><input id="nl-emp" autocomplete="organization"><label for="nl-tel">Teléfono</label><input id="nl-tel" type="tel" autocomplete="tel" placeholder="0414 000 0000"><label for="nl-mail">Correo</label><input id="nl-mail" type="email" required autocomplete="email" placeholder="nombre@empresa.com"><label class="chk"><input type="checkbox" required><span>Acepto la <a href="#privacidad" target="_blank">política de privacidad</a>.</span></label><button class="btn brand" type="submit">Suscribirme gratis</button>')+'</form></aside></div></section>';
+  h+='<form class="nl" id="boletin" data-form="nl"><div class="lab lbm-by" style="color:var(--brand)">Boletín · presentado por <a href="https://lbm-la.com/" target="_blank" rel="noopener"><img src="img/lbm-logo.png" alt="" width="28" height="28">LBM Comunicaciones</a></div><div style="font-family:var(--sans);font-size:23px;line-height:1.15">La semana de la industria, en un solo correo</div>'+(S.nlOk?'<div class="nl-ok" role="status"><b>¡Listo, '+esc(S.nlOk)+'!</b> Ya estás suscrito. Cada martes recibirás el boletín de Noticias CIMA.</div>':(S.nlErr?'<div class="nl-err" role="alert">'+esc(S.nlErr)+'</div>':'')+(S.nlBusy?'<div style="font-weight:600">Enviando…</div>':'')+'<div class="nl-2"><div><label for="nl-nom">Nombre</label><input id="nl-nom" required autocomplete="given-name"></div><div><label for="nl-ape">Apellido</label><input id="nl-ape" required autocomplete="family-name"></div></div><label for="nl-emp">Empresa</label><input id="nl-emp" autocomplete="organization"><label for="nl-tel">Teléfono</label><input id="nl-tel" type="tel" autocomplete="tel" placeholder="0414 000 0000"><label for="nl-mail">Correo</label><input id="nl-mail" type="email" required autocomplete="email" placeholder="nombre@empresa.com"><label class="chk"><input type="checkbox" required><span>Acepto la <a href="#privacidad" target="_blank">política de privacidad</a>.</span></label><button class="btn brand" type="submit"'+(S.nlBusy?' disabled':'')+'>Suscribirme gratis</button>')+'</form></aside></div></section>';
   h+='<section class="wrap" style="padding-top:0"><div class="sec-head"><h2>Artículos</h2><a class="more" href="#articulos">Todos los artículos →</a></div>'+artCards(ART.slice(0,3))+'</section>';
   if(false) h+='<section style="background:var(--soft);border-block:1px solid var(--line)"><div class="wrap"><div class="sec-head"><h2>Campañas y nuevos productos</h2><a class="more" href="#noticias">Ver más →</a></div><div class="g4" style="margin-top:12px">'+camp.map(function(c){return '<span style="display:flex;flex-direction:column;gap:8px"><div class="sq"></div><span class="kick">'+c[0]+'</span><h3 style="font-size:20px">'+esc(c[1])+'</h3></span>';}).join('')+'</div></div></section>';
   h+='<section class="wrap"><div class="g3"><div class="list"><div class="lab" style="color:var(--fg);font-weight:700;border-bottom:2px solid var(--fg);padding-bottom:10px">Aprende · CIMA Learning</div>'+AP.slice(0,3).map(function(a){return '<a href="#aprende" style="flex-direction:column;gap:3px"><span class="kick">'+esc(a[0])+'</span><span>'+esc(a[1])+'</span></a>';}).join('')+'<a class="more" href="#aprende" style="margin-top:10px">Ver toda la formación →</a></div>';
@@ -950,7 +953,7 @@ document.addEventListener("submit",function(e){
   var gv=function(id){return ((document.getElementById(id)||{}).value||"").trim();};
   if(f.dataset.form) track("formulario_enviado",{formulario:f.dataset.form});
   if(f.dataset.form==="cv"){ S.cvMail="mailto:proyectos@LBM-LA.com?subject="+encodeURIComponent("CV para la bolsa de trabajo: "+gv("cv-nombre")+" · "+gv("cv-area"))+"&body="+encodeURIComponent("Nombre: "+gv("cv-nombre")+"\nCorreo: "+gv("cv-mail")+"\nTeléfono: "+gv("cv-tel")+"\nÁrea: "+gv("cv-area")+"\n\nAcepto la política de privacidad de noticiascima.com.\n\n[Adjunta aquí tu CV en PDF]"); }
-  if(f.dataset.form==="nl"){ S.nlMail="mailto:proyectos@LBM-LA.com?subject="+encodeURIComponent("Suscripción al boletín semanal")+"&body="+encodeURIComponent("Quiero recibir el boletín semanal de Noticias CIMA.\n\nNombre: "+gv("nl-nom")+"\nApellido: "+gv("nl-ape")+"\nEmpresa: "+gv("nl-emp")+"\nTeléfono: "+gv("nl-tel")+"\nCorreo: "+gv("nl-mail")+"\n\nAcepto la política de privacidad de noticiascima.com."); }
+  if(f.dataset.form==="nl"){ mcSubscribe({FNAME:gv("nl-nom"),LNAME:gv("nl-ape"),COMPANY:gv("nl-emp"),TEL:gv("nl-tel"),EMAIL:gv("nl-mail")}); return; }
   if(f.dataset.form==="nota" && !S.fotoOk){ var fr=document.getElementById("nt-foto-res"); if(fr) fr.scrollIntoView({block:"center"}); return; }
   if(f.dataset.form==="nota"){ var g=function(id){return (document.getElementById(id)||{}).value||"";};
     var body="Empresa o agencia: "+g("nt-emp")+"\nPersona contacto: "+g("nt-con")+"\nCorreo: "+g("nt-mail")+"\nSección: "+g("nt-sec")+"\n\nTÍTULO: "+g("nt-tit")+"\n\n"+g("nt-txt")+"\n\nFOTO: "+(S.fotoName||"")+(S.fotoDim?" ("+S.fotoDim+")":"")+"\nCRÉDITO: "+g("nt-cred")+"\n\n[Adjunta aquí la foto antes de enviar]";
@@ -958,6 +961,31 @@ document.addEventListener("submit",function(e){
   route(true);
 });
 (function(){try{if(localStorage.getItem("ck-ok"))return;}catch(e){}var d=document.createElement("div");d.className="ck";d.setAttribute("role","region");d.setAttribute("aria-label","Aviso de cookies");d.innerHTML='<p>Usamos cookies de Google Analytics y Microsoft Clarity para medir las visitas y mejorar el portal. <a href="#privacidad">Más información</a></p><button type="button">Entendido</button>';d.querySelector("button").onclick=function(){try{localStorage.setItem("ck-ok","1");}catch(e){}d.remove();};document.body.appendChild(d);})();
+
+/* Suscripción al boletín: Mailchimp, público «LBM Comunicaciones», etiqueta «Boletín semanal» */
+var MC={url:"https://premioscima.us10.list-manage.com/subscribe/post-json",u:"c7fe7a43bb1c58b5de65e5376",id:"94e3aa198b",tag:"14429771"};
+function mcSubscribe(d){
+  var p={u:MC.u,id:MC.id,EMAIL:d.EMAIL,FNAME:d.FNAME,LNAME:d.LNAME,COMPANY:d.COMPANY,tags:MC.tag};
+  p["b_"+MC.u+"_"+MC.id]="";
+  var t=(d.TEL||"").replace(/\D/g,""); if(t.indexOf("58")===0&&t.length===12) t=t.slice(2); if(t.charAt(0)==="0") t=t.slice(1);
+  if(t.length===10){p["PHONE[area]"]=t.slice(0,3);p["PHONE[detail1]"]=t.slice(3,6);p["PHONE[detail2]"]=t.slice(6);}
+  var cb="mcCb"+Date.now(), q=Object.keys(p).map(function(k){return encodeURIComponent(k)+"="+encodeURIComponent(p[k]||"");}).join("&");
+  var sc=document.createElement("script"), done=false;
+  S.nlBusy=true;S.nlErr=null;
+  var fin=function(ok,msg){if(done)return;done=true;S.nlBusy=false;try{delete window[cb];}catch(e){}sc.remove();
+    if(ok){S.nlOk=d.FNAME||"gracias";track("suscripcion_boletin",{origen:"portal"});}
+    else{S.nlErr=msg;track("suscripcion_error",{motivo:(msg||"").slice(0,80)});}
+    route(true);
+    if(!ok){[["nl-nom",d.FNAME],["nl-ape",d.LNAME],["nl-emp",d.COMPANY],["nl-tel",d.TEL],["nl-mail",d.EMAIL]].forEach(function(x){var el=document.getElementById(x[0]);if(el)el.value=x[1]||"";});}};
+  window[cb]=function(r){var m=String((r&&r.msg)||"").replace(/<[^>]*>/g,"").replace(/^\d+ - /,"");
+    if(r&&r.result==="success") fin(true);
+    else if(/already subscribed|ya est/i.test(m)) fin(true);
+    else { var es=/valid email|email address|domain/i.test(m)?"revisa que el correo esté bien escrito":/too many|recent/i.test(m)?"hubo demasiados intentos; prueba de nuevo en unos minutos":/phone/i.test(m)?"revisa el número de teléfono":"intenta de nuevo";
+      fin(false, "No pudimos completar la suscripción: "+es+". Si el problema sigue, escríbenos a proyectos@LBM-LA.com."); }};
+  sc.onerror=function(){fin(false,"No pudimos conectar con el servicio de suscripción. Intenta de nuevo o escríbenos a proyectos@LBM-LA.com.");};
+  setTimeout(function(){fin(false,"El servicio tardó demasiado en responder. Intenta de nuevo en un momento.");},15000);
+  sc.src=MC.url+"?"+q+"&c="+cb; document.body.appendChild(sc);
+}
 route(false);
 </script>
 
