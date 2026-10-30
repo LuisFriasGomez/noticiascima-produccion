@@ -127,7 +127,7 @@ td.tot{font-weight:700}
 .pf .cover{height:140px;background:var(--ink-band);position:relative}
 .pf .cover .tag{position:absolute;right:20px;top:20px;padding:7px 11px}
 .pf .body{padding:0 28px 22px;display:flex;flex-direction:column;gap:14px}
-.pf .logo2{width:104px;height:104px;background:var(--bg);border:4px solid var(--bg);box-shadow:0 0 0 1px var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:32px;font-weight:700;margin-top:-52px}
+.pf .logo2{width:104px;height:104px;background:var(--bg);border:4px solid var(--bg);box-shadow:0 0 0 1px var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:32px;font-weight:700;margin-top:-52px;position:relative;z-index:2;overflow:hidden;border-radius:8px}.logo2 img{width:100%;height:100%;object-fit:contain}
 .g5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
 .g5 div{border:1px solid var(--line);padding:12px}
 .g5 b{font-family:var(--sans);font-size:26px;font-weight:700;display:block}
@@ -596,7 +596,7 @@ function vRanking(){
 
 function vPerfil(k){
   var p=P[k]||P.laweb; k=P[k]?k:"laweb"; var f=F[k];
-  var h='<section class="wrap" style="background:var(--soft);padding-inline:0"><div class="wrap" style="display:flex;flex-direction:column;gap:22px"><div class="pf"><div class="cover"><span class="tag">'+p.tag+'</span></div><div class="body"><div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap"><div class="logo2">'+p.ini+'</div><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn dark" href="#festivales">Ver premios</a></div></div><div><h1 style="font-size:42px">'+esc(p.nombre)+'</h1><div class="meta" style="font-size:15px">Agencia · Caracas'+(p.fund?' · Fundada en '+p.fund:'')+'</div></div>';
+  var h='<section class="wrap" style="background:var(--soft);padding-inline:0"><div class="wrap" style="display:flex;flex-direction:column;gap:22px"><div class="pf"><div class="cover"><span class="tag">'+p.tag+'</span></div><div class="body"><div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap"><div class="logo2">'+(LOGO[p.nombre]?'<img src="img/logos/'+LOGO[p.nombre]+'" alt="'+esc(p.nombre)+'">':p.ini)+'</div><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn dark" href="#festivales">Ver premios</a></div></div><div><h1 style="font-size:42px">'+esc(p.nombre)+'</h1><div class="meta" style="font-size:15px">Agencia · Caracas'+(p.fund?' · Fundada en '+p.fund:'')+'</div></div>';
   h+='<div class="g5"><div><b style="color:var(--accent)">'+p.pos+'</b><span>Ranking 2022-2026</span></div><div><b>'+p.pts+'</b><span>puntos acumulados</span></div><div><b>'+p.ap+'</b><span>Premio Ápice</span></div><div><b>'+p.cat+'</b><span>categorías ganadas</span></div><div><b>'+p.nom+'</b><span>nominaciones</span></div></div></div>';
   h+='<div class="ptabs"><a class="on" href="#perfil-'+k+'">Resumen</a><a href="#festivales">Premios</a><a href="#noticias">Noticias</a></div></div>';
   h+='<div class="main-grid"><div style="display:flex;flex-direction:column;gap:22px;min-width:0"><div class="panel"><h2 style="font-size:25px">Puntos CIMA por edición</h2>'+p.bars.map(function(a){return '<div class="bar"><b>'+a[0]+'</b><div class="t"><i style="width:'+a[2]+'%"></i></div><b style="text-align:right">'+a[1]+'</b></div>';}).join('')+'<p class="meta">Calculado con la metodología pública del Ranking CIMA.</p></div>';
