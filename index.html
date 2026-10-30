@@ -977,7 +977,7 @@ function mcSubscribe(d){
     else{S.nlErr=msg;track("suscripcion_error",{motivo:(msg||"").slice(0,80)});}
     route(true);
     if(!ok){[["nl-nom",d.FNAME],["nl-ape",d.LNAME],["nl-emp",d.COMPANY],["nl-tel",d.TEL],["nl-mail",d.EMAIL]].forEach(function(x){var el=document.getElementById(x[0]);if(el)el.value=x[1]||"";});}};
-  window[cb]=function(r){var m=String((r&&r.msg)||"").replace(/<[^>]*>/g,"").replace(/^\d+ - /,"");
+  window[cb]=function(r){var m=String((r&&r.msg)||"").replace(/<[^>]*>/g,"").replace(/^\d+ - /,"").replace(/\.\s*$/,"");
     if(r&&r.result==="success") fin(true);
     else if(/already subscribed|ya est/i.test(m)) fin(true);
     else { var es=/valid email|email address|domain/i.test(m)?"revisa que el correo esté bien escrito":/too many|recent/i.test(m)?"hubo demasiados intentos; prueba de nuevo en unos minutos":/phone/i.test(m)?"revisa el número de teléfono":(m||"intenta de nuevo");
