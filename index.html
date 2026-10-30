@@ -321,6 +321,24 @@ input[type=text],input[type=email],input[type=tel],input[type=search],input:not(
 .vac-hook{font-weight:700;font-size:17px;margin:16px 0 6px}
 .vac ul{margin:10px 0 18px;padding-left:20px;line-height:1.6}
 .vac .btn{white-space:normal;text-align:center;color:#fff}
+
+.ft2{background:#00115c;color:#C9CDE0}
+.ft2 a{color:#fff;text-decoration:none}
+.ft2 a:hover{color:#FE5000}
+.ft2-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px;padding-block:44px 32px}
+.ft2-logo{display:inline-flex;align-items:center;gap:12px;font-family:var(--sans);font-weight:800;font-size:22px;letter-spacing:.02em}
+.ft2-logo b{color:#FE5000}
+.ft2-brand p{margin:14px 0 18px;font-size:15px;line-height:1.55;max-width:34ch}
+.ft2-btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:2px solid #fff;font-weight:700;font-size:15px}
+.ft2-btn:hover{background:#fff;color:#00115c !important}
+.ft2-col{display:flex;flex-direction:column;gap:9px;font-size:15px}
+.ft2-col h4{margin:0 0 6px;color:#FE5000;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+.ft2-bottom{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.18);padding-block:20px 28px;font-size:13px}
+.ft2-bottom p{margin:0;text-align:right;line-height:1.6}
+.ft2-lbm{display:inline-flex;align-items:center;gap:10px;line-height:1.35}
+.ft2-lbm img{border-radius:50%;background:#fff}
+@media (max-width:900px){.ft2-grid{grid-template-columns:1fr 1fr}.ft2-brand{grid-column:1/-1}}
+@media (max-width:520px){.ft2-grid{grid-template-columns:1fr}.ft2-bottom p{text-align:left}}
 </style>
 
 
@@ -347,14 +365,21 @@ input[type=text],input[type=email],input[type=tel],input[type=search],input:not(
 <div class="adtop"><div class="wrap"><a class="adslot lb" href="#publicidad"><span class="ad-k">Espacio publicitario disponible</span><span class="ad-s">728×90 · móvil 320×50 · <b>Anúnciate aquí →</b></span></a></div></div>
 <main id="app"></main>
 
-<footer><div class="wrap">
-  <div class="g4" style="padding-block:40px 24px">
-    <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start"><img src="img/logo-cima.svg" alt="Premios CIMA" width="56" height="56" style="background:#fff;border-radius:50%"><div>Mercadeo, publicidad y negocios en Venezuela. Caracas.</div><div style="font-size:13px;opacity:.85">LBM Comunicaciones · RIF J-31038427-4</div></div>
-    <div><strong>Secciones</strong><a href="#noticias">Noticias</a> · <a href="#articulos">Artículos</a> · <a href="#premios">Premios CIMA</a> · <a href="#ranking">Ranking</a> · <a href="#festivales">Festivales</a> · <a href="#aprende">Aprende</a> · <a href="#empleos">Empleos</a> · <a href="#directorio">Directorio</a></div>
-    <div><strong>CIMA</strong><a href="https://www.lbm-la.com" target="_blank" rel="noopener">Quiénes somos</a> · <a href="#puntos">Cómo se calcula el ranking</a> · <a href="#etica">Ética y correcciones</a> · <a href="mailto:proyectos@LBM-LA.com">Contacto: proyectos@LBM-LA.com</a> · <a href="tel:+584143029886">0414 302 9886</a></div>
-    <div><strong>Servicios</strong><a href="#envia-nota">Envía tu nota de prensa</a> · <a href="#publicidad">Publicidad</a> · <a href="#empleos">Sube tu CV</a> · <a href="#boletin">Boletín</a></div>
+<footer class="ft2"><div class="wrap">
+  <div class="ft2-grid">
+    <div class="ft2-brand">
+      <a href="#portada" class="ft2-logo"><img src="img/logo-cima-blanco.svg" alt="" width="52" height="52"><span>NOTICIAS <b>CIMA</b></span></a>
+      <p>Portal informativo de Premios CIMA: noticias de agencias, marcas y negocios de Venezuela, el Ranking CIMA y los festivales.</p>
+      <a class="ft2-btn" href="#boletin">Suscríbete al boletín</a>
+    </div>
+    <nav class="ft2-col" aria-label="Secciones"><h4>Secciones</h4><a href="#noticias">Noticias</a><a href="#articulos">Artículos</a><a href="#premios">Premios CIMA</a><a href="#ranking">Ranking</a><a href="#festivales">Festivales</a><a href="#aprende">Aprende</a><a href="#empleos">Empleos</a><a href="#directorio">Directorio</a></nav>
+    <nav class="ft2-col" aria-label="Participa"><h4>Participa</h4><a href="#envia-nota">Envía tu nota de prensa</a><a href="#publicidad">Anúnciate</a><a href="#empleos">Sube tu CV</a><a href="#puntos">Cómo se calcula el ranking</a><a href="#etica">Ética y correcciones</a></nav>
+    <div class="ft2-col"><h4>Contacto</h4><a href="mailto:proyectos@LBM-LA.com">proyectos@LBM-LA.com</a><a href="tel:+584143029886">0414 302 9886</a><span>Caracas, Venezuela</span></div>
   </div>
-  <div class="rule">Ninguna relación comercial con CIMA da ventaja ante el jurado. El contenido pagado va identificado.</div>
+  <div class="ft2-bottom">
+    <a class="ft2-lbm" href="https://lbm-la.com/" target="_blank" rel="noopener"><img src="img/lbm-logo.png" alt="" width="34" height="34"><span>Producido por <b>LBM Comunicaciones</b><br>RIF J-31038427-4</span></a>
+    <p>Ninguna relación comercial con CIMA da ventaja ante el jurado. El contenido pagado va identificado.<br>© 2026 Noticias CIMA</p>
+  </div>
 </div></footer>
 
 <script>
