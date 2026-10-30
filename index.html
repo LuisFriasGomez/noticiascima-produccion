@@ -963,7 +963,7 @@ document.addEventListener("submit",function(e){
 (function(){try{if(localStorage.getItem("ck-ok"))return;}catch(e){}var d=document.createElement("div");d.className="ck";d.setAttribute("role","region");d.setAttribute("aria-label","Aviso de cookies");d.innerHTML='<p>Usamos cookies de Google Analytics y Microsoft Clarity para medir las visitas y mejorar el portal. <a href="#privacidad">Más información</a></p><button type="button">Entendido</button>';d.querySelector("button").onclick=function(){try{localStorage.setItem("ck-ok","1");}catch(e){}d.remove();};document.body.appendChild(d);})();
 
 /* Suscripción al boletín: Mailchimp, público «LBM Comunicaciones», etiqueta «Boletín semanal» */
-var MC={url:"https://premioscima.us10.list-manage.com/subscribe/post-json",u:"c7fe7a43bb1c58b5de65e5376",id:"94e3aa198b",tag:"14429771"};
+var MC={url:"https://premioscima.us10.list-manage.com/subscribe/post",u:"c7fe7a43bb1c58b5de65e5376",id:"94e3aa198b",tag:"14429771"};
 function mcSubscribe(d){
   var p={u:MC.u,id:MC.id,EMAIL:d.EMAIL,FNAME:d.FNAME,LNAME:d.LNAME,COMPANY:d.COMPANY,tags:MC.tag};
   p["b_"+MC.u+"_"+MC.id]="";
@@ -980,7 +980,7 @@ function mcSubscribe(d){
   window[cb]=function(r){var m=String((r&&r.msg)||"").replace(/<[^>]*>/g,"").replace(/^\d+ - /,"");
     if(r&&r.result==="success") fin(true);
     else if(/already subscribed|ya est/i.test(m)) fin(true);
-    else { var es=/valid email|email address|domain/i.test(m)?"revisa que el correo esté bien escrito":/too many|recent/i.test(m)?"hubo demasiados intentos; prueba de nuevo en unos minutos":/phone/i.test(m)?"revisa el número de teléfono":"intenta de nuevo";
+    else { var es=/valid email|email address|domain/i.test(m)?"revisa que el correo esté bien escrito":/too many|recent/i.test(m)?"hubo demasiados intentos; prueba de nuevo en unos minutos":/phone/i.test(m)?"revisa el número de teléfono":(m||"intenta de nuevo");
       fin(false, "No pudimos completar la suscripción: "+es+". Si el problema sigue, escríbenos a proyectos@LBM-LA.com."); }};
   sc.onerror=function(){fin(false,"No pudimos conectar con el servicio de suscripción. Intenta de nuevo o escríbenos a proyectos@LBM-LA.com.");};
   setTimeout(function(){fin(false,"El servicio tardó demasiado en responder. Intenta de nuevo en un momento.");},15000);
