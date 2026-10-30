@@ -1,5 +1,5 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>CIMA Creatividad, Mercadeo y Negocios</title>
+<title>Noticias CIMA · Creatividad, Mercadeo y Negocios</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&family=Archivo:wght@400;500;600;700&display=swap">
 <style>
@@ -270,6 +270,27 @@ th{font-size:11px}
 .flag{font-size:11px}
 .adslot .ad-k{font-size:15px}.adslot.bb .ad-k{font-size:22px}.adslot.mr .ad-k{font-size:15px}
 .ticker .tag{color:#fff}
+
+/* Encabezado Noticias CIMA */
+.mast2{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:26px 22px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:20px;color:inherit;text-decoration:none;min-width:0}
+.brand:hover{color:inherit}
+.brand-logo{width:96px;height:96px;flex:none;display:block}
+.brand-txt{display:flex;flex-direction:column;gap:8px;min-width:0}
+.brand-name{font-family:"Gilroy",var(--sans);font-weight:800;font-size:clamp(40px,6.4vw,72px);line-height:.92;letter-spacing:.005em;color:#00115c}
+.brand-cima{color:#FE5000}
+.brand-tag{font-family:"Gilroy",var(--sans);font-weight:800;font-size:clamp(15px,1.8vw,21px);letter-spacing:.01em;color:#00115c;padding-top:10px;border-top:3px solid #FE5000;align-self:flex-start}
+.brand-pill{font-family:"Gilroy",var(--sans);font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#00115c;border:2px solid #00115c;padding:10px 16px;white-space:nowrap}
+@media (max-width:700px){.mast2{padding-block:18px 16px;gap:12px}.brand{gap:14px}.brand-logo{width:64px;height:64px}.brand-pill{font-size:11px;padding:7px 11px}.brand-name{font-size:clamp(28px,8.6vw,40px);white-space:nowrap}.brand-tag{font-size:14px}.brand-tag{padding-top:7px;border-top-width:2px}}
+
+/* Encabezado en fondo azul */
+.mast-band{position:relative;overflow:hidden;background-color:#00115c;background-image:radial-gradient(ellipse 70% 120% at 90% 50%,rgba(40,70,190,.45) 0%,rgba(0,17,92,0) 60%),repeating-conic-gradient(from -4deg at 90% 50%,rgba(255,255,255,.05) 0deg 3deg,rgba(255,255,255,0) 3deg 10deg),linear-gradient(270deg,#00115c 0%,#001a7a 45%,#000c45 100%)}
+.mast-band::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 140% at 0% 50%,rgba(0,8,50,.7),rgba(0,8,50,0) 70%);pointer-events:none}
+.mast-band .mast2{position:relative;z-index:1}
+.mast-band .brand-name{color:#fff}
+.mast-band .brand-cima{color:#FE5000}
+.mast-band .brand-tag{color:#fff;font-family:var(--sans);font-weight:400;letter-spacing:.02em}
+.mast-band .brand-pill{color:#fff;border-color:#fff}
 </style>
 
 
@@ -278,10 +299,16 @@ th{font-size:11px}
   <div class="acts"><a href="#buscar">Buscar</a><a href="#boletin" class="hide-s">Boletín gratis</a><a href="mailto:proyectos@LBM-LA.com?subject=Registrar%20mi%20agencia%20en%20el%20Directorio%20CIMA&body=Nombre%20de%20la%20agencia%3A%0APersona%20contacto%3A%0ACorreo%20corporativo%3A%0AWeb%3A">Registra tu agencia</a></div>
 </div></div>
 
-<header class="wrap mast">
-  <a href="#portada" class="logo"><img class="logo-img" src="img/logo-cima.svg" alt="Premios CIMA" width="72" height="72"><span class="name">CREATIVIDAD, MERCADEO Y NEGOCIOS</span></a>
-  <div class="lab mast-sub">PORTAL INFORMATIVO</div>
-</header>
+<div class="mast-band"><header class="wrap mast2">
+  <a href="#portada" class="brand" aria-label="Noticias CIMA, portada">
+    <img class="brand-logo" src="img/logo-cima-blanco.svg" alt="" width="96" height="96">
+    <span class="brand-txt">
+      <span class="brand-name">NOTICIAS <span class="brand-cima">CIMA</span></span>
+      <span class="brand-tag">Creatividad, Mercadeo y Negocios</span>
+    </span>
+  </a>
+  <span class="brand-pill">Portal informativo</span>
+</header></div>
 
 <nav class="main" aria-label="Secciones"><div class="wrap">
   <a href="#portada">Portada</a><a href="#noticias">Noticias</a><a href="#articulos">Artículos</a><a href="#premios">Premios CIMA</a><a href="#festivales">Festivales</a><a href="#aprende">Aprende</a><a href="#empleos">Empleos</a><a href="#directorio">Directorio</a>
