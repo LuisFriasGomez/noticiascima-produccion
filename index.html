@@ -339,6 +339,20 @@ input[type=text],input[type=email],input[type=tel],input[type=search],input:not(
 .ft2-lbm img{border-radius:50%;background:#fff}
 @media (max-width:900px){.ft2-grid{grid-template-columns:1fr 1fr}.ft2-brand{grid-column:1/-1}}
 @media (max-width:520px){.ft2-grid{grid-template-columns:1fr}.ft2-bottom p{text-align:left}}
+
+.fmt-price{display:inline-block;margin-top:6px;font-family:var(--sans);font-size:20px;color:#00115c}
+.pk-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}
+.pk-card{border:2px solid #00115c;padding:20px}
+.pk-card h3{font-size:20px;text-transform:uppercase;color:#00115c;margin:0}
+.pk-card .pk-pr{font-size:34px;font-weight:800;color:#00115c;margin:6px 0 10px}
+.pk-card .pk-pr small{font-size:14px;font-weight:600}
+.pk-card ul{margin:0;padding-left:18px;line-height:1.7}
+.pk-card.on{background:#00115c;color:#fff}.pk-card.on h3,.pk-card.on .pk-pr{color:#fff}
+.box.tf-box{flex-direction:row;padding:24px;border-top:4px solid #FE5000}
+.tf-box{margin-top:28px;display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.tf-box>div{flex:1 1 340px}
+.tf-box .btn{color:#fff}
+@media (max-width:760px){.pk-grid{grid-template-columns:1fr}}
 </style>
 
 
@@ -749,15 +763,17 @@ function vEmpleos(){
 
 
 function vPublicidad(){
-  var F=[["Leaderboard","728×90 · móvil 320×50","Franja superior, visible en todas las páginas del portal.",'<a class="adslot lb" href="#publicidad"><span class="ad-k">Espacio publicitario disponible</span><span class="ad-s">728×90 · <b>Anúnciate aquí →</b></span></a>'],
-    ["Billboard","970×250 · móvil 300×250","Gran formato en la portada, entre secciones.",'<a class="adslot bb" href="#publicidad"><span class="ad-k">Espacio publicitario disponible</span><span class="ad-s">970×250 · <b>Anúnciate aquí →</b></span></a>'],
-    ["Robapáginas","300×250","Barra lateral de la portada y dentro de cada nota.",'<a class="adslot mr" href="#publicidad"><span class="ad-k">Espacio publicitario disponible</span><span class="ad-s">300×250 · <b>Anúnciate aquí →</b></span></a>'],
-    ["Patrocinio de sección","Logo + mención","Ranking CIMA, Premios CIMA, Festivales o CIMA Learning presentados por tu marca.",'<div class="sponsor"><span>Ranking CIMA presentado por</span><span class="logo-ph">[Tu logo]</span></div>'],
-    ["Boletín semanal","Patrocinio del envío","Logo y mensaje en el correo semanal de la industria.",'<div class="sponsor"><span>Boletín presentado por</span><span class="logo-ph">[Tu logo]</span></div>'],
-    ["Contenido patrocinado","Nota o caso","Una nota escrita con tu marca, identificada siempre como contenido patrocinado.",'<div class="sponsor"><span class="flag tbc">Contenido patrocinado</span><span>[Título de la nota]</span></div>']];
+  var F=[["Leaderboard","728×90 · móvil 320×50","Franja superior, visible en todas las páginas del portal.","350 USD / mes",'<a class="adslot lb" href="#publicidad"><span class="ad-k">Espacio publicitario disponible</span><span class="ad-s">728×90 · <b>Anúnciate aquí →</b></span></a>'],
+    ["Billboard","970×250 · móvil 300×250","Gran formato en la portada, entre secciones.","300 USD / mes",'<a class="adslot bb" href="#publicidad"><span class="ad-k">Espacio publicitario disponible</span><span class="ad-s">970×250 · <b>Anúnciate aquí →</b></span></a>'],
+    ["Robapáginas","300×250","Barra lateral de la portada y dentro de cada nota.","200 USD / mes",'<a class="adslot mr" href="#publicidad"><span class="ad-k">Espacio publicitario disponible</span><span class="ad-s">300×250 · <b>Anúnciate aquí →</b></span></a>'],
+    ["Patrocinio de sección","Logo + mención","Ranking CIMA, Premios CIMA, Festivales o CIMA Learning presentados por tu marca.","400 USD / mes · exclusivo",'<div class="sponsor"><span>Ranking CIMA presentado por</span><span class="logo-ph">[Tu logo]</span></div>'],
+    ["Boletín semanal","Patrocinio del envío","Logo y mensaje en el correo semanal de la industria.","450 USD / mes · 150 USD por envío",'<div class="sponsor"><span>Boletín presentado por</span><span class="logo-ph">[Tu logo]</span></div>'],
+    ["Contenido patrocinado","Nota o caso","Una nota escrita con tu marca, identificada siempre como contenido patrocinado.","250 USD por nota",'<div class="sponsor"><span class="flag tbc">Contenido patrocinado</span><span>[Título de la nota]</span></div>']];
   var h='<section class="wrap"><div class="kick">Publicidad</div><h1 style="font-size:46px;margin:8px 0 10px">Anúnciate en CIMA</h1><p class="dek">Llega a quienes deciden en mercadeo y publicidad en Venezuela: agencias, marcas, medios, creativos, gremios y estudiantes.</p>';
-  h+='<div style="margin-top:24px">'+F.map(function(f){return '<div class="fmt"><div style="display:flex;flex-direction:column;gap:6px"><h3 style="font-size:22px">'+f[0]+'</h3><span class="kick" style="color:var(--muted)">'+f[1]+'</span><p class="meta" style="font-size:15px">'+f[2]+'</p></div><div style="min-width:0;overflow:hidden">'+f[3]+'</div></div>';}).join('')+'</div>';
-  h+='<div class="box" style="margin-top:28px;max-width:560px"><h3 style="font-size:23px">Pide el tarifario</h3><p class="meta" style="font-size:15px">Escríbenos a <a href="mailto:proyectos@LBM-LA.com" style="color:var(--accent);font-weight:600">proyectos@LBM-LA.com</a> o llámanos al <a href="tel:+584143029886" style="color:var(--accent);font-weight:600">0414 302 9886</a> y te enviamos tarifas, paquetes y disponibilidad para el portal y la Revista CIMA.</p></div>';
+  h+='<div style="margin-top:24px">'+F.map(function(f){return '<div class="fmt"><div style="display:flex;flex-direction:column;gap:6px"><h3 style="font-size:22px">'+f[0]+'</h3><span class="kick" style="color:var(--muted)">'+f[1]+'</span><p class="meta" style="font-size:15px">'+f[2]+'</p><b class="fmt-price">'+f[3]+'</b></div><div style="min-width:0;overflow:hidden">'+f[4]+'</div></div>';}).join('')+'</div>';
+  h+='<div class="sec-head" style="margin-top:40px"><h2>Paquetes</h2></div><div class="pk-grid">'+[["Presencia","450","Robapáginas","1 nota patrocinada al mes"],["Visibilidad","750","Leaderboard","Robapáginas","1 envío del boletín","1 nota patrocinada al mes"],["Socio CIMA","1.200","Patrocinio de sección","Billboard + Leaderboard","Patrocinio del boletín (4 envíos)","1 nota patrocinada al mes"]].map(function(p,i){return '<div class="pk-card'+(i===1?' on':'')+'"><h3>'+p[0]+'</h3><div class="pk-pr">'+p[1]+' <small>USD / mes</small></div><ul>'+p.slice(2).map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul></div>';}).join('')+'</div>';
+  h+='<p class="meta" style="font-size:15px;margin-top:14px"><b style="color:var(--fg)">Descuentos:</b> 10% por 3 meses · 15% por 6 meses · 20% por 12 meses. <b style="color:var(--fg)">Anunciantes fundadores:</b> 20% adicional si contratas antes del 31 de diciembre de 2026. Precios en USD más IVA; pueden pagarse en bolívares a la tasa oficial del BCV del día del pago.</p>';
+  h+='<div class="box tf-box"><div><h3 style="font-size:23px">Descarga el tarifario completo</h3><p class="meta" style="font-size:15px">PDF de 3 páginas con precios, ubicación y medidas de cada espacio, especificaciones de entrega y datos de pago. Escríbenos a <a href="mailto:proyectos@LBM-LA.com" style="color:var(--accent);font-weight:600">proyectos@LBM-LA.com</a> o llama al <a href="tel:+584143029886" style="color:var(--accent);font-weight:600">0414 302 9886</a> para confirmar disponibilidad.</p></div><a class="btn brand" href="tarifario-noticias-cima.pdf" target="_blank" rel="noopener" data-dl data-fn="Tarifario Noticias CIMA.pdf">Descargar tarifario (PDF)</a></div>';
   h+='<p class="note" style="margin-top:16px">Ninguna relación comercial con CIMA da ventaja ante el jurado de Premios CIMA. El contenido pagado va identificado.</p></section>';
   return h;
 }
