@@ -1,4 +1,25 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.dir-tabs{display:flex;gap:0;margin-top:22px;border-bottom:2px solid var(--fg)}
+.dir-tabs button{font:inherit;font-family:var(--head,inherit);font-weight:800;font-size:20px;letter-spacing:.02em;text-transform:uppercase;background:none;border:0;padding:12px 22px;cursor:pointer;color:var(--muted,#666);border-bottom:4px solid transparent;margin-bottom:-2px}
+.dir-tabs button.on{color:var(--fg);border-bottom-color:var(--accent,#FE5000)}
+.dir-tabs button span{font-size:14px;font-weight:600;opacity:.6;margin-left:4px}
+.dir-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:20px}
+.dir-tile{aspect-ratio:1/1;background:#fff;border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;padding:18px;cursor:pointer;transition:transform .15s,box-shadow .15s,border-color .15s}
+.dir-tile:hover,.dir-tile:focus-visible{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,17,92,.14);border-color:#00115c;outline:none}
+.dir-tile img{max-width:100%;max-height:100%;object-fit:contain}
+.dir-ini{font-family:var(--head,inherit);font-weight:800;font-size:17px;line-height:1.1;text-align:center;color:#00115c;text-transform:uppercase}
+.df-bg{position:fixed;inset:0;background:rgba(0,10,40,.6);z-index:200;display:flex;align-items:center;justify-content:center;padding:16px}
+.df{position:relative;background:#fff;color:#111;width:100%;max-width:520px;max-height:90vh;overflow:auto;border-radius:12px;padding:32px 32px 26px;border-top:6px solid var(--accent,#FE5000)}
+.df-x{position:absolute;top:10px;right:12px;width:40px;height:40px;border:0;background:none;font-size:30px;line-height:1;cursor:pointer;color:#333}
+.df-logo{width:120px;height:120px;border:1px solid #e5e5e5;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:14px;margin-bottom:16px}
+.df-logo img{max-width:100%;max-height:100%;object-fit:contain}
+.df h2{margin:4px 0 10px;font-size:30px;color:#00115c}
+.df-f{font-size:17px;line-height:1.5;margin:0 0 16px}
+.df dl{margin:0;border-top:1px solid #e5e5e5}
+.df-row{display:grid;grid-template-columns:150px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid #e5e5e5;font-size:15px}
+.df-row dt{color:#666;font-weight:600}.df-row dd{margin:0;word-break:break-word}
+@media(max-width:900px){.dir-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:560px){.dir-grid{grid-template-columns:repeat(3,1fr);gap:10px}.dir-tile{padding:10px}.dir-tabs button{font-size:16px;padding:10px 14px}.df{padding:26px 20px 20px}.df-row{grid-template-columns:1fr;gap:2px}}
+</style></head><body>
 <title>Noticias CIMA · Creatividad, Mercadeo y Negocios</title>
 <meta name="description" content="Portal informativo de Premios CIMA: noticias de agencias, marcas y negocios de Venezuela, el Ranking CIMA, festivales, formación y empleos de la industria.">
 <meta name="theme-color" content="#00115c">
@@ -451,7 +472,7 @@ var R = {
   em:[["Empresas Polar",15,15,65,150,1,19,53,245],["Mondelẽz VZ",0,14,35,14,0,5,16,63],["Ron Santa Teresa",45,1,10,2,1,2,3,58],["Alimentos DiFresca",22,21,2,1,0,4,6,46],["Diageo",1,20,12,0,0,3,3,33],["Grupo MiMesa",0,10,0,11,0,2,1,21],["Grupo ZOOM",10,10,0,0,0,2,0,20],["Grupo Lactalis",0,0,1,12,0,1,3,13],["Grupo Leti",0,0,11,1,0,1,2,12],["Alfonzo Rivas",2,0,0,2,0,0,4,4],["Nestlé",2,1,0,1,0,0,4,4]]
 };
 function fmt(v){return String(v).replace(".",",");}
-var S = { tab:"ag", rtab:"ag", ed:"2026", cvSent:false };
+var S = { tab:"ag", rtab:"ag", ed:"2026", cvSent:false, dtab:"ag" };
 var ED = {
   "2022":{t:"1era edición",n:"87",kv:[["Premio Ápice","Ron Santa Teresa · Reto Saca el Pecho"],["Ceremonia","Centro Cultural Chacao"]]},
   "2024":{t:"2da edición",n:"125",kv:[["Premio Ápice","Farmatodo · La Web Figital Agency"],["Agencia del Año","La Web Figital Agency"]]},
@@ -881,18 +902,59 @@ function vPublicidad(){
 }
 var AP=[["GRANDE La Academia · EspacioFoto","aPRENDO LA LUZ: workshop de fotografía de retrato con Claudio Napolitano","Workshop intensivo con el fotógrafo Hasselblad Master Claudio Napolitano para entender la física de la luz y usarla para revelar la personalidad en el retrato. 21 y 22 de noviembre en EspacioFoto, Caracas. Cupos limitados. Si te inscribes de parte de GRANDE tienes descuento y ayudas a becar a un joven talento.","https://www.instagram.com/p/De19litm_F9/"],["GRANDE La Academia · EspacioFoto","aPRENDO LA LUZ: workshop de fotografía de producto con Claudio Napolitano","Workshop intensivo de iluminación para fotografía de producto, con énfasis en vidrio, líquidos y superficies reflectantes. 16 y 17 de noviembre en Espacio Fotográfico. Cupos limitados. Descuento si vas de parte de GRANDE; la información completa está en @espacio_foto.","https://www.instagram.com/p/De19litm_F9/"],["Círculo Creativo de Venezuela","La Academia del Círculo Creativo","12 masterclasses en vivo, una al mes, de 150 minutos, con 12 referentes venezolanos de la industria. El primer curso, AI Sandbox: Del Brief al León, ya completó sus cupos; pronto abren las inscripciones del siguiente.","https://circulocreativove.com"],["Círculo de Creativas Venezuela","Alquimistas: Luisana Franceschi, Nuevas Líderes Creativas","Programa gratuito de liderazgo para mujeres, 2da edición con Dove Venezuela. 7 clases presenciales en Caracas durante 5 sábados desde el 7 de noviembre, de 8:00 a.m. a 3:00 p.m. Cupo de 21 participantes; inscripciones cerradas el 25 de octubre.","https://www.instagram.com/p/Dej13o0FqC0/"],["UNIMET", "Cursos de Mercadeo y Ventas", "Cursos de extensión como Trade Marketing avanzado, Comunicación comercial y Gerencia estratégica de mercadeo. Formato híbrido de 20 horas académicas.", "https://www.unimet.edu.ve/areas/gerencia/mercadeo-y-ventas/"], ["UNIMET", "Diplomado en Comunicaciones Digitales para el Mercadeo", "Diplomado de Estudios Avanzados del Postgrado de la Universidad Metropolitana.", "https://www.unimet.edu.ve/postgrado/diplomados-de-estudios-avanzados/comunicaciones-digitales-para-el-mercadeo/"], ["UCAB", "Diplomado en Mercadeo Digital", "Diplomado del CIAP de la Universidad Católica Andrés Bello, en Caracas y en línea.", "https://www.ciapucab.com/oferta/diplomado-mercadeo-digital/"], ["UCAB", "Especialización en Publicidad", "Programa de postgrado de la Universidad Católica Andrés Bello.", "https://postgrado.ucab.edu.ve/estudio/especializacion-en-publicidad/"], ["Instituto de Diseño de Caracas", "Diseño Gráfico", "Carrera de 6 semestres. Inicio de clases en septiembre de 2026, con Becas Talento al inicio de cada semestre.", "https://www.disegno.com/modalidades-de-estudio/diseno-grafico"]];
 var DIR=[["Amarillo Creative Lab", "Patricia (Pacha) Vegas", "pacha@amarillolab.com", "amarillolab.com"], ["ARC de Publicis Groupe", "Efraín Sandoval", "efrsando@publicisgroupe.net", ""], ["ARS Publicidad", "María Alejandra Guzmán", "mguzman@arspublicidad.com", "arspublicidad.com"], ["B2B Marketing Solutions", "", "hola@b2bve.com", "b2bve.com"], ["Bajo el Árbol", "Jean Paul Zeppenfeldt", "", ""], ["Black Cat Lab", "Vanessa Báez", "vanepilla@blackcat-lab.com", "blackcat-lab.com"], ["By Beatriz Faria", "Beatriz Faria", "design@bybeatrizfaria.com", "bybeatrizfaria.com"], ["Casivache", "Stefania Chehade", "", ""], ["Concept McCann", "Antonio Noguera", "antonio.noguera@concept-mccann.com.ve", "concept-mccann.com.ve"], ["Crack Estudio Creativo", "", "info@crackestudio.com", "crackestudio.com"], ["Equilibrio Agency", "Yhoger Contreras", "yhoger.contreras@equilibrio.agency", "equilibrio.agency"], ["Goodman", "Wilfredo García Gallegos", "wgarcia@goodmanlatam.com", "goodmanlatam.com"], ["Intezia", "Verónica Rubio", "vrubio@intezia.com", "intezia.com"], ["Invermedia", "Julio Briceño", "jbriceno@invermedia.com", "invermedia.com"], ["Kacrea Estudio", "Daniela Parazzi", "coordinacioncreativa@kacreaestudio.com", "kacreaestudio.com"], ["Kurios Education", "Sofía Machado", "sofia.machado@kuriosedu.com", "kuriosedu.com"], ["La Web Figital Agency", "Alejandro Osuna", "alejandro.osuna@hacemosloquenosgusta.com", "lawebfigitalagency.com"], ["Leo Burnett", "Ricardo Cie", "ricardo.cie@leoburnett.com", "leoburnett.com"], ["Manne Productions", "", "jroig@manneproductions.com", "manneproductions.com"], ["Mutato", "Sara Castaño", "scastano@mutato.com.ve", "mutato.com.ve"], ["Name", "", "isabella@thisisname.co", "thisisname.co"], ["Pa' Los Panas", "Verónica Gazzara", "", ""], ["Packs Agency", "Karen Bustamante", "kbustamante@packsagency.com", "packsagency.com"], ["Paradiso", "Paola González Laya", "pgonzalez@weareparadiso.com", "weareparadiso.com"], ["Parallel", "Tomás Berroterán", "tomas@parallel-pro.com", "parallel-pro.com"], ["Playful Agency", "Alejandra Da Costa", "ale@playfulagency.com", "playfulagency.com"], ["Producciones Acapella", "Jefferson Mercado", "jefferson.mercado@acapella.com.ve", "acapella.com.ve"], ["Publi Art", "Katiuska González", "", ""], ["Publicis Venezuela", "Ruth Urbáez", "ruth.urbaez@publicis.com", "publicis.com"], ["RG2", "José De Gouveia", "jose@rg2fcb.com", "rg2fcb.com"], ["Robin Agency", "Ana Cristina Azpúrua", "aazpurua@robin-agency.com", "robin-agency.com"], ["Scalto Global", "Andrés Rincón", "indiral@scalto.com", "scalto.com"], ["Soho Square Coimbra", "Alfredo Pardo", "alfredo.pardo@141coimbrave.com", "141coimbrave.com"], ["Successo 369", "Verónica Barra", "v.barra@successo369.com", "successo369.com"], ["The Media Office (TMO)", "Stephanie Bonito", "sbonito@themediaoffice.com", "themediaoffice.com"], ["WE ARE VEO", "Stefanie Stibelj", "stefanie@agencyveo.com", "agencyveo.com"], ["YM Agency", "Yuraima Mercado", "", ""], ["Zea BBDO", "", "josecastro@zeabbdo.com", "zeabbdo.com"], ["¿mmh?", "Carlos Pizani", "carlos@mmh.com.ve", "mmh.com.ve"]];
+/* Directorio: datos de cada ficha. tipo "sv" = Servicios (si no se indica, va en Agencias). f = fortaleza (hasta 25 palabras), a = años en Venezuela, ig = Instagram */
+var DIRX={
+  "La Web Figital Agency":{a:"19"},
+  "Manne Productions":{tipo:"sv"},
+  "Producciones Acapella":{tipo:"sv"},
+  "The Media Office (TMO)":{tipo:"sv"},
+  "Kurios Education":{tipo:"sv"},
+  "Invermedia":{tipo:"sv"},
+  "Bajo el Árbol":{ig:"https://www.instagram.com/bajoelarbol/"},
+  "Casivache":{ig:"https://www.instagram.com/casivache/"}
+};
+function dirX(n){return DIRX[n]||{};}
+function dirTipo(d){return dirX(d[0]).tipo||"ag";}
+
 function vAprende(){
   var h='<section class="wrap"><div class="kick">Aprende · CIMA Learning</div><h1 style="font-size:46px;margin:8px 0 10px">Formación para la industria</h1><p class="dek">Cursos, workshops, diplomados y carreras en mercadeo, publicidad, diseño y fotografía en Venezuela. Fechas y costos: consulta con cada institución.</p><div class="g3" style="margin-top:24px">'+AP.map(function(a){return '<a class="card" href="'+a[3]+'" target="_blank" rel="noopener"><span class="kick">'+esc(a[0])+'</span><h3>'+esc(a[1])+'</h3><p class="meta" style="font-size:15px">'+esc(a[2])+'</p><span class="more">Ver programa →</span></a>';}).join('')+'<a class="card" href="#n8" style="background:var(--tint);border-color:var(--tint-line)"><span class="kick">Premios CIMA</span><h3>Jóvenes Creativos 2026</h3><p class="meta" style="font-size:15px">La categoría para talento de 18 a 30 años. Conoce a los ganadores de la primera edición.</p><span class="more">Ver ganadores →</span></a></div></section>';
   return h;
 }
 function vDirectorio(){
-  var q=(S.dq||"").toLowerCase();
-  var list=DIR.filter(function(d){return !q||norm(d.join(" ")).indexOf(norm(q))>=0;});
-  var h='<section class="wrap"><div class="kick">Directorio</div><h1 style="font-size:46px;margin:8px 0 10px">Agencias en Premios CIMA</h1><p class="dek">Agencias que inscribieron casos en la 4ta edición. ¿Tu agencia no tiene contacto o web? Escríbenos a <a href="mailto:proyectos@LBM-LA.com" class="more">proyectos@LBM-LA.com</a> para completar su ficha.</p><div class="box" style="margin-top:16px;max-width:760px"><div><b>Registra tu agencia o servicio por 50 USD al año.</b> Si eres ganador de Premios CIMA en cualquiera de sus ediciones, tu inscripción es gratuita. Escríbenos a <a href="mailto:proyectos@LBM-LA.com?subject=Registrar%20mi%20agencia%20en%20el%20Directorio%20CIMA" class="more">proyectos@LBM-LA.com</a>.</div></div>';
-  h+='<label for="dq" class="meta" style="display:block;margin-top:20px">Buscar agencia</label><input id="dq" type="search" value="'+esc(S.dq||"")+'" placeholder="Nombre de la agencia" style="min-height:44px;padding:0 12px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;width:100%;max-width:420px;margin-top:6px">';
-  h+='<div class="tbl" style="margin-top:16px"><table><thead><tr><th>Agencia</th><th>Persona contacto</th><th>Correo</th><th>Web</th></tr></thead><tbody>'+list.map(function(d){return '<tr><td style="font-weight:600"><span class="ag-cell">'+agLogo(d[0],32)+(agUrl(d)?'<a href="'+agUrl(d)+'" target="_blank" rel="noopener" style="color:inherit">'+esc(d[0])+'</a>':esc(d[0]))+'</span></td><td>'+(d[1]?esc(d[1]):'<span class="meta">—</span>')+'</td><td>'+(d[2]?'<a class="more" href="mailto:'+d[2]+'">'+esc(d[2])+'</a>':'<span class="meta">—</span>')+'</td><td>'+(d[3]?'<a class="more" href="https://'+d[3]+'" target="_blank" rel="noopener">'+esc(d[3])+'</a>':(IG[d[0]]?'<a class="more" href="'+IG[d[0]]+'" target="_blank" rel="noopener">Instagram</a>':'<span class="meta">—</span>'))+'</td></tr>';}).join('')+'</tbody></table></div><p class="meta" style="margin-top:12px">Fuente: inscripciones de Premios CIMA 2026. Solo se publican correos corporativos.</p></section>';
+  var q=(S.dq||"").toLowerCase(), tb=S.dtab||"ag";
+  var nAg=DIR.filter(function(d){return dirTipo(d)==="ag";}).length, nSv=DIR.length-nAg;
+  var list=DIR.map(function(d,i){return [d,i];}).filter(function(x){return dirTipo(x[0])===tb&&(!q||norm(x[0].join(" ")).indexOf(norm(q))>=0);}).sort(function(m,n){var k=function(t){return t[0][0].replace(/^[^A-Za-zÁÉÍÓÚÑáéíóúñ0-9]+/,"");};return k(m).localeCompare(k(n),"es",{sensitivity:"base"});});
+  var h='<section class="wrap"><div class="kick">Directorio</div><h1 style="font-size:46px;margin:8px 0 10px">Directorio de la industria</h1><p class="dek">Agencias y empresas de servicios para el mercadeo y la publicidad en Venezuela. Toca un logo para ver su ficha.</p>';
+  h+='<div class="dir-tabs" role="tablist"><button type="button" role="tab" data-dtab="ag" class="'+(tb==="ag"?"on":"")+'" aria-selected="'+(tb==="ag")+'">Agencias <span>'+nAg+'</span></button><button type="button" role="tab" data-dtab="sv" class="'+(tb==="sv"?"on":"")+'" aria-selected="'+(tb==="sv")+'">Servicios <span>'+nSv+'</span></button></div>';
+  h+='<label for="dq" class="meta" style="display:block;margin-top:18px">Buscar '+(tb==="ag"?"agencia":"empresa de servicios")+'</label><input id="dq" type="search" value="'+esc(S.dq||"")+'" placeholder="Nombre" style="min-height:44px;padding:0 12px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;width:100%;max-width:420px;margin-top:6px">';
+  h+='<div class="dir-grid">'+list.map(function(x){var d=x[0],f=LOGO[d[0]];return '<button type="button" class="dir-tile" data-dir="'+x[1]+'" aria-label="Ver ficha de '+esc(d[0])+'" title="'+esc(d[0])+'">'+(f?'<img src="img/logos/'+f+'" alt="'+esc(d[0])+'" loading="lazy">':'<span class="dir-ini">'+esc(d[0])+'</span>')+'</button>';}).join('')+(list.length?'':'<p class="meta">No hay resultados.</p>')+'</div>';
+  h+='<div class="box" style="margin-top:28px;max-width:760px"><div><b>Registra tu agencia o servicio por 50 USD al año.</b> Si eres ganador de Premios CIMA en cualquiera de sus ediciones, tu inscripción es gratuita. Escríbenos a <a href="mailto:proyectos@LBM-LA.com?subject=Registrar%20mi%20agencia%20en%20el%20Directorio%20CIMA" class="more">proyectos@LBM-LA.com</a>.</div></div>';
+  h+='<p class="meta" style="margin-top:12px">Solo se publican correos corporativos.</p></section>';
   return h;
 }
+function dirFicha(i){
+  var d=DIR[i]; if(!d) return; var x=dirX(d[0]), f=LOGO[d[0]], web=d[3]?'https://'+d[3]:'', ig=x.ig||IG[d[0]]||'';
+  function fila(k,v){return '<div class="df-row"><dt>'+k+'</dt><dd>'+(v||'<span class="meta">Por completar</span>')+'</dd></div>';}
+  var h='<div class="df-bg" data-dfclose><div class="df" role="dialog" aria-modal="true" aria-labelledby="df-t"><button type="button" class="df-x" data-dfclose aria-label="Cerrar">×</button>';
+  h+='<div class="df-logo">'+(f?'<img src="img/logos/'+f+'" alt="">':'<span class="dir-ini">'+esc(d[0])+'</span>')+'</div>';
+  h+='<span class="kick">'+(dirTipo(d)==="sv"?"Servicios":"Agencia")+'</span><h2 id="df-t">'+esc(d[0])+'</h2>';
+  h+='<p class="df-f">'+(x.f?esc(x.f):'<span class="meta">Fortaleza por completar (hasta 25 palabras).</span>')+'</p><dl>';
+  h+=fila('Años en Venezuela',x.a?esc(x.a)+' años':'');
+  h+=fila('Persona contacto',d[1]?esc(d[1]):'');
+  h+=fila('Correo',d[2]?'<a class="more" href="mailto:'+d[2]+'">'+esc(d[2])+'</a>':'');
+  h+=fila('Web',web?'<a class="more" href="'+web+'" target="_blank" rel="noopener">'+esc(d[3])+'</a>':'');
+  h+=fila('Instagram',ig?'<a class="more" href="'+ig+'" target="_blank" rel="noopener">@'+esc(ig.replace(/\/$/,'').split('/').pop())+'</a>':'');
+  h+='</dl></div></div>';
+  var w=document.createElement('div'); w.id='dfw'; w.innerHTML=h; document.body.appendChild(w); document.body.style.overflow='hidden';
+  var bx=w.querySelector('.df-x'); if(bx) bx.focus();
+}
+function dirCerrar(){var w=document.getElementById('dfw'); if(w){w.remove(); document.body.style.overflow='';}}
+document.addEventListener("click",function(e){
+  var t=e.target.closest("[data-dir]"); if(t){ e.preventDefault(); dirFicha(+t.getAttribute("data-dir")); return; }
+  var dt=e.target.closest("[data-dtab]"); if(dt){ S.dtab=dt.getAttribute("data-dtab"); S.dq=""; route(true); return; }
+  if(e.target.hasAttribute&&e.target.hasAttribute("data-dfclose")) dirCerrar();
+});
+document.addEventListener("keydown",function(e){ if(e.key==="Escape") dirCerrar(); });
 
 function artCards(list){
   return '<div class="g3" style="margin-top:12px">'+list.map(function(a){return '<a class="card" href="#'+a.id+'" style="padding:0;overflow:hidden">'+(a.img?'<img src="'+a.img+'" alt="'+esc(a.cap||a.t)+'" style="width:100%;aspect-ratio:3/2;object-fit:cover;object-position:center 25%;display:block">':'<div class="ph" style="aspect-ratio:3/2">[Foto del autor]</div>')+'<span style="display:flex;flex-direction:column;gap:8px;padding:18px 20px 22px"><span class="kick">'+esc(a.sec)+'</span><h3>'+esc(a.t)+'</h3><span class="meta">'+esc((a.by||'').split(' · ')[0])+'</span><span class="more">Leer artículo →</span></span></a>';}).join('')+'</div>';
