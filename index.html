@@ -967,7 +967,7 @@ function vDirectorio(){
   h+='<label for="dq" class="meta" style="display:block;margin-top:18px">Buscar '+(tb==="ag"?"agencia":"empresa de servicios")+'</label><input id="dq" type="search" value="'+esc(S.dq||"")+'" placeholder="Nombre" style="min-height:44px;padding:0 12px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;width:100%;max-width:420px;margin-top:6px">';
   h+='<div class="dir-grid">'+list.map(function(x){var d=x[0],f=LOGO[d[0]];return '<button type="button" class="dir-tile" data-dir="'+x[1]+'" aria-label="Ver ficha de '+esc(d[0])+'" title="'+esc(d[0])+'">'+(f?'<img src="img/logos/'+f+'" alt="'+esc(d[0])+'" loading="lazy">':'<span class="dir-ini">'+esc(d[0])+'</span>')+'</button>';}).join('')+(list.length?'':'<p class="meta">No hay resultados.</p>')+'</div>';
   h+='<div class="box" style="margin-top:28px;max-width:760px"><div><b>Registra tu agencia o servicio por 150 USD al año.</b> El año se cuenta desde la publicación de tu ficha. Si eres ganador de Premios CIMA en cualquiera de sus ediciones, tu inscripción es gratuita. Escríbenos a <a href="mailto:proyectos@LBM-LA.com?subject=Registrar%20mi%20agencia%20en%20el%20Directorio%20CIMA" class="more">proyectos@LBM-LA.com</a>.</div></div>';
-  h+='<p class="meta" style="margin-top:12px">Solo se publican correos corporativos.</p></section>';
+  h+='</section>';
   return h;
 }
 function dirFicha(i){
