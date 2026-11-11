@@ -19,6 +19,32 @@
 .df-row dt{color:#666;font-weight:600}.df-row dd{margin:0;word-break:break-word}
 @media(max-width:900px){.dir-grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:560px){.dir-grid{grid-template-columns:repeat(3,1fr);gap:10px}.dir-tile{padding:10px}.dir-tabs button{font-size:16px;padding:10px 14px}.df{padding:26px 20px 20px}.df-row{grid-template-columns:1fr;gap:2px}}
+.mv-sec{padding:34px 0}
+.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:14px}
+.mv-h{font-size:20px;text-transform:uppercase;letter-spacing:.03em;color:#FE5000;border-bottom:2px solid #FE5000;padding-bottom:8px;margin:0 0 6px}
+.mv-card{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.mv-card h3{font-size:20px;margin:2px 0 4px}
+.mv-cargo{margin:0 0 6px;font-size:15px}
+.mv-av{flex:0 0 56px;height:56px;border-radius:50%;background:#00115c;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:19px}
+.mv-ac{background:#FE5000;font-size:26px}
+img.mv-av{object-fit:cover;background:#eee}
+img.mv-logo{border-radius:10px;background:#0c1a4b}
+.mv-empty{border:1.5px dashed #FE5000;border-radius:8px;padding:16px;margin-top:14px}
+@media(max-width:760px){.mv-grid{grid-template-columns:1fr}}
+
+/* Movimientos: acento naranja */
+.mv-sec{background:#fff;border-top:6px solid #FE5000}
+.mv-sec .sec-head h2{color:#FE5000}
+.mv-sec .sec-head{border-bottom-color:#FE5000}
+.mv-sec .more,.mv-page .more{color:#FE5000}
+.mv-h{background:#FE5000;color:#fff!important;border:0!important;padding:10px 14px!important;border-radius:6px 6px 0 0}
+.mv-card{border-bottom-color:var(--line)}
+.mv-card .kick{color:#FE5000}
+.mv-card h3{color:#00115c}
+.mv-av{box-shadow:0 0 0 3px #FE5000}
+.mv-page{background:#fff;border-top:6px solid #FE5000;padding-top:28px;padding-bottom:28px}
+.mv-page h1{color:#FE5000}
+.mv-page>.kick{color:#FE5000}
 </style></head><body>
 <title>Noticias CIMA · Creatividad, Mercadeo y Negocios</title>
 <meta name="description" content="Portal informativo de Premios CIMA: noticias de agencias, marcas y negocios de Venezuela, el Ranking CIMA, festivales, formación y empleos de la industria.">
@@ -441,7 +467,7 @@ form label.chk input{width:18px !important;height:18px !important;min-height:0 !
 </header></div>
 
 <nav class="main" aria-label="Secciones"><div class="wrap">
-  <a href="#portada">Portada</a><a href="#noticias">Noticias</a><a href="#articulos">Artículos</a><a href="#premios">Premios CIMA</a><a href="#festivales">Festivales</a><a href="#aprende">Aprende</a><a href="#empleos">Empleos</a><a href="#directorio">Directorio</a>
+  <a href="#portada">Portada</a><a href="#noticias">Noticias</a><a href="#articulos">Artículos</a><a href="#premios">Premios CIMA</a><a href="#festivales">Festivales</a><a href="#aprende">Aprende</a><a href="#empleos">Empleos</a><a href="#movimientos">Movimientos</a><a href="#directorio">Directorio</a>
 </div></nav>
 
 <div class="adtop"><div class="wrap"><a class="ad-lb" href="https://lbm-la.com/" target="_blank" rel="noopener sponsored"><picture><source media="(max-width:760px)" srcset="img/ad-lbm-320x50.jpg 1x, img/ad-lbm-320x50@2x.jpg 2x" width="320" height="50"><img src="img/ad-lbm-728x90.jpg" srcset="img/ad-lbm-728x90@2x.jpg 2x" width="728" height="90" alt="LBM Comunicaciones · Sabemos de mercadeo y de botas que dejan huellas. Premios CIMA, creado y producido por LBM."></picture></a></div></div>
@@ -482,6 +508,12 @@ var ED = {
 
 /* Noticias aprobadas: curaduría del 27 de octubre de 2026 (fuentes: PRODU, Adlatina, Revista P&M, NotiCorp, Revista Business Venezuela) */
 var N = [
+  {id:"n36",d:"2026-11-11",img:"img/news-n36.jpg",cap:"Shift Latam · Imagen: El Estímulo",sec:"Cuentas y aperturas",t:"Shift Latam abre operaciones en Venezuela con Valentina Rosas Godoy al frente",
+   dek:"La red latinoamericana de comunicación estratégica, relaciones públicas y asuntos públicos suma con Venezuela 12 operaciones en la región y Estados Unidos.",
+   body:["Shift Latam, una red latinoamericana de comunicación estratégica, relaciones públicas y asuntos públicos, comenzó operaciones en Venezuela. Con la nueva oficina suma 12 operaciones en América Latina y Estados Unidos.",
+         "Shift Venezuela estará dirigida por Valentina Rosas Godoy, con trayectoria en agencias de publicidad y comunicación. Rodrigo Castro Ventura es el CEO de la red.",
+         "La agencia trabaja con un modelo que integra datos e inteligencia artificial. En Venezuela se enfocará en tres grupos: empresas venezolanas que quieren crecer en la región, compañías internacionales que regresan o llegan al país y marcas que buscan conectar con los venezolanos en el exterior."],
+   why:"Llega al país una red regional de relaciones públicas, en un momento en que vuelven las marcas internacionales.",src:"El Estímulo · 9 de noviembre de 2026",url:"https://elestimulo.com/empresas/2026-11-09/shift-latam-en-venezuela/"},
   {id:"n32",d:"2026-11-11",img:"img/news-n32.jpg",cap:"Portafolio Review Latam · Imagen: Adlatina",sec:"Aprende",t:"El Círculo Creativo de Venezuela y La Grande se suman al Portafolio Review Latam",
    dek:"El 19 de noviembre, directores creativos de la región revisarán en línea los portafolios de jóvenes talentos.",
    body:["One Club Miami organiza la edición 2026 del Portafolio Review Latam, una jornada en línea en la que directores creativos de agencias de la región revisan y comentan los portafolios de jóvenes talentos.",
@@ -768,6 +800,7 @@ function vPortada(){
   h+='<div class="box"><div class="lab" style="color:var(--accent)">¿Tienes una noticia?</div><h3 style="font-size:21px">Envía tu nota de prensa</h3><p class="meta" style="font-size:14px">Lanzamientos, campañas, nombramientos y cuentas nuevas de la industria.</p><a class="btn" href="#envia-nota">Enviar nota</a></div>';
   h+='<form class="nl" id="boletin" data-form="nl"><div class="lab lbm-by" style="color:var(--brand)">Boletín · presentado por <a href="https://lbm-la.com/" target="_blank" rel="noopener"><img src="img/lbm-logo.png" alt="" width="28" height="28">LBM Comunicaciones</a></div><div style="font-family:var(--sans);font-size:23px;line-height:1.15">La semana de la industria, en un solo correo</div>'+(S.nlOk?'<div class="nl-ok" role="status"><b>¡Listo, '+esc(S.nlOk)+'!</b> Ya estás suscrito. Cada martes recibirás el boletín de Noticias CIMA.</div>':(S.nlErr?'<div class="nl-err" role="alert">'+esc(S.nlErr)+'</div>':'')+(S.nlBusy?'<div style="font-weight:600">Enviando…</div>':'')+'<div class="nl-2"><div><label for="nl-nom">Nombre</label><input id="nl-nom" required autocomplete="given-name"></div><div><label for="nl-ape">Apellido</label><input id="nl-ape" required autocomplete="family-name"></div></div><label for="nl-emp">Empresa</label><input id="nl-emp" autocomplete="organization"><label for="nl-tel">Teléfono</label><input id="nl-tel" type="tel" autocomplete="tel" placeholder="0414 000 0000"><label for="nl-mail">Correo</label><input id="nl-mail" type="email" required autocomplete="email" placeholder="nombre@empresa.com"><label class="chk"><input type="checkbox" required><span>Acepto la <a href="#privacidad" target="_blank">política de privacidad</a>.</span></label><button class="btn brand" type="submit"'+(S.nlBusy?' disabled':'')+'>Suscribirme gratis</button>')+'</form></aside></div></section>';
   h+='<section class="wrap" style="padding-top:0"><div class="sec-head"><h2>Artículos</h2><a class="more" href="#articulos">Todos los artículos →</a></div>'+artCards(ART.slice(0,3))+'</section>';
+  h+='<section class="mv-sec"><div class="wrap"><div class="sec-head"><h2>Movimientos de la industria</h2><a class="more" href="#movimientos">Ver todos →</a></div><div class="mv-grid"><div><h3 class="mv-h">Nuevos roles</h3>'+movRoles(movOrden(ROLES).slice(0,3))+'</div><div><h3 class="mv-h">Cuentas y aperturas</h3>'+movCuentas(movOrden(CUENTAS).slice(0,3))+'</div></div></div></section>';
   if(camp.length) h+='<section class="lz-sec"><div class="wrap"><div class="sec-head"><h2>Lanzamientos, nueva imagen y nuevos productos</h2><a class="more" href="#noticias">Todas las noticias →</a></div><div class="g4 lz-grid">'+camp.map(function(c){return '<a class="lz-card" href="#'+c.id+'"><span class="lz-img"><img src="'+c.img+'" alt="" loading="lazy"><span class="lz-tag">'+esc(c.lz)+'</span></span><h3>'+esc(c.t)+'</h3><span class="meta">Publicado el '+fFecha(c.d)+'</span></a>';}).join('')+'</div></div></section>';
   h+='<section class="wrap"><div class="g3"><div class="list"><div class="lab" style="color:var(--fg);font-weight:700;border-bottom:2px solid var(--fg);padding-bottom:10px">Aprende · CIMA Learning</div>'+AP.slice(0,3).map(function(a){return '<a href="#aprende" style="flex-direction:column;gap:3px"><span class="kick">'+esc(a[0])+'</span><span>'+esc(a[1])+'</span></a>';}).join('')+'<a class="more" href="#aprende" style="margin-top:10px">Ver toda la formación →</a></div>';
   h+='<div class="list"><div class="lab" style="color:var(--fg);font-weight:700;border-bottom:2px solid var(--fg);padding-bottom:10px">Empleos</div><p class="meta" style="font-size:15px;padding-top:12px">Sube tu CV gratis y deja que las agencias, marcas y medios te encuentren.</p><a class="btn" href="#empleos" style="margin-top:12px">Sube tu CV</a></div>';
@@ -982,6 +1015,24 @@ function vAprende(){
   var h='<section class="wrap"><div class="kick">Aprende · CIMA Learning</div><h1 style="font-size:46px;margin:8px 0 10px">Formación para la industria</h1><p class="dek">Cursos, workshops, diplomados y carreras en mercadeo, publicidad, diseño y fotografía en Venezuela. Fechas y costos: consulta con cada institución.</p><div class="g3" style="margin-top:24px">'+AP.map(function(a){return '<a class="card" href="'+a[3]+'" target="_blank" rel="noopener"><span class="kick">'+esc(a[0])+'</span><h3>'+esc(a[1])+'</h3><p class="meta" style="font-size:15px">'+esc(a[2])+'</p><span class="more">Ver programa →</span></a>';}).join('')+'<a class="card" href="#n8" style="background:var(--tint);border-color:var(--tint-line)"><span class="kick">Premios CIMA</span><h3>Jóvenes Creativos 2026</h3><p class="meta" style="font-size:15px">La categoría para talento de 18 a 30 años. Conoce a los ganadores de la primera edición.</p><span class="more">Ver ganadores →</span></a></div></section>';
   return h;
 }
+
+/* Movimientos de la industria: nuevos roles y cuentas/aperturas. Solo hechos publicados por la persona o la empresa. */
+var ROLES=[
+  {d:"2026-11-09",n:"Adriana Patrizia Acosta Cammarota",cargo:"Gerente de Categoría · P.A.N. Venezuela",emp:"Empresas Polar",nota:"Asume el cargo tras crecer en la empresa desde sus inicios como pasante.",src:"LinkedIn",url:"https://www.linkedin.com/feed/update/urn:li:activity:7525372132533407745/",foto:"img/mov/adriana-acosta.jpg"},
+  {d:"2026-11-09",n:"Valentina Rosas Godoy",cargo:"Directora de Shift Venezuela",emp:"Shift Latam",nota:"Llega a dirigir la nueva operación de la red en el país.",src:"El Estímulo",url:"https://elestimulo.com/empresas/2026-11-09/shift-latam-en-venezuela/",foto:"img/mov/valentina-rosas.jpg"}
+];
+var CUENTAS=[
+  {d:"2026-11-09",tipo:"Apertura",ag:"Shift Latam",cli:"Abre operaciones en Venezuela",det:"Red de comunicación estratégica, relaciones públicas y asuntos públicos; con Venezuela suma 12 operaciones en América Latina y Estados Unidos.",src:"El Estímulo",url:"https://elestimulo.com/empresas/2026-11-09/shift-latam-en-venezuela/",logo:"img/mov/shift-latam.jpg",nota:"n36"}
+];
+function iniciales(n){return n.split(" ").filter(Boolean).slice(0,2).map(function(w){return w[0];}).join("").toUpperCase();}
+function movOrden(l){return l.slice().sort(function(a,b){return a.d<b.d?1:a.d>b.d?-1:0;});}
+function movRoles(list){return movOrden(list).map(function(r){return '<div class="mv-card">'+(r.foto?'<img class="mv-av" src="'+r.foto+'" alt="'+esc(r.n)+'" loading="lazy">':'<span class="mv-av">'+iniciales(r.n)+'</span>')+'<div><span class="kick">Nuevo rol</span><h3>'+esc(r.n)+'</h3><p class="mv-cargo">'+esc(r.cargo)+' · <b>'+esc(r.emp)+'</b></p><p class="meta">'+esc(r.nota)+'</p><span class="meta" style="font-size:13px">'+fFecha(r.d)+' · Fuente: <a class="more" href="'+r.url+'" target="_blank" rel="noopener">'+esc(r.src)+'</a></span></div></div>';}).join('');}
+function movCuentas(list){return movOrden(list).map(function(c){return '<div class="mv-card">'+(c.logo?'<img class="mv-av mv-logo" src="'+c.logo+'" alt="'+esc(c.ag)+'" loading="lazy">':'<span class="mv-av mv-ac">'+(c.tipo==="Apertura"?"+":"✓")+'</span>')+'<div><span class="kick">'+esc(c.tipo)+'</span><h3>'+(c.nota?'<a href="#'+c.nota+'" style="color:inherit">'+esc(c.ag)+'</a>':esc(c.ag))+'</h3><p class="mv-cargo">'+esc(c.cli)+'</p><p class="meta">'+esc(c.det)+'</p><span class="meta" style="font-size:13px">'+fFecha(c.d)+' · Fuente: <a class="more" href="'+c.url+'" target="_blank" rel="noopener">'+esc(c.src)+'</a></span></div></div>';}).join('');}
+function vMovimientos(){
+  var h='<section class="wrap mv-page"><div class="kick">Movimientos</div><h1 style="font-size:46px;margin:8px 0 10px">Movimientos de la industria</h1><p class="dek">Nuevos roles, cuentas ganadas y aperturas de agencias en Venezuela. ¿Tienes un movimiento que contar? Escríbenos a <a class="more" href="mailto:proyectos@LBM-LA.com?subject=Movimiento%20para%20Noticias%20CIMA">proyectos@LBM-LA.com</a>.</p>';
+  h+='<div class="mv-grid"><div><h2 class="mv-h">Nuevos roles</h2>'+movRoles(ROLES)+'</div><div><h2 class="mv-h">Cuentas y aperturas</h2>'+movCuentas(CUENTAS)+'<div class="mv-card mv-empty"><div><h3>¿Tu agencia ganó una cuenta?</h3><p class="meta">Envíanos la marca, la agencia y el alcance del trabajo, y lo publicamos aquí.</p></div></div></div></div></section>';
+  return h;
+}
 function vDirectorio(){
   var q=(S.dq||"").toLowerCase(), tb=S.dtab||"ag";
   var nAg=DIR.filter(function(d){return dirTipo(d)==="ag";}).length, nSv=DIR.length-nAg;
@@ -1073,7 +1124,7 @@ function vPrivacidad(){
   h+='<h2>Términos de uso</h2>'+ul(["Los contenidos de noticiascima.com pueden citarse con mención de la fuente y enlace a la nota.","Los logos, marcas y fotos pertenecen a sus dueños y se usan con fines informativos.","El contenido patrocinado siempre va identificado. Ninguna relación comercial con CIMA da ventaja ante el jurado de Premios CIMA.","Para correcciones, consulta <a class=\"more\" href=\"#etica\">Ética y correcciones</a>."]);
   h+='</article></section>'; return h;
 }
-var V={privacidad:vPrivacidad,buscar:vBuscar,etica:vEtica,articulos:vArticulos,"envia-nota":vEnvia,directorio:vDirectorio,aprende:vAprende,publicidad:vPublicidad,portada:vPortada,premios:vPremios,archivo:vPremios,ranking:vRanking,empleos:vEmpleos,boletin:vPortada,noticias:vNoticias,nota:function(){return vNota("n1");},festivales:vFestivales,reglamento:vReglamento,puntos:vPuntos,jovenes:vJovenes,perfil:function(){return vPerfil("laweb");}};
+var V={movimientos:vMovimientos,privacidad:vPrivacidad,buscar:vBuscar,etica:vEtica,articulos:vArticulos,"envia-nota":vEnvia,directorio:vDirectorio,aprende:vAprende,publicidad:vPublicidad,portada:vPortada,premios:vPremios,archivo:vPremios,ranking:vRanking,empleos:vEmpleos,boletin:vPortada,noticias:vNoticias,nota:function(){return vNota("n1");},festivales:vFestivales,reglamento:vReglamento,puntos:vPuntos,jovenes:vJovenes,perfil:function(){return vPerfil("laweb");}};
 N.forEach(function(n){V[n.id]=function(){return vNota(n.id);};});
 Object.keys(P).forEach(function(k){V["perfil-"+k]=function(){return vPerfil(k);};});
 var MAP={ranking:"premios",reglamento:"premios",puntos:"premios",jovenes:"premios",archivo:"premios",boletin:"portada",nota:"noticias",perfil:"premios"};
