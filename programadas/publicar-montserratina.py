@@ -20,7 +20,7 @@ note='''  {id:"%s",lz:"Nueva imagen",d:"2026-11-23",img:"%s",cap:"Nuevos empaque
          "Cada familia de productos tiene ahora un territorio propio dentro de una identidad compartida. El nuevo diseño de empaques usa una jerarquía visual que hace más clara la identificación de cada categoría en el punto de venta.",
          "«La Montserratina tiene una asociación muy poderosa con la parrilla, y el reto no era cambiar ese posicionamiento, sino aprovechar su fortaleza para ampliar la conversación de la marca. La arquitectura de portafolio nos permite organizar la oferta y mostrarle al consumidor que La Montserratina también puede acompañarlo en muchas otras ocasiones», explicó Andrés Rincón, socio fundador de Scalto Consultores.",
          "La parrilla sigue siendo el punto de partida de la marca, que con esta evolución busca ganar espacio en nuevas ocasiones de consumo."],
-   why:"Ordenar un portafolio amplio en categorías con identidad propia ayuda a una marca muy asociada a un solo uso a entrar en nuevas ocasiones de consumo y a ganar claridad en el anaquel, en una categoría cada vez más competida.",src:"Nota de prensa de La Montserratina · 23 de noviembre de 2026",url:""},
+   why:"Ordenar un portafolio amplio en categorías con identidad propia ayuda a una marca muy asociada a un solo uso a entrar en nuevas ocasiones de consumo y a ganar claridad en el anaquel, en una categoría cada vez más competida.",src:"Nota de prensa de Scalto Consultores · 23 de noviembre de 2026",url:""},
 '''%(nid,img)
 a="var N = [\n"; assert a in s
 s=s.replace(a,a+note,1)
