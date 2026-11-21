@@ -13,7 +13,7 @@ const esc=s=>String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>
  const used=new Set(Object.values(map));
  const b=await chromium.launch();const p=await b.newPage();
  await p.goto('file://'+path.join(ROOT,'index.html'));await p.waitForTimeout(600);
- const items=await p.evaluate(()=>N.map(n=>({id:n.id,kind:n.kind,d:n.d,t:n.t,dek:n.dek,img:n.img,sec:n.sec,by:n.by})));
+ const items=await p.evaluate(()=>N.map(n=>({id:n.id,kind:n.kind,d:n.d,t:n.t,dek:n.dek,img:n.img,sec:n.sec,by:n.by,why:n.why})));
  for(const n of items){
   if(!map[n.id]){ let base=(n.kind==='art'?'articulos/':'noticias/')+slugify(n.t), s=base, i=2; while(used.has(s)) s=base+'-'+(i++); map[n.id]=s; used.add(s); }
  }
@@ -49,6 +49,14 @@ const esc=s=>String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>
  const urls=[`<url><loc>${SITE}/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>`]
   .concat(Object.entries(map).filter(([id])=>byId[id]).sort((a,b)=>byId[b[0]].d.localeCompare(byId[a[0]].d)).map(([id,dir])=>`<url><loc>${SITE}/${dir}/</loc><lastmod>${byId[id].d}</lastmod></url>`));
  fs.writeFileSync(path.join(ROOT,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+urls.join('\n')+'\n</urlset>\n');
+ // Feed RSS (feed.xml): últimas 30 notas y artículos, para otros portales y para el boletín en Mailchimp (RSS-to-email)
+ const DIAS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],MESES=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+ const rfc=d=>{const x=new Date(d+'T11:00:00Z');return DIAS[x.getUTCDay()]+', '+String(x.getUTCDate()).padStart(2,'0')+' '+MESES[x.getUTCMonth()]+' '+x.getUTCFullYear()+' 07:00:00 -0400';};
+ const feed=items.filter(n=>map[n.id]).sort((a,b)=>b.d.localeCompare(a.d)||b.id.localeCompare(a.id,undefined,{numeric:true})).slice(0,30).map(n=>{
+  const url=SITE+'/'+map[n.id]+'/', im=n.img?SITE+'/'+n.img.replace(/\?.*$/,''):'';
+  const html=(im?'<p><img src="'+im+'" alt="" width="600" style="max-width:100%;height:auto"></p>':'')+'<p>'+esc(n.dek)+'</p>'+(n.why?'<p><b>Por qué importa.</b> '+esc(n.why)+'</p>':'')+'<p><a href="'+url+'">Leer la nota completa en Noticias CIMA</a></p>';
+  return '<item><title>'+esc(n.t)+'</title><link>'+url+'</link><guid isPermaLink="true">'+url+'</guid><pubDate>'+rfc(n.d)+'</pubDate><category>'+esc(n.kind==='art'?'Artículos':n.sec)+'</category><description>'+esc(n.dek)+'</description><content:encoded><![CDATA['+html+']]></content:encoded>'+(im?'<media:content url="'+im+'" medium="image"/>':'')+'</item>';});
+ fs.writeFileSync(path.join(ROOT,'feed.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:media="http://search.yahoo.com/mrss/">\n<channel><title>Noticias CIMA</title><link>'+SITE+'/</link><atom:link href="'+SITE+'/feed.xml" rel="self" type="application/rss+xml"/><description>Creatividad, Mercadeo y Negocios</description><language>es-VE</language><lastBuildDate>'+rfc(items.reduce((m,n)=>n.d>m?n.d:m,'0000'))+'</lastBuildDate><image><url>'+SITE+'/img/og-noticias-cima.png</url><title>Noticias CIMA</title><link>'+SITE+'/</link></image>\n'+feed.join('\n')+'\n</channel></rss>\n');
  fs.writeFileSync(path.join(ROOT,'robots.txt'),'User-agent: *\nAllow: /\n\nSitemap: '+SITE+'/sitemap.xml\n');
- console.log(items.length+' páginas · sitemap con '+urls.length+' direcciones');
+ console.log(items.length+' páginas · sitemap con '+urls.length+' direcciones · feed.xml con '+feed.length+' entradas');
 })();
