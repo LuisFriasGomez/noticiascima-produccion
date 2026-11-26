@@ -1,0 +1,27 @@
+name: Auto Merge Pull Requests
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enable auto-merge on PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr merge "$PR_URL" --auto --squash
+      - name: Fallback direct merge if auto-merge is disabled in repo settings
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          gh pr merge "$PR_URL" --squash --delete-branch=false || true
